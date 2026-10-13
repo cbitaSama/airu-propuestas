@@ -1,0 +1,1148 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0B2415">
+<title>Airú · Achachairú de la Amazonía boliviana — Propuesta C</title>
+<meta name="description" content="Airú, marca de Angirú S.R.L.: achachairú liofilizado y en pulpa desde Santa Cruz de la Sierra, Bolivia. Chips, pulpa y polvo, sin aditivos ni azúcares añadidos.">
+<link rel="icon" type="image/png" href="../assets/hoja.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,500&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Airú","legalName":"Angirú S.R.L.","url":"https://achachairu.com.bo","description":"Achachairú liofilizado y en pulpa desde Santa Cruz de la Sierra, Bolivia.","email":"info@achachairu.com.bo","telephone":"+591 644 97652","address":{"@type":"PostalAddress","streetAddress":"Barrio Sirari, C/ Las Begonias #217","addressLocality":"Santa Cruz de la Sierra","addressCountry":"BO"},"sameAs":["https://www.instagram.com/airusantacruz"]}
+</script>
+<style>
+:root{
+  --bg:#0B2415;--bg2:#123524;--forest:#1B4A2E;--amber:#FBB028;--orange:#F58A1E;--brand:#F26B21;
+  --cream:#FFF4E3;--leaf:#8EC63F;--leaf2:#27A749;--coffee:#3A1C0A;
+  --mut:rgba(255,244,227,.8);--line:rgba(255,244,227,.16);
+  --serif:'Fraunces','Playfair Display',Georgia,'Times New Roman',serif;
+  --sans:'Lato',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --pad:clamp(20px,6vw,96px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--cream);font-family:var(--sans);font-size:17px;line-height:1.65;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:6px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+em{font-style:italic}
+.serif{font-family:var(--serif)}
+.wrap{width:min(1180px,100% - 2*var(--pad));margin-inline:auto;position:relative}
+
+/* ---------- HEADER ---------- */
+header.top{position:fixed;inset:0 0 auto;z-index:60;display:flex;align-items:center;gap:12px;justify-content:space-between;padding:10px var(--pad);transition:background .4s,backdrop-filter .4s,box-shadow .4s}
+header.top.solid{background:rgba(11,36,21,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.logo{display:block;flex:none;min-height:44px;display:flex;align-items:center}
+.logo img{height:30px;width:auto}
+.logo .wm{display:none}
+@media(min-width:700px){.logo .wm{display:block;height:26px;width:auto}.logo .mk{display:none}}
+.chip-ch{display:flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;border-radius:99px;border:1px solid var(--line);background:rgba(11,36,21,.5);font-size:.78rem;letter-spacing:.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:0 1 auto}
+.chip-ch b{color:var(--amber);font-family:var(--serif);font-weight:500}
+.chip-ch span{overflow:hidden;text-overflow:ellipsis}
+@media(min-width:1100px){.chip-ch{display:none}}
+.hright{display:flex;align-items:center;gap:10px;flex:none}
+.lang{display:flex;border:1px solid var(--line);border-radius:99px;padding:2px;background:rgba(11,36,21,.5)}
+.lang button{min-width:44px;min-height:44px;border:0;background:none;border-radius:99px;font-weight:700;font-size:.8rem;letter-spacing:.08em;color:var(--mut);transition:.25s}
+.lang button[aria-pressed=true]{background:var(--amber);color:#1a0e00}
+.btn.hcta{display:none}
+@media(min-width:760px){.btn.hcta{display:inline-flex}}
+.chmenu{position:fixed;top:64px;left:var(--pad);right:var(--pad);z-index:59;background:rgba(11,36,21,.97);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:22px;padding:10px;display:none;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.chmenu.open{display:block;animation:pop .3s ease}
+.chmenu a{display:flex;gap:14px;align-items:center;min-height:46px;padding:0 14px;border-radius:14px;text-decoration:none;font-size:.95rem}
+.chmenu a:hover,.chmenu a.on{background:rgba(251,176,40,.14)}
+.chmenu a b{font-family:var(--serif);color:var(--amber);font-weight:500;width:26px}
+@keyframes pop{from{opacity:0;transform:translateY(-8px)}}
+
+#bar{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--leaf),var(--amber),var(--brand));z-index:70}
+
+/* ---------- RAIL (progreso lateral) ---------- */
+.rail{display:none}
+@media(min-width:1100px){
+  .rail{display:block;position:fixed;left:28px;top:50%;transform:translateY(-50%);z-index:55}
+  .rail ol{list-style:none;position:relative;display:flex;flex-direction:column;gap:6px;padding-left:0}
+  .rail ol::before{content:'';position:absolute;left:21px;top:22px;bottom:22px;width:2px;background:var(--line)}
+  .rail ol::after{content:'';position:absolute;left:21px;top:22px;width:2px;height:calc((100% - 44px)*var(--rp,0));background:linear-gradient(var(--leaf),var(--amber));box-shadow:0 0 12px var(--amber)}
+  .rail a{position:relative;display:flex;align-items:center;gap:12px;min-height:44px;text-decoration:none;color:var(--mut)}
+  .rail i{width:44px;height:44px;display:grid;place-items:center;flex:none}
+  .rail i::before{content:'';width:10px;height:10px;border-radius:50%;background:var(--bg);border:2px solid rgba(255,244,227,.5);transition:.35s;position:relative;z-index:1}
+  .rail a.on i::before{background:var(--amber);border-color:var(--amber);transform:scale(1.5);box-shadow:0 0 0 6px rgba(251,176,40,.2),0 0 18px var(--amber)}
+  .rail a.done i::before{background:var(--leaf);border-color:var(--leaf)}
+  .rail span{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;opacity:0;transform:translateX(-8px);transition:.3s;white-space:nowrap;background:rgba(11,36,21,.85);padding:4px 10px;border-radius:8px}
+  .rail a:hover span,.rail a:focus-visible span{opacity:1;transform:none}
+}
+
+/* ---------- Botones ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 30px;border-radius:99px;border:2px solid var(--amber);background:var(--amber);color:#1a0e00;font-weight:900;font-size:.95rem;letter-spacing:.02em;text-decoration:none;transition:transform .25s,box-shadow .25s,background .25s,color .25s;box-shadow:0 0 0 0 rgba(251,176,40,.5),0 10px 30px rgba(245,138,30,.25)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 0 6px rgba(251,176,40,.16),0 14px 36px rgba(245,138,30,.4)}
+.btn.sm{min-height:44px;padding:0 20px;font-size:.85rem}
+.btn.ghost{background:transparent;color:var(--cream);border-color:rgba(255,244,227,.5);box-shadow:none}
+.btn.ghost:hover{border-color:var(--amber);color:var(--amber);background:rgba(251,176,40,.08)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* ---------- Capítulos ---------- */
+section.ch{position:relative;overflow:hidden;padding:clamp(88px,13vw,170px) 0;isolation:isolate}
+.chead{display:flex;align-items:flex-end;gap:clamp(14px,3vw,34px);margin-bottom:clamp(28px,5vw,60px)}
+.chnum{font-family:var(--serif);font-weight:300;font-size:clamp(4.6rem,13vw,10rem);line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(251,176,40,.7);letter-spacing:-.04em;flex:none}
+.kick{font-size:.78rem;font-weight:900;letter-spacing:.32em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:10px}
+h2.t{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,5.2vw,3.9rem);line-height:1.04;letter-spacing:-.02em;font-variation-settings:'opsz' 144}
+h2.t em{color:var(--amber);font-weight:300}
+.lead{font-size:clamp(1.05rem,1.6vw,1.22rem);color:var(--mut);max-width:60ch}
+.pull{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.5rem,3.4vw,2.5rem);line-height:1.2;color:var(--cream);max-width:20ch}
+.pull b{font-weight:500;color:var(--amber)}
+
+/* revelado */
+.js .rv{opacity:0;transform:translateY(32px);transition:opacity 1s cubic-bezier(.2,.8,.2,1),transform 1s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+
+/* hojas flotantes */
+.lf{position:absolute;pointer-events:none;z-index:0;width:var(--s,40px);height:var(--s,40px);left:var(--x);top:var(--y);opacity:var(--o,.7);animation:sway var(--t,9s) ease-in-out var(--dl,0s) infinite alternate;filter:drop-shadow(0 6px 10px rgba(0,0,0,.3))}
+.lf svg{width:100%;height:100%;display:block}
+@keyframes sway{from{transform:translate3d(-12px,-8px,0) rotate(calc(var(--r,0deg) - 14deg))}to{transform:translate3d(16px,22px,0) rotate(calc(var(--r,0deg) + 16deg))}}
+.fl{position:absolute;pointer-events:none;z-index:0;width:var(--s,60px);left:var(--x);top:var(--y);opacity:.9;animation:bob var(--t,8s) ease-in-out infinite alternate;filter:drop-shadow(0 10px 24px rgba(245,138,30,.35))}
+@keyframes bob{from{transform:translateY(-10px) rotate(-6deg)}to{transform:translateY(14px) rotate(8deg)}}
+canvas#ff{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
+
+/* ---------- 01 HERO ---------- */
+#c1{min-height:100svh;display:flex;align-items:center;padding:120px 0 clamp(190px,17vw,250px);background:var(--bg)}
+@media(max-width:700px){#c1{padding:110px 0 230px}.hmasc{width:128px}}
+.hbg{position:absolute;inset:-8% 0;z-index:-2;will-change:transform}
+.hbg img{width:100%;height:100%;object-fit:cover;object-position:72% 50%;filter:saturate(1.1) brightness(.62)}
+#c1::before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(120% 90% at 30% 55%,rgba(11,36,21,.15) 0%,rgba(11,36,21,.82) 62%,var(--bg) 100%),linear-gradient(180deg,rgba(11,36,21,.55),transparent 28%,transparent 60%,var(--bg) 98%)}
+.hglow{position:absolute;right:-10%;top:12%;width:70vmin;height:70vmin;border-radius:50%;background:radial-gradient(circle,rgba(251,176,40,.38),transparent 65%);z-index:-1;animation:breathe 7s ease-in-out infinite alternate}
+@keyframes breathe{from{opacity:.6;transform:scale(.92)}to{opacity:1;transform:scale(1.08)}}
+.hcont{max-width:760px;will-change:transform,opacity}
+#c1 h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.7rem,8.4vw,6.6rem);line-height:.98;letter-spacing:-.035em;margin:18px 0 26px;font-variation-settings:'opsz' 144;text-shadow:0 4px 40px rgba(0,0,0,.45)}
+#c1 h1 em{display:inline-block;font-weight:300;color:var(--amber);text-shadow:0 0 38px rgba(251,176,40,.65)}
+#c1 .lead{margin-bottom:34px;color:#fbe9cc;text-shadow:0 2px 18px rgba(0,0,0,.6)}
+.hbtns{display:flex;flex-wrap:wrap;gap:14px}
+.canopy{position:absolute;left:0;right:0;bottom:-1px;height:clamp(70px,12vw,150px);z-index:1;pointer-events:none}
+.canopy svg{width:100%;height:100%;display:block}
+.cue{position:absolute;left:50%;bottom:clamp(14px,2.4vw,34px);transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mut);text-decoration:none}
+.cue i{width:1px;height:46px;background:linear-gradient(var(--amber),transparent);animation:cue 2.2s ease-in-out infinite;transform-origin:top}
+@keyframes cue{0%{transform:scaleY(0)}60%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+@media(max-width:700px){.cue{display:none}}
+.hmasc{position:absolute;right:max(2vw,0px);bottom:0;width:clamp(120px,22vw,300px);z-index:2;transform:translateY(105%);transition:transform 1.4s cubic-bezier(.2,1.3,.4,1) .9s;transform-origin:50% 100%}
+.in-view .hmasc,.js .hmasc.up{transform:none}
+.hmasc img{width:100%;height:auto;filter:drop-shadow(0 20px 30px rgba(0,0,0,.5));animation:idle 4.2s ease-in-out 2.4s infinite}
+@keyframes idle{0%,100%{transform:rotate(0)}30%{transform:rotate(3deg) translateY(-5px)}60%{transform:rotate(-2deg)}}
+.badge-claim{position:absolute;right:max(2vw,0px);bottom:clamp(60px,12vw,140px)}
+
+/* ---------- 02 COSECHA ---------- */
+#c2{background:linear-gradient(180deg,var(--bg),var(--bg2) 50%,var(--bg))}
+#c2 .tex{position:absolute;inset:0;z-index:-1;opacity:.5;mix-blend-mode:screen}
+#c2 .tex img{width:100%;height:100%;object-fit:cover;filter:brightness(2.6) contrast(1.1) saturate(1.4);mask-image:linear-gradient(90deg,#000,transparent 70%),linear-gradient(180deg,transparent,#000 28%,#000 72%,transparent);-webkit-mask-image:linear-gradient(90deg,#000,transparent 70%),linear-gradient(180deg,transparent,#000 28%,#000 72%,transparent);mask-composite:intersect;-webkit-mask-composite:source-in}
+.two{display:grid;gap:clamp(36px,6vw,90px);align-items:center}
+@media(min-width:900px){.two{grid-template-columns:1.05fr .95fr}}
+.arch{position:relative;width:min(100%,460px);aspect-ratio:4/5;margin-inline:auto}
+.arch .win{position:absolute;inset:0;border-radius:999px 999px 28px 28px;overflow:hidden;border:1px solid rgba(251,176,40,.45);box-shadow:0 0 0 14px rgba(251,176,40,.06),0 0 90px rgba(245,138,30,.28),0 40px 80px rgba(0,0,0,.5)}
+.arch .win img{width:100%;height:100%;object-fit:cover;object-position:70% 50%;transform:scale(1.25);transform-origin:50% 40%}
+.arch .win::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,36,21,.25),transparent 30%,rgba(11,36,21,.45))}
+.arch .ring{position:absolute;inset:-26px;border-radius:999px 999px 40px 40px;border:1px dashed rgba(142,198,63,.45);animation:spin 60s linear infinite;border-radius:50%}
+.arch .ring2{position:absolute;inset:-60px;border-radius:50%;border:1px solid rgba(251,176,40,.14)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.peek{position:absolute;z-index:3;width:clamp(96px,16vw,170px);transition:transform 1.1s cubic-bezier(.2,1.3,.4,1) .2s}
+.peek img{width:100%;filter:drop-shadow(0 14px 24px rgba(0,0,0,.5))}
+.peek.p-b{right:-6%;bottom:-22px;transform:translateY(60%) rotate(8deg)}
+.peek.p-b.in{transform:translateY(8%) rotate(-6deg)}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.pill{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:99px;border:1px solid var(--line);background:rgba(255,244,227,.05);font-size:.88rem}
+.pill svg{width:18px;height:18px}
+.stack p+p{margin-top:18px}
+
+/* ---------- 03 TRANSFORMACIÓN ---------- */
+#c3{background:var(--bg)}
+#c3 .band{position:absolute;inset:-12% 0;z-index:-2;will-change:transform}
+#c3 .band img{width:100%;height:100%;object-fit:cover;filter:brightness(3.6) contrast(1.15) saturate(1.25);opacity:.85}
+#c3::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--bg),rgba(11,36,21,.5) 20%,rgba(11,36,21,.55) 72%,var(--bg));}
+.big-q{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,5.4vw,4.2rem);line-height:1.08;letter-spacing:-.025em;max-width:18ch;margin-bottom:clamp(36px,6vw,70px)}
+.big-q em{color:var(--amber)}
+.steps{display:grid;gap:18px;position:relative;counter-reset:s;grid-template-columns:1fr}
+@media(min-width:760px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{position:relative;padding:28px 24px 26px;border-radius:24px;background:linear-gradient(160deg,rgba(18,53,36,.85),rgba(11,36,21,.75));border:1px solid var(--line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform .4s,border-color .4s,box-shadow .4s}
+.step:hover{transform:translateY(-6px);border-color:rgba(251,176,40,.6);box-shadow:0 24px 50px rgba(0,0,0,.4),0 0 40px rgba(251,176,40,.12)}
+.step .n{font-family:var(--serif);font-size:2.6rem;line-height:1;color:var(--amber);font-weight:300;display:block;margin-bottom:10px}
+.step h3{font-family:var(--serif);font-weight:500;font-size:1.35rem;line-height:1.15;margin-bottom:8px}
+.step p{font-size:.95rem;color:var(--mut)}
+.prodrow{display:grid;gap:clamp(20px,4vw,50px);margin-top:clamp(40px,7vw,90px);align-items:center}
+@media(min-width:800px){.prodrow{grid-template-columns:1fr 1fr 1.1fr}}
+.orb{position:relative;width:min(78%,300px);margin-inline:auto;aspect-ratio:1}
+.orb::before{content:'';position:absolute;inset:-18%;border-radius:50%;background:radial-gradient(circle,rgba(251,176,40,.5),transparent 68%);animation:breathe 6s ease-in-out infinite alternate}
+.orb img{position:relative;width:100%;height:100%;border-radius:50%;box-shadow:0 0 0 8px rgba(251,176,40,.14),0 30px 60px rgba(0,0,0,.5);transition:transform .6s}
+.orb:hover img{transform:scale(1.04) rotate(-2deg)}
+.orb figcaption{text-align:center;margin-top:18px;font-size:.88rem;color:var(--mut);position:relative}
+.orb figcaption b{display:block;font-family:var(--serif);font-weight:500;color:var(--cream);font-size:1.2rem}
+
+/* ---------- 04 PRODUCTO ---------- */
+#c4{background:radial-gradient(80% 60% at 70% 40%,rgba(27,74,46,.9),var(--bg) 70%)}
+.seg{display:inline-flex;padding:4px;border-radius:99px;border:1px solid var(--line);background:rgba(11,36,21,.6)}
+.seg button{min-height:44px;padding:0 22px;border:0;background:none;border-radius:99px;font-weight:700;font-size:.9rem;color:var(--mut);transition:.3s}
+.seg button[aria-pressed=true]{background:var(--cream);color:var(--coffee)}
+.ptabs-w{position:relative;margin:30px 0 14px}
+.ptabs{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 2px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.ptabs::-webkit-scrollbar{display:none}
+.ptab{flex:0 0 auto;scroll-snap-align:start;display:flex;align-items:center;gap:12px;min-height:64px;padding:8px 22px 8px 8px;border-radius:99px;border:1px solid var(--line);background:rgba(18,53,36,.6);text-align:left;transition:.3s}
+.ptab:hover{border-color:rgba(251,176,40,.6)}
+.ptab[aria-selected=true]{background:linear-gradient(120deg,rgba(251,176,40,.22),rgba(245,138,30,.1));border-color:var(--amber);box-shadow:0 0 30px rgba(251,176,40,.18)}
+.ptab .th{width:48px;height:48px;border-radius:50%;overflow:hidden;flex:none;background:var(--forest);display:grid;place-items:center}
+.ptab .th img,.ptab .th svg{width:100%;height:100%;object-fit:cover}
+.ptab span{font-weight:700;font-size:.92rem;line-height:1.2}
+.parr{display:none}
+@media(min-width:900px){.parr{display:flex;gap:8px;position:absolute;right:0;top:8px}.parr button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(11,36,21,.6);display:grid;place-items:center;transition:.25s}.parr button:hover{border-color:var(--amber);color:var(--amber)}}
+.stage{display:grid;gap:clamp(24px,5vw,70px);align-items:center;margin-top:20px;min-height:420px}
+@media(min-width:900px){.stage{grid-template-columns:1fr 1fr}}
+.pvis{position:relative;width:min(86%,440px);aspect-ratio:1;margin-inline:auto}
+.pvis::before{content:'';position:absolute;inset:-22%;background:radial-gradient(circle,rgba(251,176,40,.5),rgba(245,138,30,.12) 45%,transparent 68%);animation:breathe 6s ease-in-out infinite alternate}
+.pvis::after{content:'';position:absolute;inset:-6%;border-radius:50%;border:1px dashed rgba(251,176,40,.4);animation:spin 50s linear infinite}
+.pvis>.pi{position:relative;z-index:1;width:100%;height:100%;border-radius:50%;object-fit:cover}
+.pvis img.pi{box-shadow:0 0 0 10px rgba(251,176,40,.12),0 40px 80px rgba(0,0,0,.55)}
+.pvis svg.pi{overflow:visible;filter:drop-shadow(0 30px 40px rgba(0,0,0,.5))}
+.pvis .illu{position:absolute;z-index:2;left:50%;bottom:-14px;transform:translateX(-50%);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;background:rgba(11,36,21,.9);border:1px solid var(--line);padding:6px 14px;border-radius:99px;white-space:nowrap;color:var(--mut)}
+.pinfo{animation:fadeup .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes fadeup{from{opacity:0;transform:translateY(18px)}}
+.pinfo h3{font-family:var(--serif);font-weight:500;font-size:clamp(2rem,4.4vw,3.3rem);line-height:1.02;letter-spacing:-.025em;margin-bottom:14px}
+.pinfo h3 em{color:var(--amber);font-weight:300}
+.pinfo p.d{color:var(--mut);margin-bottom:20px;max-width:46ch}
+.spec{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.spec li{padding:6px 14px;border-radius:99px;background:rgba(142,198,63,.14);border:1px solid rgba(142,198,63,.4);font-size:.82rem;color:#d7efb0}
+.price{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:16px 0;margin-bottom:6px;border-block:1px solid var(--line)}
+.price strong{font-family:var(--serif);font-weight:500;font-size:1.5rem}
+.price small{color:var(--mut);font-size:.84rem}
+.pact{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.tbc{display:inline-block;margin-left:8px;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:#1a0e00;background:var(--amber);padding:3px 9px;border-radius:99px;vertical-align:middle;font-weight:900}
+
+/* ---------- 05 COMUNIDAD ---------- */
+#c5{background:linear-gradient(180deg,var(--bg),#0a2012 40%,var(--bg))}
+.reel{position:relative;margin-top:10px}
+.screen{position:relative;aspect-ratio:16/9;border-radius:clamp(14px,2.4vw,30px);overflow:hidden;background:#000;border:1px solid rgba(251,176,40,.35);box-shadow:0 0 0 12px rgba(251,176,40,.05),0 50px 120px rgba(0,0,0,.65),0 0 120px rgba(245,138,30,.14)}
+@media(max-width:600px){.screen{aspect-ratio:4/5}}
+.screen>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:78% 50%;filter:brightness(2.7) contrast(1.05) saturate(1.3);transform:scale(1.08);animation:kb 22s ease-in-out infinite alternate}
+@keyframes kb{to{transform:scale(1.2) translate(-2%,-1%)}}
+.screen::before{content:'';position:absolute;inset:0;z-index:1;background:radial-gradient(90% 90% at 50% 45%,rgba(11,36,21,.3),rgba(5,16,9,.88)),linear-gradient(rgba(0,0,0,.55),transparent 22%,transparent 70%,rgba(0,0,0,.8))}
+.screen .cap{position:absolute;z-index:3;left:clamp(18px,4vw,50px);right:clamp(18px,4vw,50px);top:clamp(16px,3vw,34px);display:flex;justify-content:space-between;gap:10px;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.screen .cap b{color:var(--amber)}
+.rec{display:inline-flex;align-items:center;gap:8px}
+.rec::before{content:'';width:9px;height:9px;border-radius:50%;background:#ff5a3c;animation:blink 1.4s steps(2) infinite}
+@keyframes blink{50%{opacity:.2}}
+.play{position:absolute;z-index:4;left:50%;top:46%;transform:translate(-50%,-50%);width:clamp(84px,12vw,128px);aspect-ratio:1;border-radius:50%;border:0;background:radial-gradient(circle at 35% 30%,#ffd37a,var(--amber) 55%,var(--orange));color:#1a0e00;display:grid;place-items:center;box-shadow:0 0 0 0 rgba(251,176,40,.6),0 0 70px rgba(251,176,40,.5);animation:ping 2.4s infinite;transition:transform .3s}
+.play:hover{transform:translate(-50%,-50%) scale(1.08)}
+.play svg{width:38%;height:38%;margin-left:6%}
+@keyframes ping{70%{box-shadow:0 0 0 34px rgba(251,176,40,0),0 0 70px rgba(251,176,40,.5)}100%{box-shadow:0 0 0 0 rgba(251,176,40,0),0 0 70px rgba(251,176,40,.5)}}
+.screen .ttl{position:absolute;z-index:3;left:clamp(18px,4vw,50px);right:clamp(18px,4vw,50px);bottom:clamp(54px,7vw,84px);font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.3rem,3.2vw,2.5rem);line-height:1.15;max-width:22ch;text-shadow:0 4px 30px #000}
+.screen .tl{position:absolute;z-index:3;left:clamp(18px,4vw,50px);right:clamp(18px,4vw,50px);bottom:clamp(16px,3vw,32px);display:flex;align-items:center;gap:14px;font-size:.74rem;letter-spacing:.1em;color:var(--mut)}
+.screen .tl i{flex:1;height:3px;border-radius:3px;background:rgba(255,244,227,.22);position:relative}
+.screen .tl i::after{content:'';position:absolute;left:0;top:50%;width:10px;height:10px;border-radius:50%;background:var(--amber);transform:translateY(-50%);box-shadow:0 0 12px var(--amber)}
+.screen .msg{position:absolute;z-index:5;inset:0;display:grid;place-items:center;text-align:center;padding:24px;background:rgba(6,20,11,.82);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:.4s}
+.screen .msg.show{opacity:1;pointer-events:auto}
+.screen .msg p{max-width:30ch;font-family:var(--serif);font-size:clamp(1.2rem,2.6vw,1.9rem);line-height:1.25;margin-bottom:18px}
+.thumbs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(8px,2vw,22px);margin-top:clamp(14px,2.4vw,26px)}
+.thumb{position:relative;aspect-ratio:16/10;border-radius:16px;overflow:hidden;border:1px dashed rgba(251,176,40,.5);background:linear-gradient(135deg,rgba(18,53,36,.9),rgba(11,36,21,.9));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:8px;font-size:clamp(.66rem,1.6vw,.86rem);color:var(--mut);transition:.3s}
+.thumb:hover{border-color:var(--amber);transform:translateY(-3px)}
+.thumb svg{width:clamp(20px,3vw,30px);height:auto;color:var(--amber)}
+.peek.p-t{left:3%;top:-6px;transform:translateY(-70%) rotate(180deg);width:clamp(80px,13vw,140px);display:none}
+
+/* ---------- 06 MAPA ---------- */
+#c6{background:radial-gradient(90% 70% at 20% 30%,rgba(27,74,46,.7),var(--bg) 70%)}
+.mapwrap{display:grid;gap:clamp(20px,3vw,40px)}
+@media(min-width:960px){.mapwrap{grid-template-columns:1.5fr 1fr;align-items:stretch}}
+.map{position:relative;border-radius:28px;overflow:hidden;border:1px solid rgba(251,176,40,.3);background:#071a0f;box-shadow:0 40px 90px rgba(0,0,0,.5)}
+.map svg{display:block;width:100%;height:auto}
+.map .ex{position:absolute;left:14px;top:14px;display:inline-flex;gap:8px;align-items:center;background:rgba(251,176,40,.95);color:#1a0e00;font-weight:900;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:7px 13px;border-radius:99px}
+.pin{cursor:pointer;outline:none}
+.pin .pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.4s ease-out infinite}
+.pin:nth-of-type(2n) .pulse{animation-delay:.8s}
+@keyframes pulse{0%{transform:scale(.6);opacity:.9}100%{transform:scale(3);opacity:0}}
+.pin .dot{transition:transform .3s;transform-box:fill-box;transform-origin:center}
+.pin:hover .dot,.pin:focus-visible .dot,.pin.sel .dot{transform:scale(1.5)}
+.pin:focus-visible .hit{stroke:var(--cream);stroke-width:2}
+.pin text{font-family:var(--sans);font-weight:700;font-size:13px;fill:var(--cream);paint-order:stroke;stroke:#071a0f;stroke-width:4px;opacity:0;transition:.3s;pointer-events:none}
+.pin:hover text,.pin:focus-visible text,.pin.sel text{opacity:1}
+.office text{opacity:1}
+.mside{display:flex;flex-direction:column;gap:14px}
+.card{border:1px solid var(--line);background:linear-gradient(160deg,rgba(18,53,36,.8),rgba(11,36,21,.7));border-radius:22px;padding:22px}
+.sel-card h3{font-family:var(--serif);font-weight:500;font-size:1.5rem;line-height:1.1;margin:6px 0 8px}
+.sel-card small{display:inline-block;background:rgba(251,176,40,.16);color:var(--amber);padding:3px 10px;border-radius:99px;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:900}
+.sel-card p{color:var(--mut);font-size:.92rem}
+.plist{list-style:none;display:grid;gap:8px}
+.plist button{width:100%;min-height:50px;display:flex;align-items:center;gap:12px;text-align:left;padding:8px 16px;border-radius:16px;border:1px solid var(--line);background:rgba(255,244,227,.04);transition:.25s}
+.plist button:hover{border-color:rgba(251,176,40,.6)}
+.plist button[aria-pressed=true]{border-color:var(--amber);background:rgba(251,176,40,.14)}
+.plist i{width:12px;height:12px;border-radius:50%;background:var(--amber);flex:none;box-shadow:0 0 12px var(--amber)}
+.plist .ofi i{background:var(--leaf)}
+.plist span small{display:block;font-size:.76rem;color:var(--mut)}
+.mnote{font-size:.8rem;color:var(--mut)}
+.dist{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.dist p{font-family:var(--serif);font-size:1.25rem;line-height:1.2;flex:1 1 200px}
+
+/* ---------- 07 CERTS ---------- */
+#c7{background:linear-gradient(180deg,var(--bg),var(--bg2) 60%,var(--bg))}
+.seals{display:grid;gap:clamp(12px,2vw,22px);grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:900px){.seals{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.seal{position:relative;aspect-ratio:1/1.08;border-radius:26px;border:1.5px dashed rgba(251,176,40,.6);background:radial-gradient(circle at 50% 30%,rgba(251,176,40,.1),rgba(11,36,21,.4) 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:14px;transition:.4s;color:var(--mut);font-size:clamp(.74rem,1.7vw,.9rem)}
+.seal:hover{transform:translateY(-6px) rotate(-1deg);border-color:var(--amber);box-shadow:0 0 50px rgba(251,176,40,.2)}
+.seal svg{width:clamp(44px,9vw,76px);height:auto;color:var(--amber);opacity:.9}
+.seal b{display:block;font-family:var(--serif);font-weight:500;color:var(--cream);font-size:clamp(.9rem,2vw,1.15rem);line-height:1.15}
+.pillars{display:grid;gap:18px;margin-top:clamp(40px,6vw,76px)}
+@media(min-width:800px){.pillars{grid-template-columns:repeat(3,1fr)}}
+.pillar{padding-top:22px;border-top:2px solid var(--amber)}
+.pillar svg{width:34px;height:34px;color:var(--leaf);margin-bottom:12px}
+.pillar h3{font-family:var(--serif);font-weight:500;font-size:1.4rem;margin-bottom:8px}
+.pillar p{color:var(--mut);font-size:.97rem}
+.peek.p-l{left:-10px;top:16px;width:clamp(80px,12vw,130px);transform:translateX(-80%) rotate(-12deg)}
+.peek.p-l.in{transform:translateX(-18%) rotate(10deg)}
+
+/* ---------- 08 CONTACTO ---------- */
+#c8{padding-bottom:0;background:radial-gradient(90% 60% at 80% 20%,rgba(245,138,30,.16),transparent 60%),var(--bg)}
+#c8 .tex{position:absolute;inset:0;z-index:-1;opacity:.28;mix-blend-mode:screen}
+#c8 .tex img{width:100%;height:100%;object-fit:cover;filter:brightness(3.2) contrast(1.1);mask-image:linear-gradient(180deg,transparent,#000 60%);-webkit-mask-image:linear-gradient(180deg,transparent,#000 60%)}
+.contact{display:grid;gap:clamp(30px,5vw,70px)}
+@media(min-width:960px){.contact{grid-template-columns:.8fr 1.2fr}}
+.info{display:grid;gap:18px;align-content:start;margin-top:26px}
+.info a,.info div.r{display:flex;gap:14px;align-items:flex-start;text-decoration:none;min-height:44px}
+.info svg{width:24px;height:24px;color:var(--amber);flex:none;margin-top:3px}
+.info b{display:block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+.info a:hover span{text-decoration:underline}
+.socials{display:flex;gap:12px;margin-top:6px}
+.socials a{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:.3s;background:rgba(255,244,227,.06)}
+.socials a:hover{border-color:var(--amber);transform:translateY(-3px);background:rgba(251,176,40,.14)}
+.socials img{width:24px;height:24px}
+.form{position:relative;padding:clamp(22px,4vw,44px);border-radius:30px;border:1px solid rgba(251,176,40,.3);background:linear-gradient(160deg,rgba(18,53,36,.92),rgba(11,36,21,.85));box-shadow:0 40px 90px rgba(0,0,0,.5),0 0 0 10px rgba(251,176,40,.04)}
+.form h3{font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,3vw,2.1rem);line-height:1.1;margin-bottom:6px}
+.form>.sub{color:var(--mut);margin-bottom:22px;font-size:.95rem}
+.who{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:20px;border:0}
+.who legend{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);font-weight:900;margin-bottom:10px}
+.who label{position:relative;cursor:pointer}
+.who input{position:absolute;opacity:0;inset:0}
+.who label>span{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:68px;text-align:center;padding:8px;border-radius:16px;border:1px solid var(--line);background:rgba(255,244,227,.04);font-size:.82rem;font-weight:700;line-height:1.2;transition:.25s}
+.who label>span small{font-weight:400;color:var(--mut);font-size:.72rem}
+.who input:checked+span{border-color:var(--amber);background:rgba(251,176,40,.16);box-shadow:0 0 24px rgba(251,176,40,.16)}
+.who input:focus-visible+span{outline:3px solid var(--amber);outline-offset:2px}
+.grid2{display:grid;gap:14px}
+@media(min-width:620px){.grid2{grid-template-columns:1fr 1fr}}
+.f{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.f[hidden]{display:none}
+.f label{font-size:.78rem;font-weight:700;letter-spacing:.06em;color:var(--mut)}
+.f input,.f select,.f textarea{width:100%;min-height:50px;padding:12px 16px;border-radius:14px;border:1px solid rgba(255,244,227,.28);background:rgba(5,16,9,.6);color:var(--cream);font:inherit;font-size:1rem;transition:.25s}
+.f textarea{min-height:130px;resize:vertical}
+.f select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' fill='none' stroke='%23FBB028' stroke-width='2'%3E%3Cpath d='M1 1l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:42px}
+.f select option{background:#0B2415}
+.f input:focus,.f select:focus,.f textarea:focus{outline:0;border-color:var(--amber);box-shadow:0 0 0 4px rgba(251,176,40,.2)}
+.f input::placeholder,.f textarea::placeholder{color:rgba(255,244,227,.5)}
+.f .err{display:none;color:#ffb4a0;font-size:.8rem}
+.f.bad .err{display:block}
+.f.bad input,.f.bad textarea{border-color:#ff8c6a}
+.fine{font-size:.78rem;color:var(--mut);margin:4px 0 18px}
+.thanks{display:none;text-align:center;padding:10px 0}
+.form.sent .thanks{display:block;animation:fadeup .7s}
+.form.sent .fields{display:none}
+.thanks img{width:min(52%,210px);margin:0 auto 6px;animation:happy 2.4s ease-in-out infinite}
+@keyframes happy{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(4deg)}}
+.thanks h3{font-size:clamp(1.7rem,4vw,2.4rem)}
+.thanks p{color:var(--mut);max-width:40ch;margin:8px auto 20px}
+.heart{position:fixed;z-index:90;pointer-events:none;width:26px;height:26px;animation:rise 2.2s cubic-bezier(.2,.7,.3,1) forwards;color:#ff5a3c;filter:drop-shadow(0 0 10px rgba(255,90,60,.7))}
+@keyframes rise{0%{transform:translate(0,0) scale(.4);opacity:0}15%{opacity:1}100%{transform:translate(var(--hx),-60vh) scale(1.3) rotate(var(--hr));opacity:0}}
+footer.ft{position:relative;margin-top:clamp(60px,10vw,130px);border-top:1px solid var(--line);padding:clamp(40px,6vw,70px) 0 110px;background:linear-gradient(180deg,transparent,rgba(5,16,9,.85))}
+.ft .wrap{display:grid;gap:30px}
+@media(min-width:800px){.ft .wrap{grid-template-columns:1.2fr 1fr 1fr}}
+.ft img.wm{width:min(100%,420px);height:auto}
+.ft h4{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+.ft p,.ft a{color:var(--mut);font-size:.92rem;text-decoration:none;display:block}
+.ft a{min-height:44px;display:flex;align-items:center}
+.ft a:hover{color:var(--amber)}
+.legal{grid-column:1/-1;border-top:1px solid var(--line);padding-top:20px;font-size:.82rem;color:var(--mut);display:flex;gap:10px 24px;flex-wrap:wrap;justify-content:space-between}
+
+/* ---------- NARRADOR ---------- */
+#nar{position:fixed;z-index:80;left:50%;bottom:max(14px,env(safe-area-inset-bottom));width:min(560px,100% - 24px);transform:translate(-50%,160%);opacity:0;transition:transform .7s cubic-bezier(.2,1.2,.4,1),opacity .4s;display:flex;align-items:center;gap:6px;padding:8px 8px 8px 8px;border-radius:26px;background:rgba(7,24,13,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(251,176,40,.5);box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 40px rgba(251,176,40,.15)}
+#nar.show{transform:translate(-50%,0);opacity:1}
+#nar.mini{width:auto;padding:6px 10px}
+#nar.mini p,#nar.mini .nx{display:none}
+.nav-av{position:relative;width:62px;height:62px;flex:none;border-radius:50%;background:radial-gradient(circle,rgba(251,176,40,.35),transparent 70%);display:grid;place-items:center}
+.nav-av img{width:46px;height:auto;transform-origin:50% 100%}
+#nar.wink .nav-av img{animation:wink .9s ease-in-out 2}
+@keyframes wink{0%,100%{transform:rotate(0) scale(1)}40%{transform:rotate(-14deg) scale(1.16) translateY(-4px)}}
+.spark{position:absolute;right:-2px;top:-2px;color:var(--amber);font-size:20px;opacity:0;transform:scale(0) rotate(0)}
+#nar.wink .spark{animation:spark .9s ease-out 2}
+@keyframes spark{0%{opacity:0;transform:scale(0) rotate(0)}40%{opacity:1;transform:scale(1.2) rotate(60deg)}100%{opacity:0;transform:scale(.6) rotate(140deg)}}
+#nar p{flex:1;font-size:.92rem;line-height:1.4;padding:2px 4px;color:var(--cream)}
+#nar p b{display:block;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--amber);font-weight:900;margin-bottom:2px}
+#nar .nx{width:44px;height:44px;border-radius:50%;border:0;background:transparent;display:grid;place-items:center;flex:none;color:var(--mut)}
+#nar .nx:hover{color:var(--amber)}
+@media(max-width:600px){#nar p{font-size:.84rem}}
+
+/* distintivo demo */
+.demo{position:fixed;z-index:75;left:10px;bottom:8px;background:rgba(255,244,227,.1);border:1px solid var(--line);color:var(--mut);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;padding:5px 11px;border-radius:99px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);pointer-events:none}
+@media(min-width:1100px){.demo{left:auto;bottom:16px;right:16px}}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv{opacity:1;transform:none}
+  .hmasc,.peek.p-b,.peek.p-l{transform:none!important}
+  .hbg,.band{transform:none!important}
+}
+</style>
+</head>
+<body>
+<div id="bar" aria-hidden="true"></div>
+
+<!-- SPRITE -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gFruit" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FCB627"/><stop offset=".55" stop-color="#F58A1E"/><stop offset="1" stop-color="#F26B21"/></linearGradient>
+    <radialGradient id="gAce" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#FF8A73"/><stop offset=".5" stop-color="#E6503A"/><stop offset="1" stop-color="#A82A1C"/></radialGradient>
+    <radialGradient id="gPow" cx=".4" cy=".2" r=".9"><stop offset="0" stop-color="#FFB27A"/><stop offset=".55" stop-color="#F26B21"/><stop offset="1" stop-color="#B8431B"/></radialGradient>
+    <linearGradient id="gBowl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF4E3"/><stop offset="1" stop-color="#E9C99C"/></linearGradient>
+  </defs>
+  <symbol id="leaf" viewBox="0 0 100 100">
+    <path d="M10 92C6 52 30 14 90 8 94 58 62 94 10 92Z" fill="#27A749"/>
+    <path d="M10 92C6 52 30 14 90 8 60 30 36 60 10 92Z" fill="#8EC63F"/>
+    <path d="M10 92C38 58 62 32 90 8" stroke="#0B2415" stroke-opacity=".35" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="fruit" viewBox="0 0 100 120">
+    <path d="M50 14C22 18 8 52 12 82c4 26 26 34 38 34s34-8 38-34C92 52 78 18 50 14Z" fill="url(#gFruit)"/>
+    <ellipse cx="36" cy="46" rx="14" ry="22" fill="#fff" opacity=".18" transform="rotate(18 36 46)"/>
+    <path d="M42 16c2-8 14-10 18-2-2 4-6 7-10 7s-6-1-8-5Z" fill="#3A1C0A"/>
+    <path d="M52 14c6-8 20-8 28-2-8 4-18 6-28 2Z" fill="#27A749"/>
+    <path d="M50 14C42 6 30 6 22 12c8 5 18 6 28 2Z" fill="#8EC63F"/>
+  </symbol>
+  <symbol id="slice" viewBox="0 0 100 100">
+    <circle cx="50" cy="50" r="46" fill="#F58A1E"/>
+    <circle cx="50" cy="50" r="40" fill="#FFE8A6"/>
+    <circle cx="50" cy="50" r="33" fill="#FFD36B"/>
+    <ellipse cx="50" cy="50" rx="11" ry="15" fill="#6B3A17"/>
+    <ellipse cx="46" cy="44" rx="3" ry="5" fill="#fff" opacity=".35"/>
+    <g stroke="#F58A1E" stroke-opacity=".5" stroke-width="1.4"><path d="M50 18v12M50 70v12M18 50h12M70 50h12M27 27l8 8M65 65l8 8M73 27l-8 8M35 65l-8 8"/></g>
+  </symbol>
+  <symbol id="heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.800-8 11-8 11Z"/></symbol>
+  <symbol id="shield" viewBox="0 0 64 72" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 4 8 13v21c0 17 11 29 24 34 13-5 24-17 24-34V13Z"/><path d="M32 22v26M20 35h24" stroke-dasharray="1 7"/></symbol>
+  <symbol id="art-acerola" viewBox="0 0 400 400">
+    <ellipse cx="200" cy="352" rx="130" ry="16" fill="#000" opacity=".28"/>
+    <g>
+      <path d="M200 70C190 40 160 28 140 40" stroke="#3A1C0A" stroke-width="7" fill="none" stroke-linecap="round"/>
+      <path d="M170 46c-30-22-58-10-72 10 30 14 56 8 72-10Z" fill="#27A749"/><path d="M170 46c-22-12-46-12-72 10 22 0 52 4 72-10Z" fill="#8EC63F"/>
+    </g>
+    <g id="ac1"><circle cx="140" cy="230" r="82" fill="url(#gAce)"/><path d="M140 148v164M104 160c-26 40-26 96 0 138M176 160c26 40 26 96 0 138" stroke="#7A1B10" stroke-opacity=".25" stroke-width="3" fill="none"/><ellipse cx="108" cy="192" rx="20" ry="30" fill="#fff" opacity=".22" transform="rotate(24 108 192)"/><circle cx="140" cy="150" r="9" fill="#3A1C0A"/></g>
+    <g><circle cx="262" cy="248" r="92" fill="url(#gAce)"/><path d="M262 156v184M222 168c-30 44-30 108 0 154M302 168c30 44 30 108 0 154" stroke="#7A1B10" stroke-opacity=".25" stroke-width="3" fill="none"/><ellipse cx="226" cy="206" rx="22" ry="34" fill="#fff" opacity=".22" transform="rotate(24 226 206)"/><circle cx="262" cy="160" r="10" fill="#3A1C0A"/><path d="M262 150c10-40 40-58 66-52" stroke="#3A1C0A" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M322 100c22-18 52-6 62 16-30 12-54 6-62-16Z" fill="#27A749"/><path d="M322 100c20-6 46-2 62 16-26-4-48-2-62-16Z" fill="#8EC63F"/></g>
+  </symbol>
+  <symbol id="art-polvo" viewBox="0 0 400 400">
+    <ellipse cx="200" cy="356" rx="150" ry="16" fill="#000" opacity=".28"/>
+    <path d="M60 220h280c0 76-56 128-140 128S60 296 60 220Z" fill="url(#gBowl)"/>
+    <path d="M60 220h280" stroke="#D9B27C" stroke-width="5"/>
+    <path d="M86 238c40 60 168 60 228 0" stroke="#E9C99C" stroke-width="3" fill="none" opacity=".8"/>
+    <path d="M78 224c10-60 62-100 122-100s112 40 122 100c-40 14-244 14-244 0Z" fill="url(#gPow)"/>
+    <path d="M110 190c22-34 56-50 90-50" stroke="#FFD2A4" stroke-width="6" stroke-linecap="round" fill="none" opacity=".6"/>
+    <g fill="#FFC48A" opacity=".85"><circle cx="150" cy="176" r="3"/><circle cx="200" cy="150" r="3"/><circle cx="246" cy="182" r="3"/><circle cx="222" cy="206" r="2.6"/><circle cx="168" cy="210" r="2.6"/><circle cx="270" cy="206" r="2.4"/></g>
+    <path d="M298 120l62-70c6-6 16 0 12 8l-46 82Z" fill="#C98B4B"/><ellipse cx="298" cy="128" rx="24" ry="14" fill="#E0A965" transform="rotate(-48 298 128)"/>
+    <g transform="translate(24 288) rotate(-12)"><path d="M0 14 22 0 46 8 40 32 12 36Z" fill="#C4503A"/><circle cx="16" cy="16" r="3" fill="#8F2D1E"/><circle cx="30" cy="22" r="2.4" fill="#8F2D1E"/></g>
+    <g transform="translate(330 296) rotate(18)"><path d="M0 12 20 0 40 10 34 28 8 32Z" fill="#C4503A"/><circle cx="14" cy="14" r="3" fill="#8F2D1E"/></g>
+  </symbol>
+</svg>
+
+<header class="top" id="top">
+  <a class="logo" href="#c1" aria-label="Airú">
+    <img class="wm" src="../assets/wordmark-blanco.png" width="923" height="116" alt="Achachairú — logotipo Airú con hoja verde">
+    <img class="mk" src="../assets/airu-blanco.png" width="570" height="193" alt="Airú — logotipo con hoja verde">
+  </a>
+  <button class="chip-ch" id="chChip" aria-expanded="false" aria-controls="chmenu"><b id="chN">01</b><span id="chT" data-i18n="c1"></span><svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 1l5 5 5-5"/></svg></button>
+  <div class="hright">
+    <a class="btn sm hcta" href="#c8" data-i18n="nav_contact"></a>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+<nav class="chmenu" id="chmenu" aria-label="Capítulos"></nav>
+<nav class="rail" id="rail" aria-label="Capítulos"><ol></ol></nav>
+<div class="demo" data-i18n="demo">Propuesta C · demo</div>
+<canvas id="ff" aria-hidden="true"></canvas>
+
+<main>
+<!-- 01 -->
+<section class="ch" id="c1" data-ch="1" aria-labelledby="h1t">
+  <div class="hbg" data-par="0.28"><img src="../assets/cosecha.jpg" width="2000" height="720" alt="Una mano recoge frutos de achachairú de las ramas de un árbol entre hojas verdes" fetchpriority="high"></div>
+  <div class="hglow"></div>
+  <span class="lf" style="--x:6%;--y:18%;--s:46px;--r:20deg;--t:11s"><svg><use href="#leaf"/></svg></span>
+  <span class="lf" style="--x:44%;--y:10%;--s:30px;--r:-30deg;--t:8s;--dl:-3s;--o:.55"><svg><use href="#leaf"/></svg></span>
+  <span class="lf" style="--x:88%;--y:34%;--s:56px;--r:40deg;--t:13s;--dl:-5s"><svg><use href="#leaf"/></svg></span>
+  <span class="lf" style="--x:30%;--y:72%;--s:36px;--r:-10deg;--t:10s;--dl:-1s;--o:.5"><svg><use href="#leaf"/></svg></span>
+  <div class="wrap">
+    <div class="hcont" id="hcont">
+      <span class="kick" data-i18n="h_kick"></span>
+      <h1 id="h1t" data-i18n-html="h_title"></h1>
+      <p class="lead" data-i18n="h_lead"></p>
+      <div class="hbtns">
+        <a class="btn" href="#c4" data-i18n="h_cta1"></a>
+        <a class="btn ghost" href="#c6" data-i18n="h_cta2"></a>
+      </div>
+    </div>
+  </div>
+  <a class="cue" href="#c2"><span data-i18n="h_cue"></span><i></i></a>
+  <div class="hmasc" id="hmasc"><img src="../assets/mascota.png" width="546" height="754" alt="Mascota de Airú: un achachairú sonriente que guiña un ojo y saluda"></div>
+  <div class="canopy" aria-hidden="true"><svg viewBox="0 0 1440 150" preserveAspectRatio="none"><path fill="#0B2415" d="M0 150V80c40-30 70-34 110-14 30-34 80-40 120-10 40-28 90-26 130 6 36-30 90-30 126 4 40-34 96-34 140 0 36-28 90-26 128 8 40-34 100-34 142 0 36-26 86-24 120 8 42-30 96-26 134 8 38-30 90-30 126 4 40-26 80-20 114 12v32Z"/></svg></div>
+</section>
+
+<!-- 02 -->
+<section class="ch" id="c2" data-ch="2" aria-labelledby="h2t">
+  <div class="tex" aria-hidden="true"><img src="../assets/arbol-bolsa.jpg" alt="" loading="lazy" width="1600" height="860"></div>
+  <span class="fl" style="--x:84%;--y:4%;--s:50px;--t:9s" aria-hidden="true"><svg viewBox="0 0 100 120" width="100%"><use href="#fruit"/></svg></span>
+  <span class="lf" style="--x:62%;--y:30%;--s:30px;--r:60deg;--t:12s;--o:.4"><svg><use href="#leaf"/></svg></span>
+  <span class="lf" style="--x:92%;--y:60%;--s:50px;--r:-40deg;--t:10s;--dl:-4s"><svg><use href="#leaf"/></svg></span>
+  <div class="wrap">
+    <div class="chead rv"><span class="chnum" aria-hidden="true">02</span><div><span class="kick" data-i18n="c2"></span><h2 class="t" id="h2t" data-i18n-html="c2_h"></h2></div></div>
+    <div class="two">
+      <div class="stack">
+        <p class="pull rv" data-i18n-html="c2_pull"></p>
+        <div class="rv" style="--d:.1s;margin-top:26px"><p class="lead" data-i18n="c2_p1"></p></div>
+        <div class="rv" style="--d:.2s"><p class="lead" style="margin-top:16px" data-i18n="c2_p2"></p></div>
+        <div class="pills rv" style="--d:.3s">
+          <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="#8EC63F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19C5 10 11 5 20 4c0 9-5 15-15 15Z"/><path d="M5 19c3-5 6-8 11-11"/></svg><span data-i18n="c2_b1"></span></span>
+          <span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="#FBB028" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span data-i18n="c2_b2"></span></span>
+        </div>
+      </div>
+      <div class="arch rv" style="--d:.15s">
+        <div class="ring2" aria-hidden="true"></div><div class="ring" aria-hidden="true"></div>
+        <div class="win"><img src="../assets/cosecha.jpg" width="2000" height="720" loading="lazy" alt="Primer plano de la mano de un agricultor sosteniendo un achachairú maduro en el árbol"></div>
+        <div class="peek p-b" data-peek><img src="../assets/mascota.png" width="546" height="754" loading="lazy" alt="Mascota Airú asomándose desde el borde"></div>
+      </div>
+    </div>
+  </div>
+  <div data-end="2" style="height:1px"></div>
+</section>
+
+<!-- 03 -->
+<section class="ch" id="c3" data-ch="3" aria-labelledby="h3t">
+  <div class="band" data-par="0.18" aria-hidden="true"><img src="../assets/planta.jpg" width="1600" height="860" alt="" loading="lazy"></div>
+  <span class="lf" style="--x:90%;--y:10%;--s:44px;--r:30deg;--t:11s"><svg><use href="#leaf"/></svg></span>
+  <span class="lf" style="--x:4%;--y:50%;--s:34px;--r:-30deg;--t:9s;--dl:-2s;--o:.5"><svg><use href="#leaf"/></svg></span>
+  <div class="wrap">
+    <div class="chead rv"><span class="chnum" aria-hidden="true">03</span><div><span class="kick" data-i18n="c3"></span><h2 class="t" id="h3t" data-i18n-html="c3_h"></h2></div></div>
+    <p class="big-q rv" data-i18n-html="c3_q"></p>
+    <div class="steps">
+      <article class="step rv"><span class="n" aria-hidden="true">i</span><h3 data-i18n="c3_s1h"></h3><p data-i18n="c3_s1"></p></article>
+      <article class="step rv" style="--d:.1s"><span class="n" aria-hidden="true">ii</span><h3 data-i18n="c3_s2h"></h3><p data-i18n="c3_s2"></p></article>
+      <article class="step rv" style="--d:.2s"><span class="n" aria-hidden="true">iii</span><h3 data-i18n="c3_s3h"></h3><p data-i18n="c3_s3"></p></article>
+      <article class="step rv" style="--d:.3s"><span class="n" aria-hidden="true">iv</span><h3 data-i18n="c3_s4h"></h3><p data-i18n="c3_s4"></p></article>
+    </div>
+    <div class="prodrow">
+      <figure class="orb rv"><img src="../assets/pulpa.png" width="1000" height="897" loading="lazy" alt="Manos con guantes sosteniendo una bolsa de pulpa de achachairú"><figcaption><b data-i18n="p2n"></b><span data-i18n="c3_cap2"></span></figcaption></figure>
+      <figure class="orb rv" style="--d:.15s"><img src="../assets/chips.png" width="979" height="975" loading="lazy" alt="Bolsa Airú Achachairú Chips rodeada de trozos de fruta liofilizada sobre concreto"><figcaption><b data-i18n="p1n"></b><span data-i18n="c3_cap1"></span></figcaption></figure>
+      <p class="lead rv" style="--d:.25s" data-i18n="c3_p"></p>
+    </div>
+  </div>
+  <div data-end="3" style="height:1px;margin-top:40px"></div>
+</section>
+
+<!-- 04 -->
+<section class="ch" id="c4" data-ch="4" aria-labelledby="h4t">
+  <span class="fl" style="--x:92%;--y:6%;--s:46px;--t:10s;--dl:-2s" aria-hidden="true"><svg viewBox="0 0 100 100" width="100%"><use href="#slice"/></svg></span>
+  <span class="lf" style="--x:2%;--y:40%;--s:38px;--r:-20deg;--t:11s;--o:.5"><svg><use href="#leaf"/></svg></span>
+  <div class="wrap">
+    <div class="chead rv"><span class="chnum" aria-hidden="true">04</span><div><span class="kick" data-i18n="c4"></span><h2 class="t" id="h4t" data-i18n-html="c4_h"></h2></div></div>
+    <div class="rv" style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between">
+      <p class="lead" data-i18n="c4_lead" style="flex:1 1 320px"></p>
+      <div class="seg" id="segType" role="group" aria-label="Tipo de cliente">
+        <button type="button" data-aud="b2c" aria-pressed="true" data-i18n="aud_b2c"></button>
+        <button type="button" data-aud="b2b" aria-pressed="false" data-i18n="aud_b2b"></button>
+      </div>
+    </div>
+    <div class="ptabs-w rv">
+      <div class="parr"><button type="button" id="pPrev" aria-label="Anterior"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" id="pNext" aria-label="Siguiente"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div>
+      <div class="ptabs" id="ptabs" role="tablist" aria-label="Productos"></div>
+    </div>
+    <div class="stage" id="stage" role="tabpanel" aria-live="polite"></div>
+  </div>
+  <div data-end="4" style="height:1px;margin-top:30px"></div>
+</section>
+
+<!-- 05 -->
+<section class="ch" id="c5" data-ch="5" aria-labelledby="h5t">
+  <span class="lf" style="--x:4%;--y:8%;--s:42px;--r:10deg;--t:10s"><svg><use href="#leaf"/></svg></span>
+  <span class="lf" style="--x:93%;--y:80%;--s:52px;--r:-50deg;--t:12s;--dl:-3s;--o:.6"><svg><use href="#leaf"/></svg></span>
+  <div class="wrap">
+    <div class="chead rv"><span class="chnum" aria-hidden="true">05</span><div><span class="kick" data-i18n="c5"></span><h2 class="t" id="h5t" data-i18n-html="c5_h"></h2></div></div>
+    <p class="lead rv" data-i18n="c5_lead" style="margin-bottom:34px"></p>
+    <div class="reel rv" style="--d:.1s">
+      <div class="screen" id="screen">
+        <img src="../assets/arbol-bolsa.jpg" width="1600" height="860" loading="lazy" alt="Fondo de un árbol de achachairú con una bolsa Airú Chips, reservado como póster del video de las comunidades">
+        <div class="cap"><span class="rec" data-i18n="c5_rec"></span><b data-i18n="c5_slot"></b></div>
+        <p class="ttl" data-i18n-html="c5_ttl"></p>
+        <button class="play" id="playBtn" type="button" aria-label="Reproducir (próximamente) / Play (coming soon)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.500Z"/></svg></button>
+        <div class="tl"><span>0:00</span><i></i><span>--:--</span></div>
+        <div class="msg" id="vmsg"><div><p data-i18n="c5_msg"></p><button class="btn sm ghost" type="button" id="vclose" data-i18n="close"></button></div></div>
+      </div>
+      <div class="thumbs" aria-label="Espacios para más videos">
+        <div class="thumb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.500Z"/></svg><span data-i18n="c5_t1"></span></div>
+        <div class="thumb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.500Z"/></svg><span data-i18n="c5_t2"></span></div>
+        <div class="thumb"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.500Z"/></svg><span data-i18n="c5_t3"></span></div>
+      </div>
+    </div>
+  </div>
+  <div data-end="5" style="height:1px;margin-top:30px"></div>
+</section>
+
+<!-- 06 -->
+<section class="ch" id="c6" data-ch="6" aria-labelledby="h6t">
+  <span class="lf" style="--x:94%;--y:6%;--s:40px;--r:20deg;--t:9s"><svg><use href="#leaf"/></svg></span>
+  <div class="wrap">
+    <div class="chead rv"><span class="chnum" aria-hidden="true">06</span><div><span class="kick" data-i18n="c6"></span><h2 class="t" id="h6t" data-i18n-html="c6_h"></h2></div></div>
+    <p class="lead rv" data-i18n="c6_lead" style="margin-bottom:34px"></p>
+    <div class="mapwrap">
+      <div class="map rv">
+        <span class="ex" data-i18n="c6_ex"></span>
+        <svg id="mapsvg" viewBox="0 0 800 560" role="group" aria-label="Mapa esquemático de Santa Cruz de la Sierra con puntos de ejemplo">
+          <defs>
+            <radialGradient id="mg" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#14402a"/><stop offset="1" stop-color="#071a0f"/></radialGradient>
+            <pattern id="mdots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#FFF4E3" opacity=".08"/></pattern>
+          </defs>
+          <rect width="800" height="560" fill="url(#mg)"/><rect width="800" height="560" fill="url(#mdots)"/>
+          <g fill="none" stroke="#FBB028" stroke-opacity=".38" stroke-width="1.8">
+            <circle cx="400" cy="290" r="48"/><circle cx="400" cy="290" r="108"/><circle cx="400" cy="290" r="168"/><circle cx="400" cy="290" r="228"/><circle cx="400" cy="290" r="288" stroke-dasharray="4 8"/>
+          </g>
+          <g fill="none" stroke="#8EC63F" stroke-opacity=".2" stroke-width="1.4">
+            <path d="M400 -10V590M-10 290H810M120 -10 680 570M680 -10 120 570"/>
+            <path d="M400 290C470 230 560 200 810 170M400 290C330 370 250 420 -10 450" stroke-opacity=".12"/>
+          </g>
+          <g font-family="Lato,sans-serif" font-size="11" fill="#FFF4E3" opacity=".5" letter-spacing="1.5"><text x="406" y="236">1</text><text x="406" y="176">2</text><text x="406" y="116">3</text><text x="406" y="56">4</text></g>
+          <text x="400" y="470" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-style="italic" font-size="26" fill="#FFF4E3" opacity=".35" letter-spacing="2">Santa Cruz de la Sierra</text>
+          <g id="pins"></g>
+        </svg>
+      </div>
+      <div class="mside">
+        <div class="card sel-card" id="selCard" aria-live="polite"></div>
+        <ul class="plist" id="plist"></ul>
+        <p class="mnote" data-i18n="c6_note"></p>
+      </div>
+    </div>
+    <div class="card dist rv" style="margin-top:clamp(20px,3vw,34px)">
+      <p data-i18n="c6_dist"></p>
+      <a class="btn sm" href="#c8" data-go="b2b" data-i18n="c6_distcta"></a>
+    </div>
+  </div>
+  <div data-end="6" style="height:1px;margin-top:30px"></div>
+</section>
+
+<!-- 07 -->
+<section class="ch" id="c7" data-ch="7" aria-labelledby="h7t">
+  <div class="peek p-l" data-peek><img src="../assets/mascota.png" width="546" height="754" loading="lazy" alt="Mascota Airú asomándose por el costado"></div>
+  <span class="lf" style="--x:90%;--y:12%;--s:46px;--r:35deg;--t:10s"><svg><use href="#leaf"/></svg></span>
+  <div class="wrap">
+    <div class="chead rv"><span class="chnum" aria-hidden="true">07</span><div><span class="kick" data-i18n="c7"></span><h2 class="t" id="h7t" data-i18n-html="c7_h"></h2></div></div>
+    <p class="lead rv" data-i18n="c7_lead" style="margin-bottom:34px"></p>
+    <div class="seals rv">
+      <div class="seal"><svg aria-hidden="true"><use href="#shield"/></svg><div><b data-i18n="c7_s"></b><span data-i18n="c7_s2"></span></div></div>
+      <div class="seal"><svg aria-hidden="true"><use href="#shield"/></svg><div><b data-i18n="c7_s"></b><span data-i18n="c7_s2"></span></div></div>
+      <div class="seal"><svg aria-hidden="true"><use href="#shield"/></svg><div><b data-i18n="c7_s"></b><span data-i18n="c7_s2"></span></div></div>
+      <div class="seal"><svg aria-hidden="true"><use href="#shield"/></svg><div><b data-i18n="c7_s"></b><span data-i18n="c7_s2"></span></div></div>
+    </div>
+    <div class="pillars">
+      <div class="pillar rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19C5 10 11 5 20 4c0 9-5 15-15 15Z"/><path d="M5 19c3-5 6-8 11-11"/></svg><h3 data-i18n="c7_p1h"></h3><p data-i18n="c7_p1"></p></div>
+      <div class="pillar rv" style="--d:.1s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg><h3 data-i18n="c7_p2h"></h3><p data-i18n="c7_p2"></p></div>
+      <div class="pillar rv" style="--d:.2s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9"/><path d="M12 7v5l3 2M17 3h4v4"/></svg><h3 data-i18n="c7_p3h"></h3><p data-i18n="c7_p3"></p></div>
+    </div>
+  </div>
+  <div data-end="7" style="height:1px;margin-top:30px"></div>
+</section>
+
+<!-- 08 -->
+<section class="ch" id="c8" data-ch="8" aria-labelledby="h8t">
+  <div class="tex" aria-hidden="true"><img src="../assets/planta.jpg" alt="" loading="lazy" width="1600" height="860"></div>
+  <span class="fl" style="--x:90%;--y:4%;--s:50px;--t:9s" aria-hidden="true"><svg viewBox="0 0 100 120" width="100%"><use href="#fruit"/></svg></span>
+  <div class="wrap">
+    <div class="chead rv"><span class="chnum" aria-hidden="true">08</span><div><span class="kick" data-i18n="c8"></span><h2 class="t" id="h8t" data-i18n-html="c8_h"></h2></div></div>
+    <div class="contact">
+      <div class="rv">
+        <p class="lead" data-i18n="c8_lead"></p>
+        <div class="info">
+          <a href="mailto:info@achachairu.com.bo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 8 8 6 8-6"/></svg><span><b data-i18n="c8_mail"></b>info@achachairu.com.bo</span></a>
+          <a href="tel:+59164497652"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg><span><b data-i18n="c8_tel"></b>+(591) 644 97652</span></a>
+          <div class="r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.500 7-11a7 7 0 0 0-14 0c0 5.500 7 11 7 11Z"/><circle cx="12" cy="10" r="2.500"/></svg><span><b data-i18n="c8_addr"></b>Barrio Sirari C/ Las Begonias #217<br>Santa Cruz de la Sierra, Bolivia</span></div>
+          <div class="socials">
+            <a href="https://www.instagram.com/airusantacruz" target="_blank" rel="noopener" aria-label="Instagram @airusantacruz"><img src="../assets/icono-instagram.png" width="24" height="24" loading="lazy" alt="Instagram"></a>
+            <a href="https://www.facebook.com/profile.php?id=100089244676070" target="_blank" rel="noopener" aria-label="Facebook Airú"><img src="../assets/icono-facebook.png" width="24" height="24" loading="lazy" alt="Facebook"></a>
+          </div>
+        </div>
+      </div>
+      <form class="form rv" id="form" novalidate style="--d:.12s">
+        <div class="fields">
+          <h3 data-i18n="f_h"></h3>
+          <p class="sub" data-i18n="f_sub"></p>
+          <fieldset class="who">
+            <legend data-i18n="f_type"></legend>
+            <label><input type="radio" name="tipo" value="b2c" checked><span><span data-i18n="f_t1"></span><small data-i18n="f_t1s"></small></span></label>
+            <label><input type="radio" name="tipo" value="b2b"><span><span data-i18n="f_t2"></span><small data-i18n="f_t2s"></small></span></label>
+            <label><input type="radio" name="tipo" value="otro"><span><span data-i18n="f_t3"></span><small data-i18n="f_t3s"></small></span></label>
+          </fieldset>
+          <div class="grid2">
+            <div class="f"><label for="fn" data-i18n="f_name"></label><input id="fn" name="n" autocomplete="name" required><span class="err" data-i18n="f_err"></span></div>
+            <div class="f"><label for="fe" data-i18n="f_mail"></label><input id="fe" name="e" type="email" autocomplete="email" required><span class="err" data-i18n="f_errm"></span></div>
+          </div>
+          <div class="f" id="orgRow" hidden><label for="fo" data-i18n="f_org"></label><input id="fo" name="o" autocomplete="organization"></div>
+          <div class="f"><label for="fp" data-i18n="f_prod"></label><select id="fp" name="p"></select></div>
+          <div class="f"><label for="fm" data-i18n="f_msg"></label><textarea id="fm" name="m" required data-i18n-ph="f_msgph"></textarea><span class="err" data-i18n="f_err"></span></div>
+          <p class="fine" data-i18n="f_fine"></p>
+          <button class="btn" type="submit"><span data-i18n="f_send"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+        <div class="thanks" id="thanks" tabindex="-1" role="status">
+          <img src="../assets/mascota-amor.png" width="955" height="769" alt="Mascota Airú con ojos de corazón, agradeciendo">
+          <h3 class="serif" data-i18n="f_ok"></h3>
+          <p data-i18n="f_okp"></p>
+          <button class="btn ghost sm" type="button" id="again" data-i18n="f_again"></button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <footer class="ft">
+    <div class="wrap">
+      <div><img class="wm" src="../assets/wordmark-blanco.png" width="923" height="116" loading="lazy" alt="Achachairú — Airú"><p style="margin-top:14px;max-width:34ch" data-i18n="ft_tag"></p></div>
+      <div><h4 data-i18n="ft_nav"></h4><a href="#c4" data-i18n="c4"></a><a href="#c6" data-i18n="c6"></a><a href="#c7" data-i18n="c7"></a><a href="#c8" data-i18n="c8"></a></div>
+      <div><h4 data-i18n="ft_find"></h4><a href="https://www.instagram.com/airusantacruz" target="_blank" rel="noopener">Instagram @airusantacruz</a><a href="mailto:info@achachairu.com.bo">info@achachairu.com.bo</a><p>Barrio Sirari C/ Las Begonias #217</p></div>
+      <div class="legal"><span data-i18n="ft_own"></span><span data-i18n="ft_demo"></span></div>
+    </div>
+  </footer>
+</section>
+</main>
+
+<div id="nar" role="status" aria-live="polite">
+  <div class="nav-av"><img id="narImg" src="../assets/mascota.png" width="546" height="754" alt="Mascota Airú, narrador del bosque"><span class="spark" aria-hidden="true">✦</span></div>
+  <p id="narTxt"><b id="narH"></b><span id="narS"></span></p>
+  <button class="nx" id="narX" type="button" aria-label="Cerrar / Close"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+</div>
+
+<script>
+(function(){
+'use strict';
+document.documentElement.classList.add('js');
+var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $ = function(s,r){return (r||document).querySelector(s)};
+var $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+
+/* ================= TEXTOS ES / EN ================= */
+var T = {
+es:{
+ demo:'Propuesta C · demo',
+ c1:'El árbol',c2:'La cosecha',c3:'La transformación',c4:'El producto',c5:'La comunidad',c6:'Dónde encontrarnos',c7:'Certificaciones',c8:'Contacto',
+ nav_contact:'Contacto',
+ h_kick:'Fruto maravilloso',
+ h_title:'Descubre el exótico mundo del <em>achachairú</em>',
+ h_lead:'En Airú somos especialistas en achachairú, una fruta exótica y deliciosa cultivada y procesada con el mayor cuidado. Nuestros productos reflejan nuestro compromiso con la calidad y la sostenibilidad, sin comprometer el sabor natural.',
+ h_cta1:'Explora nuestros productos',h_cta2:'¿Dónde encontrarnos?',h_cue:'Baja al bosque',
+ c2_h:'Cultivado con <em>cuidado</em>',
+ c2_pull:'Cada achachairú empieza en <b>las manos</b> de quien lo cuida.',
+ c2_p1:'Nuestros productos son frescos, saludables y de alta calidad, cultivados con cuidado por agricultores locales.',
+ c2_p2:'El achachairú es una fruta amazónica de Bolivia: una joya que crece entre hojas verdes y que en Airú tratamos con respeto por la naturaleza.',
+ c2_b1:'Agricultores locales',c2_b2:'Sin comprometer el sabor natural',
+ c3_h:'De la fruta al <em>producto</em>',
+ c3_q:'Liofilizar es quitar el agua <em>con frío</em>.',
+ c3_s1h:'La fruta',c3_s1:'Achachairú cultivado y cosechado con el mayor cuidado.',
+ c3_s2h:'La pulpa',c3_s2:'Se elabora bajo estrictos estándares de calidad. No contiene aditivos ni conservantes, preservando su sabor natural y sus propiedades nutritivas.',
+ c3_s3h:'La liofilización',c3_s3:'El frío retira el agua de la fruta y conserva todos los nutrientes y el sabor original.',
+ c3_s4h:'Chips y polvo',c3_s4:'Chips listos para disfrutar en cualquier momento, y el mismo achachairú hecho polvo.',
+ c3_cap1:'Fruta deshidratada por liofilización',c3_cap2:'Sin aditivos ni conservantes',
+ c3_p:'Producción orgánica, libre de agroquímicos y sin azúcares añadidos: la fruta se cuida de principio a fin.',
+ p1n:'Chips de achachairú',p2n:'Pulpa de achachairú',p3n:'Pulpa de acerola',p4n:'Polvo liofilizado de achachairú',
+ c4_h:'Cuatro formas de <em>disfrutar</em> el achachairú',
+ c4_lead:'Elige un producto y dinos si lo quieres para ti o para tu empresa. Sin precios publicados: consúltalos en un clic.',
+ aud_b2c:'Para ti',aud_b2b:'Para empresas',
+ p1d:'Conservan todos los nutrientes y el sabor original de la fruta, listos para disfrutar en cualquier momento.',
+ p2d:'Se elabora bajo estrictos estándares de calidad. No contiene aditivos ni conservantes, preservando su sabor natural y sus propiedades nutritivas.',
+ p3d:'La pulpa de acerola de la línea Airú, pensada para acompañar a la de achachairú.',
+ p4d:'Nuestros chips liofilizados de achachairú, hechos polvo: la fruta lista para mezclar o espolvorear.',
+ p1s1:'Bolsa de 20 g',p1s2:'16 achachairús',p1s3:'Liofilizado',
+ p2s1:'Sin aditivos',p2s2:'Sin conservantes',
+ p3s1:'Presentación por confirmar',p4s1:'Presentación por confirmar',p4s2:'Liofilizado',
+ price_b2c:'Precio a consultar',price_b2b:'Cotización a medida',
+ pn_b2c:'Te decimos el precio y dónde conseguirlo.',pn_b2b:'Cuéntanos tu volumen y te respondemos directo por correo.',
+ cta_b2c:'Consultar precio',cta_b2b:'Pedir cotización',cta_where:'Ver puntos de venta',
+ illu:'Ilustración · foto por llegar',tbc:'Ficha por confirmar',
+ c5_h:'Las manos detrás de <em>cada fruta</em>',
+ c5_lead:'Este es el espacio reservado para los videos de las comunidades que cultivan achachairú.',
+ c5_rec:'Comunidades',c5_slot:'Espacio para video',c5_ttl:'Aquí vivirán las <em>historias</em> de las comunidades.',
+ c5_msg:'Aquí irán los videos de las comunidades. Cuando los tengamos, se reproducirán en este mismo lugar.',close:'Cerrar',
+ c5_t1:'Comunidad · próximamente',c5_t2:'Cosecha · próximamente',c5_t3:'Agricultores · próximamente',
+ c6_h:'Encuentra <em>Airú</em> cerca de ti',
+ c6_lead:'Encuentra nuestros productos en diversos puntos de venta en Santa Cruz y otras ciudades de Bolivia.',
+ c6_ex:'Puntos de ejemplo',c6_note:'Mapa esquemático, no a escala. Los puntos son de ejemplo: la lista real de distribuidores se cargará con el cliente.',
+ c6_dist:'¿Interesado en distribuir nuestros productos?',c6_distcta:'Escríbenos',
+ m_of:'Oficina Airú · Barrio Sirari',m_ofs:'C/ Las Begonias #217',
+ m1:'Punto de ejemplo 1',m1z:'Zona Equipetrol',m2:'Punto de ejemplo 2',m2z:'Zona Centro',m3:'Punto de ejemplo 3',m3z:'Zona Av. Banzer',m4:'Punto de ejemplo 4',m4z:'Zona sur',
+ m_tag:'Punto de ejemplo',m_tago:'Oficina',m_addr:'Dirección por confirmar',m_addro:'Barrio Sirari C/ Las Begonias #217',
+ c7_h:'Calidad que se <em>puede ver</em>',
+ c7_lead:'Aquí mostraremos las certificaciones de Airú. Estos casilleros están listos para llenarse con los sellos reales.',
+ c7_s:'Aquí van tus certificaciones',c7_s2:'Sello y número por confirmar',
+ c7_p1h:'Frescura y calidad',c7_p1:'Productos frescos, saludables y de alta calidad, cultivados con cuidado por agricultores locales.',
+ c7_p2h:'Sin agroquímicos',c7_p2:'Producción orgánica, libre de agroquímicos y sin azúcares añadidos.',
+ c7_p3h:'Sostenibilidad',c7_p3:'Sostenibilidad ambiental y respeto por la naturaleza en cada paso.',
+ c8_h:'Hablemos de <em>achachairú</em>',
+ c8_lead:'Si eres cliente, tienda o empresa interesada en distribuir, escríbenos: te respondemos directo por correo.',
+ c8_mail:'Correo',c8_tel:'Teléfono',c8_addr:'Dirección',
+ f_h:'Cuéntanos qué necesitas',f_sub:'Elige el tipo de consulta y listo.',f_type:'Tipo de consulta',
+ f_t1:'Para mí',f_t1s:'Consumidor',f_t2:'Para mi empresa',f_t2s:'Distribuidor / B2B',f_t3:'Otra consulta',f_t3s:'Prensa, ideas…',
+ f_name:'Nombre',f_mail:'Correo electrónico',f_org:'Empresa',f_prod:'Producto de interés',f_msg:'Mensaje',f_msgph:'Cuéntanos qué te interesa…',
+ f_err:'Este campo es obligatorio.',f_errm:'Escribe un correo válido.',
+ f_fine:'Tu consulta se responde por correo.',f_send:'Enviar consulta',
+ f_ok:'¡Gracias!',f_okp:'Recibimos tu consulta (demostración: este formulario todavía no envía mensajes).',f_again:'Enviar otra consulta',
+ f_p0:'Aún no sé',
+ ft_tag:'Fruto maravilloso: el achachairú de Bolivia, liofilizado y en pulpa.',ft_nav:'Capítulos',ft_find:'Encuéntranos',
+ ft_own:'Airú es una marca de propiedad de Angirú S.R.L.',ft_demo:'Propuesta C · demo sin precios ni datos finales.',
+ n_h1:'Guardián del bosque',n_1:'¡Hola! Soy el guardián del bosque. Te acompaño por el camino del achachairú.',
+ n_2:'Dato: el achachairú es una fruta amazónica de Bolivia, una joya de la selva.',
+ n_3:'Dato: liofilizar es quitar el agua con frío para conservar nutrientes y sabor.',
+ n_4:'Dato: cada bolsa de chips de 20 g lleva 16 achachairús.',
+ n_5:'Pronto verás aquí a las comunidades que cultivan achachairú.',
+ n_6:'Estamos en puntos de venta de Santa Cruz y otras ciudades de Bolivia.',
+ n_7:'Dato: nuestros productos no llevan azúcares añadidos. El dulzor lo pone la fruta.',
+ n_8:'Escríbenos, te leemos con gusto. ¡Y gracias por llegar hasta aquí!',
+ n_wink:'Capítulo completo',n_thx:'¡Gracias! Te respondemos por correo.',
+ n_thxh:'Con cariño'
+},
+en:{
+ demo:'Proposal C · demo',
+ c1:'The tree',c2:'The harvest',c3:'The transformation',c4:'The product',c5:'The community',c6:'Where to find us',c7:'Certifications',c8:'Contact',
+ nav_contact:'Contact',
+ h_kick:'Marvelous fruit',
+ h_title:'Discover the exotic world of <em>achachairú</em>',
+ h_lead:'At Airú we specialize in achachairú, an exotic and delicious fruit grown and processed with the greatest care. Our products reflect our commitment to quality and sustainability, without compromising natural flavor.',
+ h_cta1:'Explore our products',h_cta2:'Where to find us',h_cue:'Descend into the forest',
+ c2_h:'Grown with <em>care</em>',
+ c2_pull:'Every achachairú begins in <b>the hands</b> of the person who tends it.',
+ c2_p1:'Our products are fresh, healthy and high quality, grown with care by local farmers.',
+ c2_p2:'Achachairú is an Amazonian fruit from Bolivia: a jewel that grows among green leaves, and one we treat with respect for nature.',
+ c2_b1:'Local farmers',c2_b2:'Natural flavor, uncompromised',
+ c3_h:'From fruit to <em>product</em>',
+ c3_q:'Freeze-drying is taking the water out <em>with cold</em>.',
+ c3_s1h:'The fruit',c3_s1:'Achachairú grown and harvested with the greatest care.',
+ c3_s2h:'The pulp',c3_s2:'Made under strict quality standards. It contains no additives or preservatives, keeping its natural flavor and nutritional properties.',
+ c3_s3h:'Freeze-drying',c3_s3:'Cold removes the water from the fruit and keeps all the nutrients and the original flavor.',
+ c3_s4h:'Chips and powder',c3_s4:'Chips ready to enjoy anytime, and the same achachairú turned into powder.',
+ c3_cap1:'Fruit dehydrated by freeze-drying',c3_cap2:'No additives or preservatives',
+ c3_p:'Organic production, free of agrochemicals and with no added sugar: the fruit is cared for from start to finish.',
+ p1n:'Achachairú chips',p2n:'Achachairú pulp',p3n:'Acerola pulp',p4n:'Freeze-dried achachairú powder',
+ c4_h:'Four ways to <em>enjoy</em> achachairú',
+ c4_lead:'Pick a product and tell us whether it is for you or for your business. No published prices: ask in one click.',
+ aud_b2c:'For you',aud_b2b:'For business',
+ p1d:'They keep all the nutrients and the original flavor of the fruit, ready to enjoy anytime.',
+ p2d:'Made under strict quality standards. It contains no additives or preservatives, keeping its natural flavor and nutritional properties.',
+ p3d:'Acerola pulp from the Airú line, made to sit alongside the achachairú one.',
+ p4d:'Our freeze-dried achachairú chips, turned into powder: the fruit ready to blend or sprinkle.',
+ p1s1:'20 g bag',p1s2:'16 achachairús',p1s3:'Freeze-dried',
+ p2s1:'No additives',p2s2:'No preservatives',
+ p3s1:'Format to be confirmed',p4s1:'Format to be confirmed',p4s2:'Freeze-dried',
+ price_b2c:'Price on request',price_b2b:'Custom quote',
+ pn_b2c:'We will tell you the price and where to get it.',pn_b2b:'Tell us your volume and we will reply directly by email.',
+ cta_b2c:'Ask for price',cta_b2b:'Request a quote',cta_where:'See points of sale',
+ illu:'Illustration · photo coming',tbc:'Details to be confirmed',
+ c5_h:'The hands behind <em>every fruit</em>',
+ c5_lead:'This is the space reserved for the videos of the communities that grow achachairú.',
+ c5_rec:'Communities',c5_slot:'Video slot',c5_ttl:'The communities’ <em>stories</em> will live here.',
+ c5_msg:'The community videos will go here. Once we have them, they will play in this very spot.',close:'Close',
+ c5_t1:'Community · coming soon',c5_t2:'Harvest · coming soon',c5_t3:'Farmers · coming soon',
+ c6_h:'Find <em>Airú</em> near you',
+ c6_lead:'Find our products at several points of sale in Santa Cruz and other cities of Bolivia.',
+ c6_ex:'Example points',c6_note:'Schematic map, not to scale. Points are examples: the real distributor list will be loaded with the client.',
+ c6_dist:'Interested in distributing our products?',c6_distcta:'Write to us',
+ m_of:'Airú office · Barrio Sirari',m_ofs:'C/ Las Begonias #217',
+ m1:'Example point 1',m1z:'Equipetrol area',m2:'Example point 2',m2z:'Downtown area',m3:'Example point 3',m3z:'Av. Banzer area',m4:'Example point 4',m4z:'South area',
+ m_tag:'Example point',m_tago:'Office',m_addr:'Address to be confirmed',m_addro:'Barrio Sirari C/ Las Begonias #217',
+ c7_h:'Quality you <em>can see</em>',
+ c7_lead:'Airú’s certifications will be shown here. These slots are ready to be filled with the real seals.',
+ c7_s:'Your certifications go here',c7_s2:'Seal and number to be confirmed',
+ c7_p1h:'Freshness and quality',c7_p1:'Fresh, healthy, high-quality products, grown with care by local farmers.',
+ c7_p2h:'Agrochemical-free',c7_p2:'Organic production, free of agrochemicals and with no added sugar.',
+ c7_p3h:'Sustainability',c7_p3:'Environmental sustainability and respect for nature at every step.',
+ c8_h:'Let’s talk <em>achachairú</em>',
+ c8_lead:'If you are a customer, a shop or a company interested in distributing, write to us: we reply directly by email.',
+ c8_mail:'Email',c8_tel:'Phone',c8_addr:'Address',
+ f_h:'Tell us what you need',f_sub:'Pick the type of enquiry and you are done.',f_type:'Type of enquiry',
+ f_t1:'For me',f_t1s:'Consumer',f_t2:'For my business',f_t2s:'Distributor / B2B',f_t3:'Other enquiry',f_t3s:'Press, ideas…',
+ f_name:'Name',f_mail:'Email',f_org:'Company',f_prod:'Product of interest',f_msg:'Message',f_msgph:'Tell us what you are interested in…',
+ f_err:'This field is required.',f_errm:'Enter a valid email.',
+ f_fine:'Your enquiry is answered by email.',f_send:'Send enquiry',
+ f_ok:'Thank you!',f_okp:'We received your enquiry (demo: this form does not send messages yet).',f_again:'Send another enquiry',
+ f_p0:'Not sure yet',
+ ft_tag:'Marvelous fruit: Bolivia’s achachairú, freeze-dried and as pulp.',ft_nav:'Chapters',ft_find:'Find us',
+ ft_own:'Airú is a brand owned by Angirú S.R.L.',ft_demo:'Proposal C · demo with no prices or final data.',
+ n_h1:'Guardian of the forest',n_1:'Hi! I am the guardian of the forest. I will walk the achachairú path with you.',
+ n_2:'Fact: achachairú is an Amazonian fruit from Bolivia, a jewel of the jungle.',
+ n_3:'Fact: freeze-drying is removing water with cold to keep nutrients and flavor.',
+ n_4:'Fact: every 20 g bag of chips holds 16 achachairús.',
+ n_5:'Soon you will meet here the communities that grow achachairú.',
+ n_6:'We are at points of sale in Santa Cruz and other cities of Bolivia.',
+ n_7:'Fact: our products have no added sugar. The sweetness comes from the fruit.',
+ n_8:'Write to us, we love to read. And thank you for making it this far!',
+ n_wink:'Chapter complete',n_thx:'Thank you! We will reply by email.',
+ n_thxh:'With love'
+}};
+var LANGKEY='airu_c_amazonia_lang';
+var lang='es';
+try{var sv=localStorage.getItem(LANGKEY);if(sv==='en'||sv==='es')lang=sv;}catch(e){}
+function t(k){return (T[lang]&&T[lang][k])||T.es[k]||k}
+
+/* ================= Productos ================= */
+var P=[
+ {id:'chips',n:'p1n',d:'p1d',s:['p1s1','p1s2','p1s3'],img:'../assets/chips.png',alt:{es:'Bolsa Airú Achachairú Chips con trozos de fruta liofilizada',en:'Airú Achachairú Chips bag with freeze-dried fruit pieces'}},
+ {id:'pulpa',n:'p2n',d:'p2d',s:['p2s1','p2s2'],img:'../assets/pulpa.png',alt:{es:'Manos con guantes sosteniendo una bolsa de pulpa de achachairú',en:'Gloved hands holding a bag of achachairú pulp'}},
+ {id:'acerola',n:'p3n',d:'p3d',s:['p3s1'],art:'art-acerola',tbc:1,alt:{es:'Ilustración de frutos de acerola rojos con hojas verdes',en:'Illustration of red acerola fruits with green leaves'}},
+ {id:'polvo',n:'p4n',d:'p4d',s:['p4s1','p4s2'],art:'art-polvo',tbc:1,alt:{es:'Ilustración de un cuenco con polvo liofilizado de achachairú',en:'Illustration of a bowl of freeze-dried achachairú powder'}}
+];
+var curP=0,aud='b2c';
+var ptabs=$('#ptabs'),stage=$('#stage');
+function thumb(p){return p.img?'<img src="'+p.img+'" alt="" width="48" height="48" loading="lazy">':'<svg viewBox="0 0 400 400" aria-hidden="true"><rect width="400" height="400" fill="#1B4A2E"/><use href="#'+p.art+'"/></svg>'}
+function renderTabs(){
+  ptabs.innerHTML=P.map(function(p,i){return '<button class="ptab" role="tab" type="button" id="pt'+i+'" aria-selected="'+(i===curP)+'" aria-controls="stage" tabindex="'+(i===curP?0:-1)+'" data-i="'+i+'"><span class="th">'+thumb(p)+'</span><span>'+t(p.n)+'</span></button>'}).join('');
+}
+function renderStage(anim){
+  var p=P[curP];
+  var vis=p.img?'<img class="pi" src="'+p.img+'" width="600" height="600" alt="'+p.alt[lang]+'">':'<svg class="pi" viewBox="0 0 400 400" role="img" aria-label="'+p.alt[lang]+'"><use href="#'+p.art+'"/></svg><span class="illu">'+t('illu')+'</span>';
+  var b2b=aud==='b2b';
+  stage.setAttribute('aria-labelledby','pt'+curP);
+  stage.innerHTML='<div class="pvis">'+vis+'</div><div class="pinfo"'+(anim===false?' style="animation:none"':'')+'><h3>'+t(p.n)+(p.tbc?'<span class="tbc">'+t('tbc')+'</span>':'')+'</h3><p class="d">'+t(p.d)+'</p><ul class="spec">'+p.s.map(function(k){return '<li>'+t(k)+'</li>'}).join('')+'</ul><div class="price"><strong>'+t(b2b?'price_b2b':'price_b2c')+'</strong><small>'+t(b2b?'pn_b2b':'pn_b2c')+'</small></div><div class="pact"><a class="btn" href="#c8" data-go="'+(b2b?'b2b':'b2c')+'" data-prod="'+p.id+'">'+t(b2b?'cta_b2b':'cta_b2c')+'</a>'+(b2b?'':'<a class="btn ghost" href="#c6">'+t('cta_where')+'</a>')+'</div></div>';
+}
+function selectP(i,focus){
+  curP=i;renderTabs();renderStage();
+  var b=$('#pt'+i);if(focus&&b)b.focus({preventScroll:true});
+  if(b&&b.scrollIntoView&&window.innerWidth<900){ptabs.scrollTo({left:b.offsetLeft-12,behavior:RM?'auto':'smooth'})}
+}
+ptabs.addEventListener('click',function(e){var b=e.target.closest('.ptab');if(b)selectP(+b.dataset.i,false)});
+ptabs.addEventListener('keydown',function(e){
+  var n=P.length,k=e.key;
+  if(k==='ArrowRight'||k==='ArrowDown'){e.preventDefault();selectP((curP+1)%n,true)}
+  else if(k==='ArrowLeft'||k==='ArrowUp'){e.preventDefault();selectP((curP+n-1)%n,true)}
+});
+$('#pPrev').onclick=function(){selectP((curP+P.length-1)%P.length,false)};
+$('#pNext').onclick=function(){selectP((curP+1)%P.length,false)};
+$$('[data-aud]').forEach(function(b){b.addEventListener('click',function(){
+  aud=b.dataset.aud;$$('[data-aud]').forEach(function(x){x.setAttribute('aria-pressed',x===b)});renderStage(false);
+  var r=$$('input[name=tipo]');r.forEach(function(x){x.checked=(x.value===aud)});syncType();
+})});
+
+/* ================= Formulario ================= */
+var form=$('#form'),fp=$('#fp');
+function renderSelect(){
+  var v=fp.value;
+  fp.innerHTML='<option value="">'+t('f_p0')+'</option>'+P.map(function(p){return '<option value="'+p.id+'">'+t(p.n)+'</option>'}).join('');
+  fp.value=v;
+}
+function syncType(){var v=$('input[name=tipo]:checked').value;$('#orgRow').hidden=(v!=='b2b')}
+$$('input[name=tipo]').forEach(function(r){r.addEventListener('change',syncType)});
+document.addEventListener('click',function(e){
+  var a=e.target.closest('[data-go]');if(!a)return;
+  var tp=a.dataset.go;var r=$('input[name=tipo][value='+tp+']');if(r){r.checked=true;syncType()}
+  if(a.dataset.prod)fp.value=a.dataset.prod;
+  setTimeout(function(){var n=$('#fn');if(n&&!form.classList.contains('sent'))n.focus({preventScroll:true})},700);
+});
+function validate(){
+  var ok=true;
+  [['#fn',function(v){return v.trim().length>0}],['#fe',function(v){return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.trim())}],['#fm',function(v){return v.trim().length>0}]].forEach(function(c){
+    var el=$(c[0]);var good=c[1](el.value);el.closest('.f').classList.toggle('bad',!good);el.setAttribute('aria-invalid',!good);if(!good&&ok){ok=false;el.focus()}
+  });
+  return ok;
+}
+form.addEventListener('submit',function(e){
+  e.preventDefault();if(!validate())return;
+  form.classList.add('sent');
+  var th=$('#thanks');th.focus({preventScroll:true});
+  nar.love=true;
+  showNar({img:'../assets/mascota-amor.png',h:'n_thxh',s:'n_thx',ms:7000});
+  hearts();
+});
+$('#again').onclick=function(){form.classList.remove('sent');form.reset();syncType();$$('.f').forEach(function(f){f.classList.remove('bad')});nar.love=false;$('#fn').focus()};
+['#fn','#fe','#fm'].forEach(function(s){$(s).addEventListener('input',function(){this.closest('.f').classList.remove('bad')})});
+function hearts(){
+  if(RM)return;
+  var r=$('#thanks').getBoundingClientRect();
+  for(var i=0;i<16;i++){(function(i){setTimeout(function(){
+    var h=document.createElementNS('http://www.w3.org/2000/svg','svg');h.setAttribute('class','heart');h.setAttribute('viewBox','0 0 24 24');h.setAttribute('aria-hidden','true');
+    h.innerHTML='<use href="#heart"/>';
+    h.style.left=(r.left+r.width*(.25+Math.random()*.5))+'px';h.style.top=(Math.min(r.top+r.height*.5,innerHeight-80))+'px';
+    h.style.setProperty('--hx',((Math.random()-.5)*160)+'px');h.style.setProperty('--hr',((Math.random()-.5)*60)+'deg');
+    h.style.width=h.style.height=(16+Math.random()*22)+'px';
+    document.body.appendChild(h);setTimeout(function(){h.remove()},2300);
+  },i*110)})(i)}
+}
+
+/* ================= Mapa ================= */
+var PTS=[
+ {id:'of',x:452,y:196,n:'m_of',z:'m_ofs',office:1},
+ {id:'m1',x:372,y:150,n:'m1',z:'m1z'},
+ {id:'m2',x:404,y:292,n:'m2',z:'m2z'},
+ {id:'m3',x:520,y:112,n:'m3',z:'m3z'},
+ {id:'m4',x:330,y:430,n:'m4',z:'m4z'}
+];
+var selPt='of';
+function renderMap(){
+  var g=$('#pins');
+  g.innerHTML=PTS.map(function(p){
+    var col=p.office?'#8EC63F':'#FBB028';
+    return '<g class="pin'+(p.office?' office':'')+(p.id===selPt?' sel':'')+'" tabindex="0" role="button" data-id="'+p.id+'" aria-label="'+t(p.n)+', '+t(p.z)+'" transform="translate('+p.x+' '+p.y+')">'+
+    '<circle class="pulse" r="9" fill="'+col+'" opacity=".5"/><circle class="hit" r="22" fill="transparent"/>'+
+    '<circle class="dot" r="8" fill="'+col+'" stroke="#0B2415" stroke-width="3"/>'+
+    (p.office?'<use href="#leaf" x="-8" y="-30" width="16" height="16"/>':'')+
+    (p.x>440?'<text x="-14" y="5" text-anchor="end">':'<text x="14" y="5">')+t(p.n)+'</text></g>';
+  }).join('');
+  $('#plist').innerHTML=PTS.map(function(p){return '<li><button type="button" class="'+(p.office?'ofi':'')+'" data-id="'+p.id+'" aria-pressed="'+(p.id===selPt)+'"><i></i><span>'+t(p.n)+'<small>'+t(p.z)+'</small></span></button></li>'}).join('');
+  var p=PTS.filter(function(x){return x.id===selPt})[0];
+  $('#selCard').innerHTML='<small>'+t(p.office?'m_tago':'m_tag')+'</small><h3>'+t(p.n)+'</h3><p>'+(p.office?t('m_addro'):t('m_addr')+' · '+t(p.z))+'</p>';
+}
+function pick(id){selPt=id;renderMap()}
+$('#pins').addEventListener('click',function(e){var g=e.target.closest('.pin');if(g)pick(g.dataset.id)});
+$('#pins').addEventListener('keydown',function(e){var g=e.target.closest('.pin');if(g&&(e.key==='Enter'||e.key===' ')){e.preventDefault();pick(g.dataset.id);var n=$('.pin[data-id='+g.dataset.id+']');if(n)n.focus()}});
+$('#plist').addEventListener('click',function(e){var b=e.target.closest('button');if(b)pick(b.dataset.id)});
+
+function mapView(){$('#mapsvg').setAttribute('viewBox',window.innerWidth<700?'250 70 340 410':'0 0 800 560')}
+mapView();window.addEventListener('resize',mapView);
+/* ================= Video demo ================= */
+$('#playBtn').onclick=function(){$('#vmsg').classList.add('show');$('#vclose').focus()};
+$('#vclose').onclick=function(){$('#vmsg').classList.remove('show');$('#playBtn').focus()};
+
+/* ================= i18n ================= */
+function applyLang(){
+  document.documentElement.lang=lang;
+  $$('[data-i18n]').forEach(function(el){el.textContent=t(el.dataset.i18n)});
+  $$('[data-i18n-html]').forEach(function(el){el.innerHTML=t(el.dataset.i18nHtml)});
+  $$('[data-i18n-ph]').forEach(function(el){el.placeholder=t(el.dataset.i18nPh)});
+  $$('[data-lang]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang===lang)});
+  document.title=lang==='es'?'Airú · Achachairú de la Amazonía boliviana — Propuesta C':'Airú · Achachairú from the Bolivian Amazon — Proposal C';
+  $('meta[name=description]').content=lang==='es'?'Airú, marca de Angirú S.R.L.: achachairú liofilizado y en pulpa desde Santa Cruz de la Sierra, Bolivia. Chips, pulpa y polvo, sin aditivos ni azúcares añadidos.':'Airú, a brand of Angirú S.R.L.: freeze-dried achachairú and pulp from Santa Cruz de la Sierra, Bolivia. Chips, pulp and powder, with no additives or added sugar.';
+  renderTabs();renderStage(false);renderSelect();renderMap();buildNav();updChip(curCh);
+  $('#narX').setAttribute('aria-label',lang==='es'?'Cerrar':'Close');
+  $('#pPrev').setAttribute('aria-label',lang==='es'?'Producto anterior':'Previous product');
+  $('#pNext').setAttribute('aria-label',lang==='es'?'Producto siguiente':'Next product');
+  $('#playBtn').setAttribute('aria-label',lang==='es'?'Reproducir video (próximamente)':'Play video (coming soon)');
+  $('#mapsvg').setAttribute('aria-label',lang==='es'?'Mapa esquemático de Santa Cruz de la Sierra con puntos de ejemplo':'Schematic map of Santa Cruz de la Sierra with example points');
+  $('#chmenu').setAttribute('aria-label',lang==='es'?'Capítulos':'Chapters');
+  $('#rail').setAttribute('aria-label',lang==='es'?'Capítulos':'Chapters');
+  $('#segType').setAttribute('aria-label',lang==='es'?'Tipo de cliente':'Customer type');
+  $('#ptabs').setAttribute('aria-label',lang==='es'?'Productos':'Products');
+  $('.lang').setAttribute('aria-label',lang==='es'?'Idioma':'Language');
+  $('#thanks img').alt=lang==='es'?'Mascota Airú con ojos de corazón, agradeciendo':'Airú mascot with heart eyes, saying thank you';
+  $('.hmasc img').alt=lang==='es'?'Mascota de Airú: un achachairú sonriente que guiña un ojo y saluda':'Airú mascot: a smiling achachairú winking and waving';
+  $('.hbg img').alt=lang==='es'?'Una mano recoge frutos de achachairú de las ramas de un árbol entre hojas verdes':'A hand picks achachairú fruits from the branches of a tree among green leaves';
+  $('.arch img').alt=lang==='es'?'Primer plano de la mano de un agricultor sosteniendo un achachairú maduro en el árbol':'Close-up of a farmer’s hand holding a ripe achachairú on the tree';
+  $$('.peek img').forEach(function(i){i.alt=lang==='es'?'Mascota Airú asomándose desde el borde':'Airú mascot peeking from the edge'});
+  $('.screen>img').alt=lang==='es'?'Fondo de un árbol de achachairú con una bolsa Airú Chips, reservado como póster del video de las comunidades':'Backdrop of an achachairú tree with an Airú Chips bag, reserved as the poster for the community video';
+  $$('.orb img')[0].alt=lang==='es'?'Manos con guantes sosteniendo una bolsa de pulpa de achachairú':'Gloved hands holding a bag of achachairú pulp';
+  $$('.orb img')[1].alt=lang==='es'?'Bolsa Airú Achachairú Chips rodeada de trozos de fruta liofilizada sobre concreto':'Airú Achachairú Chips bag surrounded by freeze-dried fruit pieces on concrete';
+  $('.logo .wm').alt=lang==='es'?'Achachairú — logotipo Airú con hoja verde':'Achachairú — Airú logo with a green leaf';
+  $('.logo .mk').alt=lang==='es'?'Airú — logotipo con hoja verde':'Airú — logo with a green leaf';
+  $('#narImg').alt=lang==='es'?'Mascota Airú, narrador del bosque':'Airú mascot, narrator of the forest';
+  $('footer .wm').alt=lang==='es'?'Achachairú — Airú':'Achachairú — Airú';
+  $('.thumbs').setAttribute('aria-label',lang==='es'?'Espacios para más videos':'Slots for more videos');
+}
+$$('[data-lang]').forEach(function(b){b.addEventListener('click',function(){
+  lang=b.dataset.lang;try{localStorage.setItem(LANGKEY,lang)}catch(e){}applyLang();
+  if(nar&&nar.cur&&!nar.el.classList.contains('mini')){$('#narH').textContent=t(nar.cur.h||'n_h1');$('#narS').textContent=t(nar.cur.s)}
+})});
+
+/* ================= Navegación de capítulos ================= */
+var CH=$$('section.ch');var curCh=1;
+function buildNav(){
+  var rail=$('#rail ol'),menu=$('#chmenu');
+  rail.innerHTML=CH.map(function(c,i){return '<li><a href="#'+c.id+'" data-n="'+(i+1)+'"><i></i><span>0'+(i+1)+' · '+t('c'+(i+1))+'</span></a></li>'}).join('');
+  menu.innerHTML=CH.map(function(c,i){return '<a href="#'+c.id+'" data-n="'+(i+1)+'"><b>0'+(i+1)+'</b>'+t('c'+(i+1))+'</a>'}).join('');
+  markNav(curCh);
+}
+function markNav(n){
+  $$('#rail a,#chmenu a').forEach(function(a){var k=+a.dataset.n;a.classList.toggle('on',k===n);a.classList.toggle('done',k<n);if(k===n)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
+}
+function updChip(n){$('#chN').textContent='0'+n;$('#chT').textContent=t('c'+n)}
+var chip=$('#chChip'),cm=$('#chmenu');
+chip.onclick=function(){var o=cm.classList.toggle('open');chip.setAttribute('aria-expanded',o)};
+cm.addEventListener('click',function(e){if(e.target.closest('a')){cm.classList.remove('open');chip.setAttribute('aria-expanded','false')}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){cm.classList.remove('open');chip.setAttribute('aria-expanded','false');$('#vmsg').classList.remove('show')}});
+
+/* ================= Narrador (la mascota NO sigue puntero) ================= */
+var nar={el:$('#nar'),timer:0,love:false,shown:{},winked:{}};
+function showNar(o){
+  var el=nar.el;clearTimeout(nar.timer);nar.cur=o;
+  $('#narImg').src=o.img||'../assets/mascota.png';
+  el.classList.remove('wink');
+  if(o.mini){el.classList.add('mini')}else{el.classList.remove('mini');$('#narH').textContent=t(o.h||'n_h1');$('#narS').textContent=t(o.s)}
+  void el.offsetWidth;
+  el.classList.add('show');
+  if(o.wink)el.classList.add('wink');
+  nar.timer=setTimeout(hideNar,o.ms||6500);
+}
+function hideNar(){nar.el.classList.remove('show','wink')}
+$('#narX').onclick=function(){hideNar();nar.dismissed=true};
+nar.el.addEventListener('transitionend',function(){});
+function onChapter(n){
+  curCh=n;markNav(n);updChip(n);
+  if(nar.shown[n]||nar.dismissed&&n!==1)return;
+  if(n===8&&nar.love)return;
+  nar.shown[n]=1;
+  setTimeout(function(){if(curCh===n&&!nar.love)showNar({h:'n_h1',s:'n_'+n,wink:n===1})},n===1?2600:500);
+}
+var lastCh=0;
+function detectCh(){var m=innerHeight*.5,n=1;for(var i=0;i<CH.length;i++){if(CH[i].getBoundingClientRect().top<=m)n=i+1}if(n!==lastCh){lastCh=n;onChapter(n)}}
+var endObs=new IntersectionObserver(function(es){es.forEach(function(e){
+  if(e.isIntersecting){var n=+e.target.dataset.end;if(nar.winked[n]||nar.love)return;nar.winked[n]=1;
+    showNar({mini:true,wink:true,ms:2000});}
+})},{rootMargin:'0px 0px -12% 0px'});
+$$('[data-end]').forEach(function(s){endObs.observe(s)});
+
+/* ================= Revelado + peek ================= */
+var rvObs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');rvObs.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+$$('.rv,[data-peek]').forEach(function(el){rvObs.observe(el)});
+/* hero mascota se asoma al cargar */
+requestAnimationFrame(function(){setTimeout(function(){$('#hmasc').classList.add('up')},50)});
+setTimeout(function(){$$('.rv').forEach(function(el){var r=el.getBoundingClientRect();if(r.top<innerHeight*1.1)el.classList.add('in')})},2500);
+
+/* ================= Scroll: progreso, parallax ================= */
+var bar=$('#bar'),top_=$('#top'),rail=$('#rail');
+var par=$$('[data-par]'),hc=$('#hcont'),ticking=false;
+function onScroll(){
+  var y=window.scrollY,h=document.documentElement.scrollHeight-innerHeight;
+  var p=h>0?Math.min(1,y/h):0;
+  bar.style.transform='scaleX('+p+')';rail.style.setProperty('--rp',p);
+  top_.classList.toggle('solid',y>40);
+  detectCh();
+  if(!RM){
+    par.forEach(function(el){
+      var r=el.parentElement.getBoundingClientRect();
+      if(r.bottom<-200||r.top>innerHeight+200)return;
+      var off=(r.top+r.height/2-innerHeight/2)*-(+el.dataset.par);
+      el.style.transform='translate3d(0,'+off.toFixed(1)+'px,0)';
+    });
+    if(y<innerHeight*1.2){hc.style.transform='translate3d(0,'+(y*.16).toFixed(1)+'px,0)';hc.style.opacity=Math.max(0,1-y/(innerHeight*.9)).toFixed(2)}
+  }
+  ticking=false;
+}
+window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
+window.addEventListener('resize',onScroll);
+
+/* ================= Luciérnagas (canvas) ================= */
+(function(){
+  var cv=$('#ff'),cx=cv.getContext('2d'),W=0,H=0,dpr=Math.min(window.devicePixelRatio||1,1.5),fl=[],run=false,raf=0;
+  function size(){W=innerWidth;H=innerHeight;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);if(!run)draw(0)}
+  function init(){var n=W<700?22:44;fl=[];for(var i=0;i<n;i++)fl.push({x:Math.random()*W,y:Math.random()*H,r:1+Math.random()*2.2,s:.15+Math.random()*.4,a:Math.random()*6.28,ph:Math.random()*6.28,sp:.6+Math.random()*1.4,c:Math.random()<.78?'251,176,40':'142,198,63'})}
+  function draw(t){
+    cx.clearRect(0,0,W,H);
+    for(var i=0;i<fl.length;i++){var f=fl[i];
+      if(!RM){f.a+=Math.sin(t/2200+f.ph)*.03;f.x+=Math.cos(f.a)*f.s;f.y+=Math.sin(f.a)*f.s-.12;if(f.x<-20)f.x=W+20;if(f.x>W+20)f.x=-20;if(f.y<-20)f.y=H+20;if(f.y>H+20)f.y=-20}
+      var al=RM?.55:.35+.65*(.5+.5*Math.sin(t/1000*f.sp+f.ph));
+      var g=cx.createRadialGradient(f.x,f.y,0,f.x,f.y,f.r*7);g.addColorStop(0,'rgba('+f.c+','+(al*.9)+')');g.addColorStop(.35,'rgba('+f.c+','+(al*.25)+')');g.addColorStop(1,'rgba('+f.c+',0)');
+      cx.fillStyle=g;cx.beginPath();cx.arc(f.x,f.y,f.r*7,0,6.283);cx.fill();
+      cx.fillStyle='rgba(255,244,227,'+al+')';cx.beginPath();cx.arc(f.x,f.y,f.r*.6,0,6.283);cx.fill();
+    }
+  }
+  function loop(t){draw(t);raf=requestAnimationFrame(loop)}
+  function start(){if(RM||run||document.hidden)return;run=true;raf=requestAnimationFrame(loop)}
+  function stop(){run=false;cancelAnimationFrame(raf)}
+  document.addEventListener('visibilitychange',function(){document.hidden?stop():start()});
+  window.addEventListener('resize',function(){size();init()});
+  size();init();draw(0);start();
+})();
+
+/* ================= Init ================= */
+applyLang();onScroll();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Airú · Tres propuestas para tu nuevo sitio</title>
+<link rel="icon" href="assets/hoja.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--or:#F26B21;--am:#FBB028;--gr:#27A749;--li:#8EC63F;--br:#3A1C0A;--cr:#FFF4E3}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Lato,system-ui,sans-serif;background:var(--cr);color:var(--br);line-height:1.55;overflow-x:hidden}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 5vw}
+header img{height:40px;width:auto}
+.lang{display:inline-flex;border:2.5px solid var(--br);border-radius:99px;overflow:hidden}
+.lang button{min-width:44px;min-height:40px;border:0;background:none;font:900 .85rem Lato;cursor:pointer;color:var(--br)}
+.lang button[aria-pressed=true]{background:var(--br);color:var(--cr)}
+.hero{text-align:center;padding:clamp(30px,6vw,70px) 5vw 30px;position:relative}
+.hero .m{width:clamp(90px,14vw,140px);margin:0 auto 6px;display:block;animation:bob 3.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px) rotate(3deg)}}
+.kick{font:700 .85rem Lato;letter-spacing:.28em;color:#1A6B2E;text-transform:uppercase}
+h1{font:700 clamp(2.2rem,6vw,4.6rem)/1.02 Fredoka,system-ui,sans-serif;margin:12px auto 16px;max-width:900px}
+h1 em{font-style:normal;color:#D24E0C}
+.lead{max-width:640px;margin:0 auto;font-size:1.1rem;opacity:.85}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px;padding:40px 5vw 30px;max-width:1280px;margin:0 auto}
+.card{position:relative;display:flex;flex-direction:column;border-radius:30px;overflow:hidden;text-decoration:none;color:inherit;border:3px solid var(--br);box-shadow:8px 8px 0 var(--br);transition:transform .25s,box-shadow .25s;min-height:430px}
+.card:hover,.card:focus-visible{transform:translate(-4px,-4px);box-shadow:12px 12px 0 var(--br);outline:none}
+.card .top{flex:1;padding:26px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;min-height:240px}
+.card .tag{position:absolute;top:18px;left:18px;font:900 .72rem Lato;letter-spacing:.2em;padding:7px 12px;border-radius:99px;text-transform:uppercase}
+.card .art{position:absolute;right:-10px;top:10px;width:48%;max-width:210px;filter:drop-shadow(0 12px 16px rgba(0,0,0,.25));transition:transform .4s}
+.card:hover .art{transform:rotate(-5deg) scale(1.06)}
+.card h2{font:700 2rem/1.05 Fredoka,sans-serif;position:relative}
+.card .bot{padding:20px 26px 24px;background:#fff;color:var(--br)}
+.card .bot p{font-size:.97rem;margin-bottom:14px}
+.card .go{display:inline-flex;align-items:center;gap:8px;font:900 .95rem Lato;background:var(--br);color:var(--cr);padding:12px 20px;border-radius:99px;min-height:44px}
+.chips{display:flex;gap:6px;margin:0 0 12px}.chips i{width:22px;height:22px;border-radius:50%;border:2px solid var(--br);display:block}
+.cA .top{background:var(--or);color:#fff}.cA .tag{background:var(--cr);color:var(--br)}
+.cB .top{background:linear-gradient(160deg,#fff 0%,#e9f7ec 100%);color:var(--br)}.cB .tag{background:var(--gr);color:#fff}
+.cC .top{background:radial-gradient(circle at 70% 30%,#1f5a37,#0B2415 70%);color:var(--cr)}.cC .tag{background:var(--am);color:#2a1608}
+.note{max-width:760px;margin:10px auto 0;text-align:center;font-size:.95rem;padding:0 5vw}
+.how{max-width:900px;margin:34px auto 0;padding:0 5vw;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+.how div{background:#fff;border:2.5px solid var(--br);border-radius:22px;padding:18px 20px}
+.how b{display:block;font:700 1.15rem Fredoka;margin-bottom:4px}
+footer{text-align:center;padding:50px 5vw 60px;font-size:.85rem;opacity:.8}
+footer img{height:30px;margin-bottom:10px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<header><img src="assets/wordmark-cafe.png" alt="Achachairú Airú"><div class="lang" role="group" aria-label="Idioma"><button data-l="es" aria-pressed="true">ES</button><button data-l="en" aria-pressed="false">EN</button></div></header>
+
+<section class="hero">
+<img class="m" src="assets/mascota.png" alt="Airú, la mascota de achachairú, guiñando">
+<div class="kick" data-es="Tres propuestas para tu nuevo sitio" data-en="Three proposals for your new website"></div>
+<h1 data-es="Elige la que más se parece a <em>Airú</em>" data-en="Pick the one that feels most like <em>Airú</em>"></h1>
+<p class="lead" data-es="Tres caminos distintos, con tu marca, tus colores y tu muñeco. Todas son bilingües (ES/EN), muestran tus 4 productos, certificaciones, mapa de distribuidores y contacto por formulario, sin WhatsApp. Ábrelas, recórrelas y dinos cuál te gusta, o qué mezclarías." data-en="Three different directions, with your brand, your colours and your character. All are bilingual (ES/EN) and show your 4 products, certifications, a distributor map and a contact form, no WhatsApp. Open them, scroll through them, and tell us which you like, or what you’d mix."></p>
+</section>
+
+<main class="grid">
+<a class="card cA" href="a-fruta-viva/">
+ <div class="top"><span class="tag">Propuesta A</span><img class="art" src="assets/mascota-amor.png" alt="" aria-hidden="true">
+ <div class="chips" aria-hidden="true"><i style="background:#F26B21"></i><i style="background:#FBB028"></i><i style="background:#27A749"></i></div>
+ <h2 data-es="Fruta Viva" data-en="Living Fruit"></h2></div>
+ <div class="bot"><p data-es="Alegre, cálida y muy de marca: naranja Airú, formas orgánicas y tu muñeco como guía que camina por la página mientras bajas." data-en="Joyful, warm and very on-brand: Airú orange, organic shapes and your character as a guide walking down the page as you scroll."></p><span class="go" data-es="Ver propuesta A →" data-en="View proposal A →"></span></div>
+</a>
+<a class="card cB" href="b-tienda/">
+ <div class="top"><span class="tag">Propuesta B</span><img class="art" src="assets/chips.png" alt="" aria-hidden="true" style="border-radius:50%">
+ <div class="chips" aria-hidden="true"><i style="background:#fff"></i><i style="background:#27A749"></i><i style="background:#F26B21"></i></div>
+ <h2 data-es="Tienda Premium" data-en="Premium Store"></h2></div>
+ <div class="bot"><p data-es="Limpia y confiable, como las referencias que te gustaron: catálogo, “Mi pedido”, cotización para empresas, mapa y preguntas frecuentes. Tu muñeco es el sello de cada producto." data-en="Clean and trustworthy, like the references you liked: catalogue, “My order”, business quotes, map and FAQ. Your character is the seal on every product."></p><span class="go" data-es="Ver propuesta B →" data-en="View proposal B →"></span></div>
+</a>
+<a class="card cC" href="c-amazonia/">
+ <div class="top"><span class="tag">Propuesta C</span><img class="art" src="assets/mascota.png" alt="" aria-hidden="true">
+ <div class="chips" aria-hidden="true"><i style="background:#0B2415;border-color:#FFF4E3"></i><i style="background:#FBB028;border-color:#FFF4E3"></i><i style="background:#8EC63F;border-color:#FFF4E3"></i></div>
+ <h2 data-es="Amazonía" data-en="Amazonia"></h2></div>
+ <div class="bot"><p data-es="Cinematográfica y emocional: una historia por capítulos del árbol a la bolsa, con luciérnagas y tu muñeco como narrador del bosque." data-en="Cinematic and emotional: a chaptered story from tree to bag, with fireflies and your character as the forest narrator."></p><span class="go" data-es="Ver propuesta C →" data-en="View proposal C →"></span></div>
+</a>
+</main>
+
+<p class="note" data-es="Tip: ábrelas también en tu celular. Los precios, certificaciones, puntos del mapa y videos son espacios de ejemplo, listos para llenar con tu material real." data-en="Tip: open them on your phone too. Prices, certifications, map points and videos are sample slots, ready to be filled with your real material."></p>
+
+<section class="how">
+<div><b data-es="1 · Recórrelas" data-en="1 · Explore"></b><span data-es="Cambia el idioma, prueba “Para ti / Para empresas”, mira el mapa y llena el formulario de prueba." data-en="Switch language, try “For you / For business”, check the map and fill the test form."></span></div>
+<div><b data-es="2 · Elige" data-en="2 · Choose"></b><span data-es="Una de las tres, o mezcla: por ejemplo la tienda de B con la historia de C." data-en="One of the three, or mix: e.g. B’s store with C’s story."></span></div>
+<div><b data-es="3 · Completamos" data-en="3 · We complete it"></b><span data-es="Con tus precios, sellos, distribuidores y videos, más el panel de administrador y las alertas por correo." data-en="With your prices, seals, distributors and videos, plus the admin panel and email alerts."></span></div>
+</section>
+
+<footer><img src="assets/airu-cafe.png" alt="Airú"><br><span data-es="Airú es una marca de propiedad de Angirú S.R.L. · Demostración, no es el sitio final." data-en="Airú is a brand owned by Angirú S.R.L. · Demo, not the final site."></span></footer>
+<script>
+let L=localStorage.getItem('airu-idx-lang')==='en'?'en':'es';
+function ap(){document.documentElement.lang=L;document.querySelectorAll('[data-es]').forEach(e=>e.innerHTML=e.dataset[L]);document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===L))}
+document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>{L=b.dataset.l;localStorage.setItem('airu-idx-lang',L);ap()});ap();
+</script></body></html>

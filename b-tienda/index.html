@@ -1,0 +1,1200 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Airú · Achachairú liofilizado y en pulpa de Santa Cruz, Bolivia</title>
+<meta name="description" content="Airú: chips liofilizados, pulpa de achachairú y de acerola, y polvo liofilizado. Fruta amazónica de Bolivia, sin azúcares añadidos. Arma tu pedido o pide cotización para tu empresa.">
+<meta name="theme-color" content="#FFF8EE">
+<link rel="icon" type="image/png" href="../assets/hoja.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Airú","legalName":"Angirú S.R.L.","url":"https://achachairu.com.bo","email":"info@achachairu.com.bo","telephone":"+591 644 97652","description":"Achachairú liofilizado y en pulpa, cultivado y procesado en Santa Cruz de la Sierra, Bolivia.","address":{"@type":"PostalAddress","streetAddress":"Barrio Sirari, C/ Las Begonias #217","addressLocality":"Santa Cruz de la Sierra","addressCountry":"BO"},"sameAs":["https://www.instagram.com/airusantacruz","https://www.facebook.com/profile.php?id=100089244676070"]}
+</script>
+<style>
+:root{
+  --white:#fff; --cream:#FFF8EE; --cream2:#FBEEDA; --peach:#FFE6D2;
+  --leaf:#27A749; --leaf-d:#1B7A36; --leaf-dd:#12512A; --lime:#8EC63F;
+  --orange:#F26B21; --orange-v:#F58A1E; --amber:#FBB028; --orange-t:#B84A0C;
+  --brown:#3A1C0A; --muted:#6B5444; --line:#EBDCC6;
+  --r:22px; --ease:cubic-bezier(.22,1,.36,1); --bounce:cubic-bezier(.3,1.6,.5,1);
+  --f-body:'Montserrat','Lato',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --f-round:'Fredoka','Montserrat',system-ui,sans-serif;
+  --wrap:1240px; --pad:clamp(20px,5vw,40px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--f-body);color:var(--brown);background:var(--white);line-height:1.6;font-size:16px;overflow-x:hidden}
+img{max-width:100%;height:auto;display:block}
+h1,h2,h3,h4{text-wrap:balance;margin:0;font-weight:800;letter-spacing:-.03em;line-height:1.08}
+p{margin:0}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--leaf);outline-offset:3px;border-radius:6px}
+.ico{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+/* ---------- botones ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:99px;border:2px solid transparent;font-weight:800;font-size:1rem;text-decoration:none;letter-spacing:-.01em;transition:transform .3s var(--bounce),box-shadow .3s,background .25s,color .25s;position:relative}
+.btn-cta{background:var(--orange);color:var(--brown);box-shadow:0 10px 24px -10px rgba(242,107,33,.7)}
+.btn-cta:hover{transform:translateY(-3px);box-shadow:0 16px 30px -10px rgba(242,107,33,.8);background:var(--orange-v)}
+.btn-cta:active{transform:translateY(0) scale(.98)}
+.btn-ghost{background:transparent;border-color:var(--brown);color:var(--brown)}
+.btn-ghost:hover{background:var(--brown);color:var(--cream);transform:translateY(-3px)}
+.btn-leaf{background:var(--leaf-d);color:#fff}
+.btn-leaf:hover{background:var(--leaf-dd);transform:translateY(-3px)}
+.btn-sm{min-height:46px;padding:0 16px;font-size:.88rem;white-space:nowrap}
+.btn[disabled]{opacity:.45;pointer-events:none}
+
+/* ---------- barra superior ---------- */
+.topbar{background:var(--leaf-dd);color:#E9F7DD;font-size:.8rem;font-weight:600}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:46px;padding-top:4px;padding-bottom:4px}
+.topbar .msg{display:flex;align-items:center;gap:8px;margin-right:auto}
+.topbar .msg svg{color:var(--lime)}
+@media(max-width:760px){.topbar .msg{display:none}.topbar .wrap{gap:8px}.aud button{padding:0 10px;font-size:.74rem;min-height:38px}.demo-tag{font-size:.64rem;padding:0;background:none;letter-spacing:.06em;text-transform:uppercase;opacity:.85}.topbar .wrap{flex-wrap:wrap;justify-content:center;gap:2px 8px;padding-top:6px;padding-bottom:6px}.demo-tag{width:100%;text-align:center}}
+.aud{display:inline-flex;background:rgba(255,255,255,.12);border-radius:99px;padding:3px}
+.aud button{white-space:nowrap;border:0;background:none;min-height:40px;padding:0 18px;border-radius:99px;font-weight:700;font-size:.82rem;color:#E9F7DD;transition:background .25s,color .25s}
+.aud button[aria-pressed="true"]{background:var(--white);color:var(--leaf-dd)}
+.aud.light{background:var(--cream2)}
+.aud.light button{color:var(--muted)}
+.aud.light button[aria-pressed="true"]{background:var(--brown);color:var(--cream)}
+
+/* ---------- header ---------- */
+header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s}
+header.site.stuck{border-color:var(--line);box-shadow:0 8px 30px -20px rgba(58,28,10,.4)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:72px}
+.logo{display:flex;align-items:center;min-height:44px}
+.logo img{height:20px;width:auto}
+.menu{display:none;gap:4px;align-items:center}
+.menu a{white-space:nowrap;padding:10px 12px;border-radius:99px;font-weight:600;font-size:.92rem;text-decoration:none;color:var(--brown);transition:background .2s}
+.menu a:hover{background:var(--cream2)}
+.nav-r{display:flex;align-items:center;gap:8px}
+.lang{display:inline-flex;background:var(--cream2);border-radius:99px;padding:3px}
+.lang button{border:0;background:none;min-height:40px;min-width:44px;padding:0 10px;border-radius:99px;font-weight:800;font-size:.8rem;color:var(--muted)}
+.lang button[aria-pressed="true"]{background:var(--brown);color:var(--cream)}
+.icon-btn{position:relative;display:inline-grid;place-items:center;width:48px;height:48px;border-radius:50%;border:0;background:var(--cream2);color:var(--brown);transition:transform .3s var(--bounce),background .2s}
+.icon-btn:hover{background:var(--peach)}
+.icon-btn .ico{width:24px;height:24px}
+.cart-btn{background:var(--brown);color:var(--cream)}
+.cart-btn:hover{background:#55290F}
+.cart-btn .count{position:absolute;top:-4px;right:-4px;min-width:22px;height:22px;padding:0 5px;border-radius:99px;background:var(--orange);color:var(--brown);font-weight:800;font-size:.72rem;display:grid;place-items:center;border:2px solid #fff;transform:scale(0);transition:transform .35s var(--bounce)}
+.cart-btn .count.show{transform:scale(1)}
+.cart-btn.bump{animation:bump .6s var(--bounce)}
+@keyframes bump{30%{transform:scale(1.22) rotate(-8deg)}60%{transform:scale(.94) rotate(4deg)}}
+.burger{display:inline-grid}
+@media(min-width:1000px){.menu{display:flex}.burger{display:none}}
+.mnav{position:fixed;inset:0;z-index:60;background:var(--cream);padding:90px var(--pad) 40px;display:none;flex-direction:column;gap:6px;overflow:auto}
+.mnav.open{display:flex;animation:fade .3s}
+.mnav a{font-size:1.7rem;font-weight:800;letter-spacing:-.03em;text-decoration:none;padding:12px 0;border-bottom:1px solid var(--line);min-height:56px;display:flex;align-items:center}
+.mnav .x{position:absolute;top:14px;right:var(--pad)}
+.mnav .aud{align-self:flex-start;margin-top:20px}
+@keyframes fade{from{opacity:0}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--cream);overflow:hidden;padding:clamp(36px,6vw,80px) 0 clamp(70px,9vw,120px)}
+.hero::before{content:"";position:absolute;right:-12%;top:-30%;width:70vw;max-width:900px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,#FFE0BF 0%,rgba(255,224,191,0) 68%);pointer-events:none}
+.hero-grid{position:relative;display:grid;gap:44px;align-items:center}
+@media(min-width:960px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:60px}}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-round);font-weight:600;font-size:1.05rem;color:var(--leaf-d);letter-spacing:.01em}
+.kicker svg{width:22px;height:22px}
+.hero h1{font-size:clamp(2.5rem,7.4vw,5rem);font-weight:900;margin:14px 0 20px;letter-spacing:-.045em}
+.hero h1 em{font-style:normal;color:var(--orange);position:relative;white-space:nowrap;isolation:isolate}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.02em;height:.14em;border-radius:99px;background:var(--lime);opacity:.55;z-index:-1}
+.hero .lead{font-size:clamp(1.02rem,2.2vw,1.18rem);max-width:560px;color:var(--muted);font-weight:500}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin:30px 0 28px}
+.hero-pills{display:flex;flex-wrap:wrap;gap:8px 10px;padding:0;margin:0;list-style:none}
+.hero-pills li{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 14px 8px 10px;font-weight:700;font-size:.82rem}
+.hero-pills li svg{color:var(--leaf);width:18px;height:18px}
+.hero-art{position:relative;max-width:520px;margin:0 auto;width:100%;aspect-ratio:1}
+.hero-art .disc{position:absolute;inset:8%;border-radius:50%;overflow:hidden;box-shadow:0 40px 70px -30px rgba(184,74,12,.6),0 0 0 10px #fff,0 0 0 11px var(--line);animation:floaty 7s ease-in-out infinite}
+.hero-art .disc img{width:100%;height:100%;object-fit:cover}
+.ring{position:absolute;inset:0;width:100%;height:100%;animation:spin 40s linear infinite}
+.ring text{font-family:var(--f-round);font-weight:600;font-size:15.5px;letter-spacing:.2em;fill:var(--leaf-d)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes floaty{50%{transform:translateY(-12px)}}
+.deco{position:absolute;pointer-events:none}
+.deco svg{width:100%;height:100%;display:block}
+.d1{width:15%;left:-8%;top:10%;animation:sway 6s ease-in-out infinite}
+.d2{width:12%;right:-4%;top:0;animation:sway 7s ease-in-out -2s infinite reverse}
+.d3{width:10%;right:-5%;bottom:16%;animation:sway 5s ease-in-out -1s infinite}
+.d4{width:9%;right:20%;bottom:-5%;animation:sway 8s ease-in-out -3s infinite reverse}
+@keyframes sway{50%{transform:translateY(-14px) rotate(9deg)}}
+.hero-seal{position:absolute;left:-3%;bottom:-2%;display:flex;align-items:flex-end;gap:0;z-index:3}
+.hero-seal .mascot{width:clamp(84px,17vw,128px);transform-origin:50% 100%;animation:idle 3.6s ease-in-out infinite;filter:drop-shadow(0 12px 12px rgba(58,28,10,.25))}
+@keyframes idle{0%,100%{transform:rotate(-3deg) scaleY(1)}25%{transform:rotate(3deg) scaleY(1.03) translateY(-4px)}50%{transform:rotate(-2deg) scaleY(.98)}}
+.bubble{position:relative;background:#fff;border:2px solid var(--brown);border-radius:18px 18px 18px 4px;padding:9px 14px;font-weight:700;font-size:.8rem;line-height:1.3;max-width:150px;margin:0 0 70px -12px;box-shadow:0 10px 20px -12px rgba(58,28,10,.5)}
+.wave{position:absolute;left:0;right:0;bottom:-1px;line-height:0}
+.wave svg{width:100%;height:clamp(30px,5vw,64px);display:block}
+.hero-rule{position:absolute;right:var(--pad);bottom:28px;font-size:.72rem;font-weight:600;color:var(--muted);display:none}
+
+/* ---------- confianza ---------- */
+.trust{background:#fff;padding:0}
+.trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-bottom:1px solid var(--line)}
+@media(min-width:900px){.trust-grid{grid-template-columns:repeat(4,1fr)}}
+.trust-item{display:flex;align-items:center;gap:14px;padding:22px 14px;border-right:1px solid var(--line)}
+.trust-item:nth-child(2n){border-right:0}
+@media(min-width:900px){.trust-item:nth-child(2n){border-right:1px solid var(--line)}.trust-item:last-child{border-right:0}}
+.trust-item .ib{width:46px;height:46px;border-radius:50%;background:#E7F6EA;color:var(--leaf-d);display:grid;place-items:center;flex:none}
+.trust-item .ib .ico{width:22px;height:22px}
+@media(max-width:560px){.trust-item{flex-direction:column;align-items:flex-start;gap:8px;padding:18px 14px}.trust-item .ib{width:40px;height:40px}.trust-item b{font-size:.84rem}}
+.trust-item b{display:block;font-size:.88rem;line-height:1.25;font-weight:800;letter-spacing:-.01em}
+.trust-item span{font-size:.76rem;color:var(--muted);font-weight:500;display:block;line-height:1.35}
+
+/* ---------- secciones ---------- */
+section{padding:clamp(64px,9vw,120px) 0}
+.sec-head{max-width:720px;margin-bottom:clamp(28px,4vw,48px)}
+.eyebrow{font-family:var(--f-round);font-weight:600;color:var(--leaf-d);font-size:1.02rem;display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.eyebrow::before{content:"";width:28px;height:3px;border-radius:3px;background:var(--lime)}
+h2.title{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;letter-spacing:-.04em}
+.sec-head p.sub{margin-top:14px;color:var(--muted);font-size:1.05rem;font-weight:500;max-width:620px}
+.rv{opacity:1}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+
+/* ---------- tienda ---------- */
+#tienda{background:#fff}
+.shop-bar{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between;margin-bottom:30px}
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:46px;padding:0 22px;border-radius:99px;border:2px solid var(--line);background:#fff;font-weight:700;font-size:.92rem;transition:all .25s var(--ease)}
+.chip:hover{border-color:var(--brown)}
+.chip[aria-pressed="true"]{background:var(--brown);border-color:var(--brown);color:var(--cream)}
+.aud-wrap{display:flex;align-items:center;gap:12px;font-size:.85rem;font-weight:700;color:var(--muted)}
+.grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:640px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.grid{grid-template-columns:repeat(4,1fr)}}
+.card{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .3s;animation:cardin .6s var(--ease) both}
+@keyframes cardin{from{opacity:0;transform:translateY(18px) scale(.97)}}
+.card:hover,.card:focus-within{transform:translateY(-8px);box-shadow:0 34px 60px -32px rgba(184,74,12,.5);border-color:transparent}
+.card .art{position:relative;aspect-ratio:1/1;display:grid;place-items:center;overflow:hidden;border:0;padding:0;width:100%;background:var(--bg)}
+.card .art img.prod{width:84%;height:auto;transition:transform .7s var(--ease);filter:drop-shadow(0 20px 18px rgba(58,28,10,.25))}
+.card:hover .art img.prod{transform:scale(1.07) rotate(-2deg)}
+.card .art svg.prod{width:80%;height:80%;transition:transform .7s var(--ease)}
+.card:hover .art svg.prod{transform:scale(1.07) rotate(2deg)}
+.tag{position:absolute;left:14px;top:14px;background:rgba(255,255,255,.92);border-radius:99px;padding:5px 12px;font-size:.7rem;font-weight:800;letter-spacing:.02em;color:var(--leaf-dd);z-index:2}
+/* EL SELLO: la mascota vive en la tarjeta y reacciona a la TARJETA, no al cursor */
+.seal{position:absolute;right:12px;top:12px;width:62px;height:62px;border-radius:50%;background:#fff;display:grid;place-items:end center;overflow:hidden;box-shadow:0 8px 18px -6px rgba(58,28,10,.45),inset 0 0 0 2px var(--amber);z-index:3;transition:transform .5s var(--bounce)}
+.seal img{width:44px;margin-bottom:-2px;transition:transform .5s var(--bounce)}
+.seal .alt{position:absolute;inset:0;display:grid;place-items:end center;opacity:0;transition:opacity .25s}
+.seal .alt img{width:56px;margin-bottom:-4px}
+.card:hover .seal,.card:focus-within .seal{transform:rotate(-12deg) scale(1.22)}
+.card:hover .seal>img,.card:focus-within .seal>img{transform:translateY(-3px)}
+.card:hover .seal .alt,.card:focus-within .seal .alt{opacity:1}
+.card:hover .seal .alt img{animation:wob .8s var(--bounce)}
+@keyframes wob{0%{transform:scale(.6) rotate(-14deg)}60%{transform:scale(1.15) rotate(8deg)}100%{transform:none}}
+.seal-say{position:absolute;right:62px;top:20px;background:var(--brown);color:var(--cream);font-size:.72rem;font-weight:700;padding:6px 11px;border-radius:12px 12px 4px 12px;white-space:nowrap;opacity:0;transform:translateX(10px) scale(.9);transform-origin:100% 50%;transition:all .35s var(--bounce);z-index:3;pointer-events:none}
+.card:hover .seal-say,.card:focus-within .seal-say{opacity:1;transform:none}
+.card .body{display:flex;flex-direction:column;gap:6px;padding:20px 20px 22px;flex:1}
+.card .nm{font-size:1.25rem;font-weight:800;letter-spacing:-.025em}
+.card .st{font-size:.84rem;color:var(--muted);font-weight:500;line-height:1.45}
+.card .pres{display:flex;align-items:center;gap:7px;font-size:.78rem;font-weight:700;color:var(--leaf-dd);margin-top:4px}
+.card .pres svg{width:16px;height:16px;color:var(--leaf)}
+.card .price{font-family:var(--f-round);font-weight:600;font-size:1.05rem;margin:8px 0 12px;color:var(--orange-t)}
+.card .acts{display:grid;grid-template-columns:1fr;gap:8px;margin-top:auto}
+.card .more{background:none;border:0;padding:6px 0;min-height:44px;font-weight:700;font-size:.86rem;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line);color:var(--brown)}
+.card .more:hover{text-decoration-color:var(--orange)}
+.empty-filter{padding:40px;text-align:center;color:var(--muted)}
+.shop-note{margin-top:26px;display:flex;gap:10px;align-items:flex-start;font-size:.84rem;color:var(--muted);font-weight:500;background:var(--cream);padding:14px 18px;border-radius:14px}
+.shop-note svg{color:var(--leaf);margin-top:2px}
+
+/* ---------- B2B ---------- */
+body[data-aud="b2c"] .only-b2b{display:none!important}
+body[data-aud="b2b"] .only-b2c{display:none!important}
+.quote{margin-top:36px;border-radius:28px;background:var(--leaf-dd);color:#fff;padding:clamp(26px,5vw,56px);display:none;gap:30px;grid-template-columns:1fr;position:relative;overflow:hidden}
+body[data-aud="b2b"] .quote{display:grid;animation:fade .5s}
+@media(min-width:900px){.quote{grid-template-columns:1fr 1.1fr;align-items:start}}
+.quote::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(142,198,63,.35),transparent 70%)}
+.quote h3{font-size:clamp(1.6rem,3.4vw,2.4rem);font-weight:900;margin-bottom:12px}
+.quote p{color:#D3EBCB;font-weight:500}
+.quote ul{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.quote li{display:flex;gap:10px;align-items:center;font-weight:600;font-size:.92rem}
+.quote li svg{color:var(--lime)}
+.fcard .hint,.fcard .done p{color:var(--muted)}
+.fcard{background:#fff;color:var(--brown);border-radius:20px;padding:24px;position:relative;z-index:1}
+.stripe-b2b{margin-top:60px}
+.b2b-band{background:var(--cream);}
+.b2b-band .inner{display:grid;gap:28px;align-items:center}
+@media(min-width:900px){.b2b-band .inner{grid-template-columns:1.1fr 1fr;gap:60px}}
+.perks{display:grid;gap:12px;margin-top:22px}
+.perk{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.perk .ib{width:42px;height:42px;border-radius:12px;background:#E7F6EA;color:var(--leaf-d);display:grid;place-items:center;flex:none}
+.perk b{display:block;font-weight:800;font-size:.98rem}
+.perk span{font-size:.86rem;color:var(--muted);font-weight:500}
+
+/* ---------- formularios ---------- */
+.field{display:grid;gap:6px;margin-bottom:14px}
+.field label{font-size:.82rem;font-weight:700}
+.field input,.field select,.field textarea{width:100%;min-height:50px;padding:12px 16px;border-radius:14px;border:2px solid var(--line);background:#fff;font:inherit;font-size:1rem;color:var(--brown);transition:border-color .2s,box-shadow .2s}
+.field textarea{min-height:110px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--leaf);box-shadow:0 0 0 4px rgba(39,167,73,.18)}
+.row2{display:grid;gap:0 14px}
+@media(min-width:560px){.row2{grid-template-columns:1fr 1fr}}
+.hint{font-size:.76rem;color:var(--muted);font-weight:500;margin-top:10px}
+.done{display:none;text-align:center;padding:20px 8px}
+.done.show{display:block;animation:pop .6s var(--bounce)}
+.done img{width:120px;margin:0 auto 10px;animation:dance 1.4s ease-in-out infinite;transform-origin:50% 100%}
+.done h4{font-size:1.5rem;font-weight:900;margin-bottom:8px}
+.done p{color:var(--muted);font-weight:500}
+@keyframes pop{from{opacity:0;transform:scale(.9)}}
+@keyframes dance{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(6deg) translateY(-10px)}}
+
+/* ---------- sostenibilidad ---------- */
+#sostenibilidad{background:var(--cream);position:relative;overflow:hidden}
+.nums{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(min-width:900px){.nums{grid-template-columns:repeat(4,1fr);gap:20px}}
+.num{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:clamp(18px,3vw,30px) clamp(14px,2.4vw,26px)}
+.num .n{font-family:var(--f-round);font-weight:700;font-size:clamp(3rem,8vw,5rem);line-height:1;color:var(--leaf);letter-spacing:-.03em}
+.num .n sup{font-size:.4em;color:var(--lime);vertical-align:top;margin-left:2px}
+.num b{display:block;margin-top:10px;font-weight:800;font-size:.95rem;line-height:1.25}
+.num>span{font-size:.8rem;color:var(--muted);font-weight:500;display:block;margin-top:4px}
+.practices{display:grid;gap:16px;margin-top:20px}
+@media(min-width:900px){.practices{grid-template-columns:repeat(3,1fr)}}
+.practice{display:flex;gap:16px;align-items:flex-start;padding:22px;border-radius:var(--r);background:var(--leaf-dd);color:#fff}
+.practice .ib{width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.12);color:var(--lime);display:grid;place-items:center;flex:none}
+.practice b{display:block;font-weight:800;font-size:1.05rem;margin-bottom:4px}
+.practice span{font-size:.88rem;color:#CFE8C9;font-weight:500}
+.bg-leaf{position:absolute;opacity:.07;pointer-events:none;width:420px;right:-120px;top:-60px;transform:rotate(25deg)}
+
+/* ---------- certificaciones ---------- */
+.certs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(min-width:900px){.certs{grid-template-columns:repeat(4,1fr);gap:20px}}
+.cert{border:2px dashed #CDB899;border-radius:var(--r);padding:28px 16px;text-align:center;display:grid;gap:12px;justify-items:center;background:linear-gradient(180deg,#fff,var(--cream));transition:border-color .3s,transform .4s var(--bounce)}
+.cert:hover{border-color:var(--leaf);transform:translateY(-4px)}
+.cert .slot{width:84px;height:84px;border-radius:50%;border:2px dashed #CDB899;display:grid;place-items:center;color:#B39B7C}
+.cert .slot .ico{width:34px;height:34px}
+.cert b{font-size:.9rem;font-weight:800;line-height:1.25}
+.cert span{font-size:.75rem;color:var(--muted);font-weight:500}
+
+/* ---------- origen ---------- */
+#origen{background:var(--brown);color:var(--cream);position:relative;overflow:hidden}
+#origen .eyebrow{color:var(--lime)}
+#origen .sub{color:#D9C5B0}
+.origin-grid{display:grid;gap:28px;grid-template-columns:minmax(0,1fr)}
+.origin-grid>*{min-width:0}
+@media(min-width:960px){.origin-grid{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:44px;align-items:stretch}}
+.harvest{position:relative;border-radius:var(--r);overflow:hidden;min-height:300px;box-shadow:0 30px 60px -30px #000}
+.harvest img{width:100%;height:100%;object-fit:cover;object-position:62% 50%;position:absolute;inset:0;min-height:300px}
+.harvest::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(40,18,6,.85),transparent 55%)}
+.harvest figcaption{position:absolute;left:22px;right:22px;bottom:20px;z-index:2;font-weight:700;font-size:1rem;line-height:1.4}
+.harvest figcaption small{display:block;font-weight:500;color:#EBD7BE;font-size:.82rem;margin-top:4px}
+.videos h3{font-size:1.5rem;font-weight:900;margin-bottom:6px}
+.player{position:relative;aspect-ratio:16/10;border-radius:var(--r);overflow:hidden;background:radial-gradient(circle at 30% 20%,#2F7A3F,#123F20 70%);display:grid;place-items:center;border:2px dashed rgba(255,255,255,.35);margin:18px 0 12px}
+.player .play{width:74px;height:74px;border-radius:50%;background:#fff;color:var(--brown);display:grid;place-items:center;border:0;transition:transform .4s var(--bounce);animation:ping 2.6s infinite}
+.player .play:hover{transform:scale(1.1)}
+.player .play .ico{width:30px;height:30px;fill:currentColor;stroke:none;margin-left:4px}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(255,255,255,.5)}70%,100%{box-shadow:0 0 0 24px rgba(255,255,255,0)}}
+.player .lbl{position:absolute;left:14px;bottom:12px;right:14px;font-size:.78rem;font-weight:700;color:#E9F7DD;display:flex;gap:8px;align-items:center}
+.player .leafbg{position:absolute;opacity:.12;width:46%;right:-8%;bottom:-12%}
+.thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.thumb{aspect-ratio:16/10;border-radius:14px;border:2px dashed rgba(255,255,255,.28);display:grid;place-items:center;color:rgba(255,255,255,.5);font-size:.7rem;font-weight:700;background:rgba(255,255,255,.04);text-align:center;padding:4px}
+.thumb svg{width:22px;height:22px}
+
+/* ---------- mapa ---------- */
+#donde{background:#fff}
+.map-shell{display:grid;gap:0;border-radius:28px;overflow:hidden;border:1px solid var(--line);box-shadow:0 40px 80px -50px rgba(58,28,10,.5)}
+@media(min-width:900px){.map-shell{grid-template-columns:380px 1fr}}
+.dealers{background:var(--cream);padding:20px;display:flex;flex-direction:column;gap:12px}
+@media(min-width:900px){.dealers{max-height:560px}}
+.dealers .field{margin:0}
+.dlist{display:grid;gap:8px;overflow:auto;padding-right:2px}
+.dl{width:100%;text-align:left;display:flex;gap:12px;align-items:flex-start;background:#fff;border:2px solid transparent;border-radius:16px;padding:14px;transition:all .25s var(--ease);min-height:64px}
+.dl:hover{border-color:var(--line)}
+.dl.on{border-color:var(--orange);box-shadow:0 12px 24px -16px rgba(242,107,33,.8)}
+.dl .num-pin{width:34px;height:34px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);background:var(--orange);display:grid;place-items:center;flex:none;margin-top:2px}
+.dl .num-pin span{transform:rotate(45deg);font-weight:800;font-size:.8rem;color:var(--brown)}
+.dl b{display:block;font-size:.92rem;line-height:1.25}
+.dl small{display:block;font-size:.78rem;color:var(--muted);font-weight:500;margin-top:2px}
+.dl .ex{display:inline-block;margin-top:6px;font-size:.66rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--leaf-dd);background:#E7F6EA;padding:2px 8px;border-radius:99px}
+.mapbox{position:relative;min-height:380px;height:100%;background:#E9EFE6;order:-1}
+@media(min-width:900px){.mapbox{order:0;min-height:520px}}
+#map{position:absolute;inset:0}
+.map-badge{position:absolute;z-index:500;right:14px;top:14px;background:var(--brown);color:var(--cream);font-weight:800;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;padding:7px 14px;border-radius:99px;pointer-events:none;box-shadow:0 8px 16px -8px #000}
+.map-fallback{position:absolute;inset:0;display:none;place-items:center;text-align:center;padding:30px;color:var(--muted);font-weight:600}
+.pin-ic{width:34px;height:34px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);background:var(--orange);border:3px solid #fff;box-shadow:0 8px 14px -4px rgba(58,28,10,.55);display:grid;place-items:center;transition:transform .3s var(--bounce)}
+.pin-ic span{transform:rotate(45deg);font-weight:800;font-size:.8rem;color:var(--brown);font-family:var(--f-body)}
+.leaflet-container{font-family:var(--f-body)}
+.leaflet-bar a{width:40px!important;height:40px!important;line-height:40px!important;font-size:20px}
+.leaflet-popup-content-wrapper{border-radius:16px}
+.leaflet-popup-content b{font-size:.95rem}
+.pop-ex{display:inline-block;font-size:.65rem;font-weight:800;text-transform:uppercase;color:#1B7A36;background:#E7F6EA;padding:2px 8px;border-radius:99px;margin-top:4px}
+.dealer-cta{margin-top:22px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;background:var(--cream);border-radius:20px;padding:20px 24px}
+.dealer-cta b{font-size:1.05rem;font-weight:800}
+
+/* ---------- FAQ ---------- */
+#faq{background:var(--cream)}
+.faq-grid{display:grid;gap:36px}
+@media(min-width:960px){.faq-grid{grid-template-columns:.8fr 1.2fr;gap:70px}}
+.faq-list{display:grid;gap:10px}
+.qa{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:box-shadow .3s}
+.qa.open{box-shadow:0 20px 40px -28px rgba(58,28,10,.5);border-color:var(--lime)}
+.qa h3{font-size:1rem;letter-spacing:-.01em}
+.qa button.q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;border:0;background:none;padding:18px 22px;min-height:64px;font-weight:800;font-size:1rem;letter-spacing:-.01em}
+.qa .pm{width:32px;height:32px;border-radius:50%;background:var(--cream2);display:grid;place-items:center;flex:none;transition:transform .4s var(--bounce),background .25s}
+.qa.open .pm{transform:rotate(45deg);background:var(--lime)}
+.qa .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.qa.open .a{grid-template-rows:1fr}
+.qa .a>div{overflow:hidden}
+.qa .a p{padding:0 22px 20px;color:var(--muted);font-weight:500}
+
+/* ---------- contacto ---------- */
+#contacto{background:#fff}
+.contact-grid{display:grid;gap:34px}
+@media(min-width:960px){.contact-grid{grid-template-columns:.9fr 1.1fr;gap:70px}}
+.cinfo{display:grid;gap:14px;margin-top:26px}
+.cinfo a,.cinfo div.it{display:flex;align-items:center;gap:14px;text-decoration:none;font-weight:700;padding:6px 0;min-height:48px}
+.cinfo .ib{width:46px;height:46px;border-radius:50%;background:var(--cream2);display:grid;place-items:center;flex:none;color:var(--orange-t);transition:background .2s}
+.cinfo a:hover .ib{background:var(--peach)}
+.cinfo small{display:block;font-weight:500;color:var(--muted);font-size:.78rem}
+.social{display:flex;gap:10px;margin-top:6px}
+.social a{width:48px;height:48px;border-radius:50%;background:var(--brown);color:var(--cream);display:grid;place-items:center;transition:transform .3s var(--bounce),background .2s}
+.social a:hover{background:var(--orange);color:var(--brown);transform:translateY(-4px) rotate(-6deg)}
+.social svg{width:22px;height:22px}
+.form-panel{background:var(--cream);border-radius:28px;padding:clamp(22px,4vw,40px);border:1px solid var(--line)}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg label{position:relative}
+.seg input{position:absolute;opacity:0}
+.seg span{display:inline-flex;align-items:center;min-height:46px;padding:0 20px;border-radius:99px;border:2px solid var(--line);background:#fff;font-weight:700;font-size:.9rem;cursor:pointer;transition:all .2s}
+.seg input:checked+span{background:var(--brown);color:var(--cream);border-color:var(--brown)}
+.seg input:focus-visible+span{outline:3px solid var(--leaf);outline-offset:2px}
+
+/* ---------- footer ---------- */
+.news{background:var(--leaf-dd);color:#fff;padding:44px 0}
+.news-in{display:grid;gap:20px;align-items:center}
+@media(min-width:900px){.news-in{grid-template-columns:1fr 1fr;gap:60px}}
+.news h3{font-size:clamp(1.4rem,3vw,2rem);font-weight:900}
+.news p{color:#CFE8C9;font-weight:500;margin-top:6px}
+.news form{display:flex;gap:10px;flex-wrap:wrap}
+.news input{flex:1 1 220px;min-height:52px;border-radius:99px;border:2px solid transparent;padding:0 22px;font:inherit;font-size:1rem}
+.news input:focus{outline:0;border-color:var(--lime)}
+.news .done{color:#fff;padding:0}
+.news .done p{color:#CFE8C9}
+.news .done h4{font-size:1.2rem}
+.news .done img{width:70px}
+footer.site{background:#2A1407;color:#E4D2BC;padding:60px 0 28px}
+.foot{display:grid;gap:34px}
+@media(min-width:900px){.foot{grid-template-columns:1.4fr 1fr 1.2fr;gap:50px}}
+.foot img.fl{height:24px;width:auto;margin-bottom:14px}
+.foot p{font-size:.9rem;color:#CDB99F;font-weight:500;max-width:340px}
+.foot h4{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--lime);margin-bottom:14px;font-weight:800}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.foot a{text-decoration:none;font-weight:600;font-size:.92rem;display:inline-flex;align-items:center;min-height:40px}
+.foot a:hover{color:var(--amber)}
+.legal{margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:.78rem;color:#B8A48B;font-weight:500}
+
+/* ---------- distintivo demo ---------- */
+.demo-tag{background:rgba(255,255,255,.14);color:#fff;font-size:.68rem;font-weight:800;letter-spacing:.04em;padding:5px 11px;border-radius:99px;white-space:nowrap;flex:none}
+
+/* ---------- diálogos ---------- */
+dialog{border:0;padding:0;color:var(--brown);font-family:var(--f-body);max-width:100vw;background:#fff}
+dialog::backdrop{background:rgba(42,20,7,.55);backdrop-filter:blur(4px);animation:fade .3s}
+dialog.modal{width:min(880px,calc(100vw - 24px));max-height:calc(100dvh - 24px);border-radius:28px;overflow:auto;box-shadow:0 60px 120px -30px rgba(0,0,0,.6);animation:mpop .5s var(--bounce)}
+@keyframes mpop{from{opacity:0;transform:translateY(30px) scale(.95)}}
+dialog.drawer{margin:0 0 0 auto;height:100dvh;max-height:none;width:min(440px,100vw);border-radius:28px 0 0 28px;display:none;flex-direction:column;animation:slidein .5s var(--ease);box-shadow:-30px 0 80px -30px rgba(0,0,0,.5)}
+dialog.drawer[open]{display:flex}
+@media(max-width:480px){dialog.drawer{border-radius:0}}
+@keyframes slidein{from{transform:translateX(100%)}}
+.dclose{position:absolute;top:14px;right:14px;z-index:5;background:#fff;box-shadow:0 4px 14px -4px rgba(0,0,0,.3)}
+.pm-grid{display:grid}
+@media(min-width:760px){.pm-grid{grid-template-columns:.9fr 1.1fr}}
+.pm-art{aspect-ratio:1;display:grid;place-items:center;position:relative}
+@media(min-width:760px){.pm-art{aspect-ratio:auto;min-height:100%}}
+.pm-art img{width:80%;filter:drop-shadow(0 20px 20px rgba(58,28,10,.3))}
+.pm-art svg{width:78%}
+.pm-body{padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;gap:10px}
+.pm-body h3{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:900;padding-right:44px}
+.pm-body .desc{color:var(--muted);font-weight:500}
+.dl-list{display:grid;gap:0;margin:8px 0;border-top:1px solid var(--line)}
+.dl-list div{display:flex;gap:16px;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.dl-list dt{font-weight:800;margin:0}
+.dl-list dd{margin:0;text-align:right;color:var(--muted);font-weight:600}
+.qty{display:inline-flex;align-items:center;border:2px solid var(--line);border-radius:99px}
+.qty button{width:44px;height:44px;border:0;background:none;border-radius:50%;font-size:1.3rem;font-weight:700;display:grid;place-items:center}
+.qty button:hover{background:var(--cream2)}
+.qty output{min-width:32px;text-align:center;font-weight:800}
+.pm-act{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:10px}
+.cart-h{display:flex;align-items:center;justify-content:space-between;padding:22px 24px 14px;border-bottom:1px solid var(--line)}
+.cart-h h3{font-size:1.5rem;font-weight:900}
+.cart-body{flex:1;overflow:auto;padding:14px 24px}
+.ci{display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);animation:cardin .4s var(--ease)}
+.ci .th{width:64px;height:64px;border-radius:16px;display:grid;place-items:center;overflow:hidden}
+.ci .th img{width:80%}.ci .th svg{width:80%}
+.ci b{font-size:.92rem;line-height:1.25;display:block}
+.ci small{color:var(--muted);font-weight:500;font-size:.76rem}
+.ci .qty{margin-top:6px}.ci .qty button{width:36px;height:36px;font-size:1.1rem}
+.ci .rm{border:0;background:none;width:44px;height:44px;border-radius:50%;color:var(--muted);display:grid;place-items:center}
+.ci .rm:hover{background:#FDE5DD;color:#B3261E}
+.cart-empty{text-align:center;padding:30px 10px;display:grid;justify-items:center;gap:10px}
+.cart-empty img{width:130px;animation:idle 3.6s ease-in-out infinite;transform-origin:50% 100%}
+.cart-empty .bubble{margin:0;border-radius:18px;max-width:260px;text-align:center}
+.cart-empty .bubble::after{content:"";position:absolute;left:50%;top:-9px;width:14px;height:14px;background:#fff;border-left:2px solid var(--brown);border-top:2px solid var(--brown);transform:translateX(-50%) rotate(45deg)}
+.cart-f{padding:18px 24px 24px;border-top:1px solid var(--line);display:grid;gap:10px;background:var(--cream)}
+.cart-f .sm{font-size:.76rem;color:var(--muted);font-weight:500;text-align:center}
+.sum{background:var(--cream);border-radius:16px;padding:6px 16px;margin:8px 0 18px}
+.sum div{display:flex;justify-content:space-between;gap:10px;padding:8px 0;font-size:.9rem;font-weight:600;border-bottom:1px dashed var(--line)}
+.sum div:last-child{border:0}
+.order{padding:clamp(24px,4vw,40px);max-width:560px}
+.order h3{font-size:1.8rem;font-weight:900;margin-bottom:6px;padding-right:44px}
+.order .lead{color:var(--muted);font-weight:500;margin-bottom:16px}
+
+/* ---------- toast + celebracion ---------- */
+.toast{position:fixed;left:50%;bottom:24px;z-index:200;transform:translate(-50%,40px);opacity:0;background:var(--brown);color:var(--cream);padding:12px 20px 12px 14px;border-radius:99px;font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:10px;transition:all .5s var(--bounce);pointer-events:none;box-shadow:0 20px 40px -14px rgba(0,0,0,.6);max-width:calc(100vw - 24px)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast img{width:34px;margin:-14px 0 -6px}
+.fly{position:fixed;z-index:300;pointer-events:none;width:64px}
+.piece{position:fixed;z-index:300;pointer-events:none;width:14px;height:18px;border-radius:0 100% 0 100%}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important;scroll-behavior:auto!important}
+  .js .rv{opacity:1;transform:none}
+  .ring{animation:none}
+}
+</style>
+</head>
+<body data-aud="b2c">
+
+<!-- ====== SPRITE SVG (iconos + elementos creativos de marca) ====== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="gFruit" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FCB627"/><stop offset="1" stop-color="#F58A1E"/></linearGradient>
+    <linearGradient id="gLeaf" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#27A749"/><stop offset="1" stop-color="#8EC63F"/></linearGradient>
+    <linearGradient id="gAce" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0583F"/><stop offset="1" stop-color="#C62E2B"/></linearGradient>
+    <symbol id="s-leaf" viewBox="0 0 64 64"><path d="M6 58C6 24 26 6 58 6c0 32-18 52-52 52z" fill="url(#gLeaf)"/><path d="M8 56C26 40 40 26 54 10" stroke="#1B7A36" stroke-width="2" fill="none" stroke-linecap="round" opacity=".55"/></symbol>
+    <symbol id="s-fruit" viewBox="0 0 80 100"><path d="M40 12c-6 0-8 4-8 8C14 26 4 46 6 66c3 20 18 30 34 30s31-10 34-30c2-20-8-40-26-46 0-4-2-8-8-8z" fill="url(#gFruit)"/><ellipse cx="28" cy="46" rx="11" ry="17" fill="#fff" opacity=".28" transform="rotate(14 28 46)"/><path d="M33 10c1-6 12-7 14 0 0 4-14 4-14 0z" fill="#3A1C0A"/></symbol>
+    <symbol id="s-slice" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="#F58A1E"/><circle cx="50" cy="50" r="39" fill="#FFE9B8"/><g stroke="#FBB028" stroke-width="2" opacity=".8"><path d="M50 14v72M14 50h72M24 24l52 52M76 24L24 76"/></g><ellipse cx="50" cy="50" rx="11" ry="15" fill="#6B3A17"/><ellipse cx="46" cy="45" rx="3.5" ry="6" fill="#fff" opacity=".35"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 016 0v2"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6 3h4l2 5-2.5 1.5a11 11 0 005 5L16 12l5 2v4a2 2 0 01-2 2A16 16 0 014 5a2 2 0 012-2z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-sugar" viewBox="0 0 24 24"><rect x="5" y="9" width="10" height="10" rx="2"/><path d="M9 9V6l5-2 4 3-3 2"/><path d="M3 21L21 3"/></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3"/><path d="M3 21L21 3"/></symbol>
+    <symbol id="i-hand" viewBox="0 0 24 24"><path d="M4 14c3 0 4-1 6-1h4a2 2 0 010 4h-4M10 17h6l4-3-1-2-4 1"/><path d="M12 3c2.5 0 4 1.5 4 3.5S14 11 12 11 8 8.5 8 6.5 9.5 3 12 3z"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 01-12 0c0-4.5 6-11 6-11z"/><path d="M3 21L21 3"/></symbol>
+    <symbol id="i-sprout" viewBox="0 0 24 24"><path d="M12 21v-9M12 12C12 7 8 5 4 5c0 4 3 7 8 7zM12 14c0-4 3-6 8-6 0 4-3 6-8 6z"/></symbol>
+    <symbol id="i-earth" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8V4z"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="3"/><path d="M16 10l5-3v10l-5-3"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.1"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></symbol>
+    <symbol id="i-cert" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5.5"/><path d="M8.5 13.5L7 21l5-2.5 5 2.5-1.5-7.5"/></symbol>
+  </defs>
+</svg>
+
+<!-- ====== BARRA SUPERIOR ====== -->
+<div class="topbar">
+  <div class="wrap">
+    <p class="demo-tag" data-i18n="demo">Propuesta B · demo</p>
+    <p class="msg"><svg class="ico" aria-hidden="true"><use href="#i-sprout"/></svg><span data-i18n="top.msg">Achachairú amazónico, cultivado en Bolivia · Sin azúcares añadidos</span></p>
+    <div class="aud" role="group" aria-label="Tipo de cliente" data-i18n-attr="aria-label:aud.label">
+      <button type="button" data-aud-set="b2c" aria-pressed="true" data-i18n="aud.b2c">Para ti</button>
+      <button type="button" data-aud-set="b2b" aria-pressed="false" data-i18n="aud.b2b">Para empresas</button>
+    </div>
+  </div>
+</div>
+
+<!-- ====== HEADER ====== -->
+<header class="site" id="hdr">
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Airú, inicio" data-i18n-attr="aria-label:logo.aria"><img src="../assets/wordmark-cafe.png" width="923" height="116" alt="Achachairú, marca Airú" data-i18n-attr="alt:logo.alt"></a>
+    <nav class="menu" aria-label="Principal" data-i18n-attr="aria-label:nav.aria">
+      <a href="#tienda" data-i18n="nav.shop">Tienda</a>
+      <a href="#sostenibilidad" data-i18n="nav.sust">Sostenibilidad</a>
+      <a href="#origen" data-i18n="nav.origin">Origen</a>
+      <a href="#donde" data-i18n="nav.where">Dónde comprar</a>
+      <a href="#empresas" data-i18n="nav.b2b">Empresas</a>
+      <a href="#faq" data-i18n="nav.faq">Preguntas</a>
+      <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+    </nav>
+    <div class="nav-r">
+      <div class="lang" role="group" aria-label="Idioma">
+        <button type="button" data-lang-set="es" aria-pressed="true">ES</button>
+        <button type="button" data-lang-set="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" class="icon-btn cart-btn" id="cartBtn" aria-label="Abrir mi pedido" data-i18n-attr="aria-label:cart.open">
+        <svg class="ico" aria-hidden="true"><use href="#i-bag"/></svg>
+        <span class="count" id="cartCount" aria-hidden="true">0</span>
+      </button>
+      <button type="button" class="icon-btn burger" id="burger" aria-label="Menú" data-i18n-attr="aria-label:nav.menu"><svg class="ico" aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mnav" id="mnav" role="dialog" aria-modal="true" aria-label="Menú">
+  <button type="button" class="icon-btn x" id="mnavX" aria-label="Cerrar" data-i18n-attr="aria-label:close"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button>
+  <a href="#tienda" data-i18n="nav.shop">Tienda</a>
+  <a href="#sostenibilidad" data-i18n="nav.sust">Sostenibilidad</a>
+  <a href="#origen" data-i18n="nav.origin">Origen</a>
+  <a href="#donde" data-i18n="nav.where">Dónde comprar</a>
+  <a href="#empresas" data-i18n="nav.b2b">Empresas</a>
+  <a href="#faq" data-i18n="nav.faq">Preguntas</a>
+  <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+  <div class="aud light" role="group" aria-label="Tipo de cliente" data-i18n-attr="aria-label:aud.label">
+    <button type="button" data-aud-set="b2c" aria-pressed="true" data-i18n="aud.b2c">Para ti</button>
+    <button type="button" data-aud-set="b2b" aria-pressed="false" data-i18n="aud.b2b">Para empresas</button>
+  </div>
+</div>
+
+<main id="top">
+
+<!-- ====== HERO ====== -->
+<section class="hero" style="padding-bottom:0">
+  <div class="wrap hero-grid" style="padding-bottom:clamp(70px,9vw,120px)">
+    <div>
+      <p class="kicker"><svg aria-hidden="true"><use href="#s-leaf"/></svg><span data-i18n="hero.kicker">Fruto maravilloso</span></p>
+      <h1><span data-i18n="hero.h1a">Descubre el exótico mundo del</span> <em data-i18n="hero.h1b">achachairú</em></h1>
+      <p class="lead" data-i18n="hero.lead">En Airú somos especialistas en achachairú, una fruta exótica y deliciosa cultivada y procesada con el mayor cuidado. Nuestros productos reflejan nuestro compromiso con la calidad y la sostenibilidad, sin comprometer el sabor natural.</p>
+      <div class="hero-cta">
+        <a class="btn btn-cta" href="#tienda"><span data-i18n="hero.cta1">Explora nuestros productos</span><svg class="ico" aria-hidden="true"><use href="#i-bag"/></svg></a>
+        <a class="btn btn-ghost only-b2c" href="#donde" data-i18n="hero.cta2">Dónde encontrarnos</a>
+        <a class="btn btn-ghost only-b2b" href="#empresas" data-i18n="hero.cta2b">Cotización por volumen</a>
+      </div>
+      <ul class="hero-pills">
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pill1">Sin azúcares añadidos</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pill2">Libre de agroquímicos</span></li>
+        <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="pill3">Liofilizado y en pulpa</span></li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <svg class="ring" viewBox="0 0 400 400" aria-hidden="true"><defs><path id="circ" d="M200 200m-186 0a186 186 0 1 1 372 0a186 186 0 1 1-372 0"/></defs><text><textPath href="#circ" id="ringTxt">ACHACHAIRÚ · FRUTA AMAZÓNICA · LIOFILIZADA · SANTA CRUZ · BOLIVIA · ACHACHAIRÚ · FRUTA AMAZÓNICA ·</textPath></text></svg>
+      <div class="disc"><img src="../assets/chips.png" width="979" height="975" alt="Bolsa de Achachairú Chips de Airú rodeada de trozos de fruta liofilizada" data-i18n-attr="alt:hero.alt" fetchpriority="high"></div>
+      <div class="deco d1"><svg aria-hidden="true"><use href="#s-fruit"/></svg></div>
+      <div class="deco d2"><svg aria-hidden="true"><use href="#s-leaf"/></svg></div>
+      <div class="deco d3"><svg aria-hidden="true"><use href="#s-slice"/></svg></div>
+      <div class="deco d4"><svg aria-hidden="true"><use href="#s-leaf"/></svg></div>
+      <div class="hero-seal">
+        <img class="mascot" src="../assets/mascota.png" width="546" height="754" alt="Mascota de Airú, un achachairú que guiña el ojo" data-i18n-attr="alt:mascot.alt">
+        <p class="bubble" data-i18n="hero.bubble">Mi sello va en cada producto.</p>
+      </div>
+    </div>
+  </div>
+  <div class="wave"><svg viewBox="0 0 1440 64" preserveAspectRatio="none" aria-hidden="true"><path d="M0 64V30C240 -4 480 -4 720 24s480 40 720 0v40z" fill="#fff"/></svg></div>
+</section>
+
+<!-- ====== BARRA DE CONFIANZA ====== -->
+<div class="trust" aria-label="Buenas prácticas" data-i18n-attr="aria-label:trust.aria">
+  <div class="wrap trust-grid">
+    <div class="trust-item"><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-sugar"/></svg></span><div><b data-i18n="t1.b">Sin azúcares añadidos</b><span data-i18n="t1.s">Sabor natural de la fruta</span></div></div>
+    <div class="trust-item"><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-flask"/></svg></span><div><b data-i18n="t2.b">Libre de agroquímicos</b><span data-i18n="t2.s">Producción orgánica</span></div></div>
+    <div class="trust-item"><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-hand"/></svg></span><div><b data-i18n="t3.b">Agricultores locales</b><span data-i18n="t3.s">Cultivado con cuidado</span></div></div>
+    <div class="trust-item"><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-cert"/></svg></span><div><b data-i18n="t4.b">Certificaciones</b><span data-i18n="t4.s">Próximamente aquí</span></div></div>
+  </div>
+</div>
+
+<!-- ====== TIENDA ====== -->
+<section id="tienda">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow" data-i18n="shop.eyebrow">Nuestros productos</p>
+      <h2 class="title" data-i18n="shop.title">Arma tu pedido en pocos clics</h2>
+      <p class="sub"><span class="only-b2c" data-i18n="shop.sub">Elige, agrega a tu pedido y envíanoslo: te respondemos por correo con precio y disponibilidad. Sin pagos en línea.</span><span class="only-b2b" data-i18n="shop.subb">Arma tu lista, indícanos tu volumen y te enviamos una cotización por correo. Atendemos restaurantes, tiendas y distribuidores.</span></p>
+    </div>
+    <div class="shop-bar rv">
+      <div class="filters" role="group" aria-label="Filtrar productos" data-i18n-attr="aria-label:filter.aria">
+        <button class="chip" type="button" data-f="all" aria-pressed="true" data-i18n="f.all">Todos</button>
+        <button class="chip" type="button" data-f="chips" aria-pressed="false" data-i18n="f.chips">Chips</button>
+        <button class="chip" type="button" data-f="pulpa" aria-pressed="false" data-i18n="f.pulpa">Pulpas</button>
+        <button class="chip" type="button" data-f="polvo" aria-pressed="false" data-i18n="f.polvo">Polvo</button>
+      </div>
+      <div class="aud-wrap"><span data-i18n="aud.buy">Compro como:</span>
+        <div class="aud light" role="group" aria-label="Tipo de cliente" data-i18n-attr="aria-label:aud.label">
+          <button type="button" data-aud-set="b2c" aria-pressed="true" data-i18n="aud.b2c">Para ti</button>
+          <button type="button" data-aud-set="b2b" aria-pressed="false" data-i18n="aud.b2b">Para empresas</button>
+        </div>
+      </div>
+    </div>
+    <div class="grid" id="grid" aria-live="polite"></div>
+    <p class="shop-note rv"><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg><span data-i18n="shop.note">Presentaciones y precios por confirmar. Por ahora el pedido se envía como solicitud y te respondemos por correo; no hay pago en línea.</span></p>
+
+    <!-- cotización por volumen (solo en modo empresas) -->
+    <div class="quote" id="cotizar">
+      <div>
+        <h3 data-i18n="q.title">Cotización por volumen</h3>
+        <p data-i18n="q.p">Cuéntanos qué necesitas y cuánto. Un asesor de Airú te responde por correo con una propuesta.</p>
+        <ul>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="q.l1">Para restaurantes, tiendas y distribuidores</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="q.l2">Pulpas y chips liofilizados</span></li>
+          <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="q.l3">Respuesta directa por correo</span></li>
+        </ul>
+      </div>
+      <div class="fcard">
+        <form data-demo novalidate>
+          <div class="row2">
+            <div class="field"><label for="q-co" data-i18n="f.company">Empresa</label><input id="q-co" required autocomplete="organization"></div>
+            <div class="field"><label for="q-em" data-i18n="f.email">Correo electrónico</label><input id="q-em" type="email" required autocomplete="email"></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="q-pr" data-i18n="q.prod">Producto de interés</label>
+              <select id="q-pr"><option value="" data-i18n="q.any">Varios / por definir</option><option data-i18n="p.chips.n">Achachairú Chips</option><option data-i18n="p.pulpa.n">Pulpa de achachairú</option><option data-i18n="p.acerola.n">Pulpa de acerola</option><option data-i18n="p.polvo.n">Polvo liofilizado de achachairú</option></select></div>
+            <div class="field"><label for="q-vol" data-i18n="q.vol">Volumen estimado</label><input id="q-vol" required placeholder="Ej.: cantidad por mes" data-i18n-attr="placeholder:q.volph"></div>
+          </div>
+          <button class="btn btn-cta" type="submit" style="width:100%"><span data-i18n="q.send">Solicitar cotización</span></button>
+          <p class="hint" data-i18n="form.demo">Demo: este formulario aún no envía mensajes. Cuando la web esté lista, llegará al correo de Airú.</p>
+        </form>
+        <div class="done" aria-live="polite"><img src="../assets/mascota-amor.png" width="955" height="769" alt="Mascota de Airú con ojos de corazón" data-i18n-attr="alt:love.alt"><h4 data-i18n="done.h">¡Gracias!</h4><p data-i18n="done.p">Recibimos tu solicitud. Te respondemos por correo.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SOSTENIBILIDAD ====== -->
+<section id="sostenibilidad">
+  <svg class="bg-leaf" aria-hidden="true"><use href="#s-leaf"/></svg>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow" data-i18n="s.eyebrow">Sostenibilidad y buenas prácticas</p>
+      <h2 class="title" data-i18n="s.title">Cultivado con cuidado, respeto por la naturaleza</h2>
+      <p class="sub" data-i18n="s.sub">Productos frescos, saludables y de alta calidad, cultivados con cuidado por agricultores locales, con producción orgánica y respeto por la naturaleza.</p>
+    </div>
+    <div class="nums">
+      <div class="num rv"><div class="n"><span data-count="0">0</span></div><b data-i18n="n1.b">azúcares añadidos</b><span data-i18n="n1.s">El dulzor es el de la fruta.</span></div>
+      <div class="num rv" style="--d:.08s"><div class="n"><span data-count="0">0</span></div><b data-i18n="n2.b">agroquímicos</b><span data-i18n="n2.s">Producción orgánica.</span></div>
+      <div class="num rv" style="--d:.16s"><div class="n"><span data-count="0">0</span></div><b data-i18n="n3.b">aditivos ni conservantes</b><span data-i18n="n3.s">En nuestra pulpa de achachairú.</span></div>
+      <div class="num rv" style="--d:.24s"><div class="n"><span data-count="16">16</span></div><b data-i18n="n4.b">achachairús por bolsa</b><span data-i18n="n4.s">En cada bolsa de chips de 20 g.</span></div>
+    </div>
+    <div class="practices">
+      <div class="practice rv"><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-hand"/></svg></span><div><b data-i18n="pr1.b">Agricultores locales</b><span data-i18n="pr1.s">La fruta se cultiva con cuidado por agricultores de la región.</span></div></div>
+      <div class="practice rv" style="--d:.1s"><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-sprout"/></svg></span><div><b data-i18n="pr2.b">Libre de agroquímicos</b><span data-i18n="pr2.s">Producción orgánica y sin azúcares añadidos.</span></div></div>
+      <div class="practice rv" style="--d:.2s"><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-earth"/></svg></span><div><b data-i18n="pr3.b">Sostenibilidad ambiental</b><span data-i18n="pr3.s">Respeto por la naturaleza en cada etapa.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CERTIFICACIONES ====== -->
+<section id="certificaciones" style="padding-bottom:clamp(40px,6vw,80px)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow" data-i18n="c.eyebrow">Certificaciones</p>
+      <h2 class="title" data-i18n="c.title">Confianza que se puede verificar</h2>
+      <p class="sub" data-i18n="c.sub">Este espacio está listo para los sellos y certificados de Airú, con su nombre y el ente certificador.</p>
+    </div>
+    <div class="certs" id="certs"></div>
+  </div>
+</section>
+
+<!-- ====== ORIGEN ====== -->
+<section id="origen">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow" data-i18n="o.eyebrow">Origen</p>
+      <h2 class="title" data-i18n="o.title">Una joya amazónica, de la mano de quienes la cultivan</h2>
+      <p class="sub" data-i18n="o.sub">Fuente natural de antioxidantes, vitamina C y fibras, con propiedades antiinflamatorias y beneficios para la salud digestiva.</p>
+    </div>
+    <div class="origin-grid">
+      <figure class="harvest rv" style="margin:0">
+        <img src="../assets/cosecha.jpg" width="2000" height="720" loading="lazy" alt="Una mano recoge achachairú maduro directamente del árbol" data-i18n-attr="alt:o.alt">
+        <figcaption><span data-i18n="o.cap">Cosecha de achachairú, fruta cultivada con cuidado por agricultores locales.</span></figcaption>
+      </figure>
+      <div class="videos rv" style="--d:.1s">
+        <h3 data-i18n="v.title">Las comunidades, en sus palabras</h3>
+        <p class="sub" style="font-size:.92rem;margin:0" data-i18n="v.sub">Aquí vivirán los videos de las comunidades que cultivan el achachairú.</p>
+        <div class="player">
+          <svg class="leafbg" aria-hidden="true"><use href="#s-leaf"/></svg>
+          <button type="button" class="play" aria-label="Reproducir video de comunidades (espacio reservado)" data-i18n-attr="aria-label:v.play" id="playBtn"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg></button>
+          <p class="lbl"><svg class="ico" aria-hidden="true"><use href="#i-video"/></svg><span data-i18n="v.lbl">Espacio para los videos de las comunidades</span></p>
+        </div>
+        <div class="thumbs" aria-hidden="true">
+          <div class="thumb"><div><svg class="ico"><use href="#i-video"/></svg><br><span data-i18n="v.t">Video 1</span></div></div>
+          <div class="thumb"><div><svg class="ico"><use href="#i-video"/></svg><br><span data-i18n="v.t2">Video 2</span></div></div>
+          <div class="thumb"><div><svg class="ico"><use href="#i-video"/></svg><br><span data-i18n="v.t3">Video 3</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== MAPA ====== -->
+<section id="donde">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow" data-i18n="m.eyebrow">Dónde comprar</p>
+      <h2 class="title" data-i18n="m.title">Encuentra Airú cerca de ti</h2>
+      <p class="sub" data-i18n="m.sub">Encuentra nuestros productos en diversos puntos de venta en Santa Cruz y otras ciudades de Bolivia.</p>
+    </div>
+    <div class="map-shell rv">
+      <div class="dealers">
+        <div class="field"><label for="city" data-i18n="m.city">Ciudad</label>
+          <select id="city"><option value="all" data-i18n="m.all">Todas</option><option value="sc">Santa Cruz de la Sierra</option><option value="other" data-i18n="m.other">Otras ciudades</option></select></div>
+        <div class="dlist" id="dlist"></div>
+      </div>
+      <div class="mapbox">
+        <div id="map" role="application" aria-label="Mapa de puntos de venta de ejemplo" data-i18n-attr="aria-label:m.aria"></div>
+        <span class="map-badge" data-i18n="m.badge">Puntos de ejemplo</span>
+        <p class="map-fallback" id="mapFb" data-i18n="m.fb">No pudimos cargar el mapa. Revisa tu conexión e inténtalo de nuevo.</p>
+      </div>
+    </div>
+    <div class="dealer-cta rv">
+      <div><b data-i18n="m.cta.b">¿Interesado en distribuir nuestros productos?</b></div>
+      <a class="btn btn-leaf btn-sm" href="#contacto" data-pick="distribuidor" data-i18n="m.cta.a">Escríbenos</a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== EMPRESAS ====== -->
+<section id="empresas" class="b2b-band">
+  <div class="wrap inner">
+    <div class="rv">
+      <p class="eyebrow" data-i18n="b.eyebrow">Para empresas</p>
+      <h2 class="title" data-i18n="b.title">Airú para tu negocio</h2>
+      <p class="sub" style="margin-top:14px;color:var(--muted);font-weight:500;max-width:520px" data-i18n="b.sub">Si eres restaurante, tienda o distribuidor, escríbenos directo y te respondemos por correo.</p>
+      <div style="margin-top:26px;display:flex;flex-wrap:wrap;gap:12px">
+        <button type="button" class="btn btn-cta" data-set-b2b data-i18n="b.cta">Solicitar cotización</button>
+        <a class="btn btn-ghost" href="mailto:info@achachairu.com.bo"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>info@achachairu.com.bo</a>
+      </div>
+    </div>
+    <div class="perks rv" style="--d:.1s">
+      <div class="perk"><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-box"/></svg></span><div><b data-i18n="bp1.b">Pulpas y chips liofilizados</b><span data-i18n="bp1.s">Productos pensados para cocinas, tiendas y vitrinas.</span></div></div>
+      <div class="perk"><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-truck"/></svg></span><div><b data-i18n="bp2.b">Distribución</b><span data-i18n="bp2.s">¿Quieres distribuir Airú en tu ciudad? Hablemos.</span></div></div>
+      <div class="perk"><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg></span><div><b data-i18n="bp3.b">Contacto directo</b><span data-i18n="bp3.s">Formulario o correo: te respondemos nosotros.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FAQ ====== -->
+<section id="faq">
+  <div class="wrap faq-grid">
+    <div class="rv">
+      <p class="eyebrow" data-i18n="faq.eyebrow">Preguntas frecuentes</p>
+      <h2 class="title" data-i18n="faq.title">Todo sobre el achachairú</h2>
+      <p class="sub" style="margin-top:14px;color:var(--muted);font-weight:500" data-i18n="faq.sub">¿No encuentras tu respuesta? Escríbenos desde el formulario de contacto.</p>
+    </div>
+    <div class="faq-list rv" id="faq-list" style="--d:.1s"></div>
+  </div>
+</section>
+
+<!-- ====== CONTACTO ====== -->
+<section id="contacto">
+  <div class="wrap contact-grid">
+    <div class="rv">
+      <p class="eyebrow" data-i18n="ct.eyebrow">Contacto</p>
+      <h2 class="title" data-i18n="ct.title">Hablemos de achachairú</h2>
+      <p class="sub" style="margin-top:14px;color:var(--muted);font-weight:500;max-width:460px" data-i18n="ct.sub">Escríbenos por el formulario o directo a nuestro correo: te respondemos por ahí.</p>
+      <div class="cinfo">
+        <a href="mailto:info@achachairu.com.bo"><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg></span><span><small data-i18n="ct.mail">Correo</small>info@achachairu.com.bo</span></a>
+        <a href="tel:+59164497652"><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></span><span><small data-i18n="ct.phone">Teléfono</small>+(591) 644 97652</span></a>
+        <div class="it"><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span><span><small data-i18n="ct.addr">Dirección</small><span data-i18n="ct.addr.v">Barrio Sirari, C/ Las Begonias #217, Santa Cruz de la Sierra</span></span></div>
+      </div>
+      <div class="social">
+        <a href="https://www.instagram.com/airusantacruz" target="_blank" rel="noopener" aria-label="Instagram @airusantacruz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=100089244676070" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 8h3V4h-3a4 4 0 00-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+      </div>
+    </div>
+    <div class="form-panel rv" style="--d:.1s">
+      <form data-demo novalidate id="contactForm">
+        <fieldset style="border:0;padding:0;margin:0 0 16px"><legend class="sr" data-i18n="ct.type">Soy</legend>
+          <div class="seg" role="group">
+            <label><input type="radio" name="tipo" value="consumidor" checked><span data-i18n="ct.t1">Consumidor</span></label>
+            <label><input type="radio" name="tipo" value="empresa"><span data-i18n="ct.t2">Empresa</span></label>
+            <label><input type="radio" name="tipo" value="distribuidor"><span data-i18n="ct.t3">Distribuidor</span></label>
+          </div>
+        </fieldset>
+        <div class="row2">
+          <div class="field"><label for="c-n" data-i18n="f.name">Nombre</label><input id="c-n" required autocomplete="name"></div>
+          <div class="field"><label for="c-e" data-i18n="f.email">Correo electrónico</label><input id="c-e" type="email" required autocomplete="email"></div>
+        </div>
+        <div class="field"><label for="c-m" data-i18n="f.msg">Mensaje</label><textarea id="c-m" required></textarea></div>
+        <button class="btn btn-cta" type="submit" style="width:100%"><span data-i18n="ct.send">Enviar mensaje</span></button>
+        <p class="hint" data-i18n="form.demo">Demo: este formulario aún no envía mensajes. Cuando la web esté lista, llegará al correo de Airú.</p>
+      </form>
+      <div class="done" aria-live="polite"><img src="../assets/mascota-amor.png" width="955" height="769" alt="Mascota de Airú con ojos de corazón" data-i18n-attr="alt:love.alt"><h4 data-i18n="done.h">¡Gracias!</h4><p data-i18n="done.p2">Recibimos tu mensaje. Te respondemos por correo.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ====== NEWSLETTER + FOOTER ====== -->
+<div class="news">
+  <div class="wrap news-in">
+    <div><h3 data-i18n="nl.h">Novedades de Airú</h3><p data-i18n="nl.p">Recibe noticias, recetas y puntos de venta nuevos en tu correo.</p></div>
+    <div>
+      <form data-demo novalidate>
+        <label class="sr" for="nl-e" data-i18n="f.email">Correo electrónico</label>
+        <input id="nl-e" type="email" required placeholder="tu@correo.com" autocomplete="email" data-i18n-attr="placeholder:nl.ph">
+        <button class="btn btn-cta" type="submit" data-i18n="nl.b">Suscribirme</button>
+      </form>
+      <div class="done" aria-live="polite"><h4 data-i18n="nl.done">¡Listo! Gracias por sumarte.</h4><p data-i18n="form.demoshort">(Demo: aún no se guarda tu correo.)</p></div>
+    </div>
+  </div>
+</div>
+<footer class="site">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <img class="fl" src="../assets/wordmark-blanco.png" width="923" height="116" loading="lazy" alt="Achachairú, marca Airú" data-i18n-attr="alt:logo.alt">
+        <p data-i18n="foot.p">Achachairú liofilizado y en pulpa, cultivado y procesado con el mayor cuidado en Santa Cruz de la Sierra, Bolivia.</p>
+      </div>
+      <div>
+        <h4 data-i18n="foot.nav">Explorar</h4>
+        <ul>
+          <li><a href="#tienda" data-i18n="nav.shop">Tienda</a></li>
+          <li><a href="#sostenibilidad" data-i18n="nav.sust">Sostenibilidad</a></li>
+          <li><a href="#donde" data-i18n="nav.where">Dónde comprar</a></li>
+          <li><a href="#empresas" data-i18n="nav.b2b">Empresas</a></li>
+          <li><a href="#faq" data-i18n="nav.faq">Preguntas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot.contact">Contacto</h4>
+        <ul>
+          <li><a href="mailto:info@achachairu.com.bo">info@achachairu.com.bo</a></li>
+          <li><a href="tel:+59164497652">+(591) 644 97652</a></li>
+          <li><a href="https://www.instagram.com/airusantacruz" target="_blank" rel="noopener">Instagram @airusantacruz</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=100089244676070" target="_blank" rel="noopener">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal"><span data-i18n="foot.owner">Airú es una marca de propiedad de Angirú S.R.L.</span><span data-i18n="foot.addr">Barrio Sirari, C/ Las Begonias #217 · Santa Cruz, Bolivia</span></div>
+  </div>
+</footer>
+
+
+<!-- ====== DIALOGOS ====== -->
+<dialog class="modal" id="pdlg" aria-label="Ficha de producto"></dialog>
+
+<dialog class="drawer" id="cdlg" aria-labelledby="cartTitle">
+  <div class="cart-h"><h3 id="cartTitle"><span class="only-b2c" data-i18n="cart.title">Mi pedido</span><span class="only-b2b" data-i18n="cart.titleb">Mi cotización</span></h3>
+    <button type="button" class="icon-btn" data-close aria-label="Cerrar" data-i18n-attr="aria-label:close"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-f">
+    <button type="button" class="btn btn-cta" id="sendOrder"><span class="only-b2c" data-i18n="cart.send">Enviar pedido</span><span class="only-b2b" data-i18n="cart.sendb">Solicitar cotización</span></button>
+    <p class="sm" data-i18n="cart.sm">Sin pago en línea: te respondemos por correo con precio y disponibilidad.</p>
+  </div>
+</dialog>
+
+<dialog class="modal" id="odlg" aria-labelledby="oTitle">
+  <button type="button" class="icon-btn dclose" data-close aria-label="Cerrar" data-i18n-attr="aria-label:close"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button>
+  <div class="order">
+    <div id="oForm">
+      <h3 id="oTitle"><span class="only-b2c" data-i18n="o2.title">Enviar mi pedido</span><span class="only-b2b" data-i18n="o2.titleb">Solicitar cotización</span></h3>
+      <p class="lead" data-i18n="o2.lead">Revisa tu lista y déjanos tus datos. Te respondemos por correo.</p>
+      <div class="sum" id="oSum"></div>
+      <form data-demo novalidate id="orderForm">
+        <div class="row2">
+          <div class="field"><label for="o-n" data-i18n="f.name">Nombre</label><input id="o-n" required autocomplete="name"></div>
+          <div class="field"><label for="o-e" data-i18n="f.email">Correo electrónico</label><input id="o-e" type="email" required autocomplete="email"></div>
+        </div>
+        <div class="field only-b2b"><label for="o-c" data-i18n="f.company">Empresa</label><input id="o-c" autocomplete="organization"></div>
+        <div class="field"><label for="o-m" data-i18n="o2.notes">Notas (ciudad, volumen, fechas)</label><textarea id="o-m" style="min-height:80px"></textarea></div>
+        <button class="btn btn-cta" type="submit" style="width:100%"><span class="only-b2c" data-i18n="cart.send">Enviar pedido</span><span class="only-b2b" data-i18n="cart.sendb">Solicitar cotización</span></button>
+        <p class="hint" data-i18n="form.demo">Demo: este formulario aún no envía mensajes. Cuando la web esté lista, llegará al correo de Airú.</p>
+      </form>
+    </div>
+    <div class="done" id="oDone" aria-live="polite"><img src="../assets/mascota-amor.png" width="955" height="769" alt="Mascota de Airú con ojos de corazón" data-i18n-attr="alt:love.alt"><h4 data-i18n="o2.doneh">¡Pedido enviado!</h4><p data-i18n="o2.donep">Gracias. Te escribiremos por correo con precio y disponibilidad.</p><button type="button" class="btn btn-ghost btn-sm" style="margin-top:18px" data-close data-i18n="o2.back">Seguir mirando</button></div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><img src="../assets/mascota.png" width="546" height="754" alt=""><span id="toastTxt"></span></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script>
+(function(){
+'use strict';
+var $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+document.documentElement.classList.add('js');
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var KL='airu_b_lang', KA='airu_b_aud', KC='airu_b_cart';
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+
+/* ---------- traducciones (el espanol es el texto original del HTML) ---------- */
+var EN={
+'top.msg':'Amazonian achachairú, grown in Bolivia · No added sugar','aud.label':'Customer type','aud.b2c':'For you','aud.b2b':'For business','aud.buy':'I am buying as:',
+'logo.aria':'Airú, home','logo.alt':'Achachairú, Airú brand','nav.aria':'Main','nav.shop':'Shop','nav.sust':'Sustainability','nav.origin':'Origin','nav.where':'Where to buy','nav.b2b':'Business','nav.faq':'FAQ','nav.contact':'Contact','nav.menu':'Menu','cart.open':'Open my order','close':'Close',
+'hero.kicker':'Marvelous fruit','hero.h1a':'Discover the exotic world of','hero.h1b':'achachairú','hero.lead':'At Airú we specialize in achachairú, an exotic and delicious fruit grown and processed with the utmost care. Our products reflect our commitment to quality and sustainability, without compromising natural flavor.','hero.cta1':'Explore our products','hero.cta2':'Where to find us','hero.cta2b':'Volume quote','pill1':'No added sugar','pill2':'Free of agrochemicals','pill3':'Freeze-dried and pulp','hero.alt':'Airú Achachairú Chips bag surrounded by freeze-dried fruit pieces','mascot.alt':'Airú mascot, an achachairú winking','hero.bubble':'My seal goes on every product.',
+'trust.aria':'Good practices','t1.b':'No added sugar','t1.s':'The fruit\'s own natural flavor','t2.b':'Free of agrochemicals','t2.s':'Organic production','t3.b':'Local farmers','t3.s':'Grown with care','t4.b':'Certifications','t4.s':'Coming soon here',
+'shop.eyebrow':'Our products','shop.title':'Build your order in a few clicks','shop.sub':'Pick, add to your order and send it: we reply by email with price and availability. No online payments.','shop.subb':'Build your list, tell us your volume and we will email you a quote. We serve restaurants, shops and distributors.','filter.aria':'Filter products','f.all':'All','f.chips':'Chips','f.pulpa':'Pulps','f.polvo':'Powder','shop.note':'Presentations and prices to be confirmed. For now the order is sent as a request and we reply by email; there is no online payment.',
+'q.title':'Volume quote','q.p':'Tell us what you need and how much. An Airú advisor will reply by email with a proposal.','q.l1':'For restaurants, shops and distributors','q.l2':'Pulps and freeze-dried chips','q.l3':'Direct reply by email','f.company':'Company','f.email':'Email','q.prod':'Product of interest','q.any':'Several / to be defined','p.chips.n':'Achachairú Chips','p.pulpa.n':'Achachairú pulp','p.acerola.n':'Acerola pulp','p.polvo.n':'Freeze-dried achachairú powder','q.vol':'Estimated volume','q.volph':'E.g. amount per month','q.send':'Request a quote','form.demo':'Demo: this form does not send messages yet. When the site goes live it will reach Airú\'s inbox.','love.alt':'Airú mascot with heart eyes','done.h':'Thank you!','done.p':'We received your request. We will reply by email.','done.p2':'We received your message. We will reply by email.',
+'s.eyebrow':'Sustainability and good practices','s.title':'Grown with care, with respect for nature','s.sub':'Fresh, healthy, high-quality products grown with care by local farmers, with organic production and respect for nature.','n1.b':'added sugars','n1.s':'The sweetness is the fruit\'s own.','n2.b':'agrochemicals','n2.s':'Organic production.','n3.b':'additives or preservatives','n3.s':'In our achachairú pulp.','n4.b':'achachairús per bag','n4.s':'In every 20 g bag of chips.','pr1.b':'Local farmers','pr1.s':'The fruit is grown with care by farmers from the region.','pr2.b':'Free of agrochemicals','pr2.s':'Organic production with no added sugars.','pr3.b':'Environmental sustainability','pr3.s':'Respect for nature at every stage.',
+'c.eyebrow':'Certifications','c.title':'Trust you can verify','c.sub':'This space is ready for Airú\'s seals and certificates, with their name and the certifying body.',
+'o.eyebrow':'Origin','o.title':'An Amazonian jewel, hand in hand with those who grow it','o.sub':'A natural source of antioxidants, vitamin C and fiber, with anti-inflammatory properties and benefits for digestive health.','o.alt':'A hand picks a ripe achachairú straight from the tree','o.cap':'Achachairú harvest: fruit grown with care by local farmers.','v.title':'The communities, in their own words','v.sub':'This is where the videos of the communities that grow achachairú will live.','v.play':'Play community video (reserved space)','v.lbl':'Space for the community videos','v.t':'Video 1','v.t2':'Video 2','v.t3':'Video 3',
+'m.eyebrow':'Where to buy','m.title':'Find Airú near you','m.sub':'Find our products at various points of sale in Santa Cruz and other cities in Bolivia.','m.city':'City','m.all':'All','m.other':'Other cities','m.aria':'Map of example points of sale','m.badge':'Example points','m.fb':'We could not load the map. Check your connection and try again.','m.cta.b':'Interested in distributing our products?','m.cta.a':'Write to us',
+'b.eyebrow':'For business','b.title':'Airú for your business','b.sub':'If you are a restaurant, shop or distributor, write to us directly and we will reply by email.','b.cta':'Request a quote','bp1.b':'Pulps and freeze-dried chips','bp1.s':'Products made for kitchens, shops and displays.','bp2.b':'Distribution','bp2.s':'Want to distribute Airú in your city? Let\'s talk.','bp3.b':'Direct contact','bp3.s':'Form or email: we answer you ourselves.',
+'faq.eyebrow':'Frequently asked questions','faq.title':'Everything about achachairú','faq.sub':'Can\'t find your answer? Write to us from the contact form.',
+'ct.eyebrow':'Contact','ct.title':'Let\'s talk achachairú','ct.sub':'Write to us through the form or straight to our email: we reply there.','ct.mail':'Email','ct.phone':'Phone','ct.addr':'Address','ct.addr.v':'Barrio Sirari, C/ Las Begonias #217, Santa Cruz de la Sierra','ct.type':'I am','ct.t1':'Consumer','ct.t2':'Business','ct.t3':'Distributor','f.name':'Name','f.msg':'Message','ct.send':'Send message',
+'nl.h':'Airú news','nl.p':'Get news, recipes and new points of sale in your inbox.','nl.ph':'you@email.com','nl.b':'Subscribe','nl.done':'Done! Thanks for joining.','form.demoshort':'(Demo: your email is not saved yet.)',
+'foot.p':'Freeze-dried and pulp achachairú, grown and processed with the utmost care in Santa Cruz de la Sierra, Bolivia.','foot.nav':'Explore','foot.contact':'Contact','foot.owner':'Airú is a brand owned by Angirú S.R.L.','foot.addr':'Barrio Sirari, C/ Las Begonias #217 · Santa Cruz, Bolivia','demo':'Proposal B · demo',
+'cart.title':'My order','cart.titleb':'My quote','cart.send':'Send order','cart.sendb':'Request a quote','cart.sm':'No online payment: we reply by email with price and availability.','o2.title':'Send my order','o2.titleb':'Request a quote','o2.lead':'Review your list and leave your details. We reply by email.','o2.notes':'Notes (city, volume, dates)','o2.doneh':'Order sent!','o2.donep':'Thank you. We will email you with price and availability.','o2.back':'Keep browsing'
+};
+var ORIG={}, ORIGA={};
+$$('[data-i18n]').forEach(function(el){ORIG[el.getAttribute('data-i18n')]=ORIG[el.getAttribute('data-i18n')]||el.innerHTML});
+$$('[data-i18n-attr]').forEach(function(el){el.getAttribute('data-i18n-attr').split(';').forEach(function(p){var a=p.split(':');ORIGA[a[1]]=ORIGA[a[1]]||el.getAttribute(a[0])})});
+var lang=(ls(KL)==='en')?'en':'es';
+var aud=(ls(KA)==='b2b')?'b2b':'b2c';
+function t(es,en){return lang==='en'?en:es}
+function tr(k){return lang==='en'?(EN[k]!==undefined?EN[k]:ORIG[k]):ORIG[k]}
+function tra(k){return lang==='en'?(EN[k]!==undefined?EN[k]:ORIGA[k]):ORIGA[k]}
+
+/* ---------- datos ---------- */
+var P=[
+ {id:'chips',cat:'chips',bg:'#FFE3CF',img:'../assets/chips.png',w:979,h:975,
+  n:['Achachairú Chips','Achachairú Chips'],
+  s:['Chips liofilizados de achachairú','Freeze-dried achachairú chips'],
+  d:['Conservan todos los nutrientes y el sabor original de la fruta, listos para disfrutar en cualquier momento.','They keep all the nutrients and the original flavor of the fruit, ready to enjoy at any time.'],
+  pres:['Bolsa de 20 g · 16 achachairús','20 g bag · 16 achachairús'],
+  ideal:['Snack, para llevar contigo','Snacking, on the go'],
+  tag:['Liofilizado','Freeze-dried']},
+ {id:'pulpa',cat:'pulpa',bg:'#FFF0BF',img:'../assets/pulpa.png',w:1000,h:897,
+  n:['Pulpa de achachairú','Achachairú pulp'],
+  s:['Pulpa de fruta, sin aditivos ni conservantes','Fruit pulp, no additives or preservatives'],
+  d:['Se elabora bajo estrictos estándares de calidad. No contiene aditivos ni conservantes, preservando su sabor natural y sus propiedades nutritivas.','Made under strict quality standards. It contains no additives or preservatives, keeping its natural flavor and nutritional properties.'],
+  pres:['Presentación por confirmar','Presentation to be confirmed'],
+  ideal:['Jugos, batidos y postres','Juices, smoothies and desserts'],
+  tag:['Pulpa','Pulp']},
+ {id:'acerola',cat:'pulpa',bg:'#FFDDD6',svg:'acerola',
+  n:['Pulpa de acerola','Acerola pulp'],
+  s:['Pulpa de fruta de la línea Airú','Fruit pulp from the Airú line'],
+  d:['Pulpa de acerola de la línea de pulpas Airú. Los detalles de ingredientes y presentación se confirmarán pronto.','Acerola pulp from the Airú pulp line. Ingredient and presentation details will be confirmed soon.'],
+  pres:['Presentación por confirmar','Presentation to be confirmed'],
+  ideal:['Jugos, batidos y postres','Juices, smoothies and desserts'],
+  tag:['Pulpa','Pulp']},
+ {id:'polvo',cat:'polvo',bg:'#F9E4C8',svg:'polvo',
+  n:['Polvo liofilizado de achachairú','Freeze-dried achachairú powder'],
+  s:['Nuestros chips, hechos polvo','Our chips, turned into powder'],
+  d:['Nuestros chips liofilizados de achachairú hechos polvo: el sabor de la fruta, listo para mezclar.','Our freeze-dried achachairú chips turned into powder: the fruit\'s flavor, ready to mix.'],
+  pres:['Presentación por confirmar','Presentation to be confirmed'],
+  ideal:['Batidos, yogur y repostería','Smoothies, yogurt and baking'],
+  tag:['Liofilizado','Freeze-dried']}
+];
+var SVGART={
+ acerola:'<svg class="prod" viewBox="0 0 200 200" role="img" aria-label="__L__"><g><path d="M100 36c-6-14-24-18-40-10 10 4 22 6 40 10z" fill="url(#gLeaf)"/><path d="M100 36c8-16 28-18 42-8-10 4-24 6-42 8z" fill="url(#gLeaf)" opacity=".85"/><path d="M100 38c-1-8 0-14 3-20" stroke="#3A1C0A" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M62 64c-22 2-34 22-30 44 4 24 28 36 50 30 20-6 28-26 22-46-4-16-22-30-42-28z" fill="url(#gAce)"/><ellipse cx="54" cy="84" rx="9" ry="14" fill="#fff" opacity=".3" transform="rotate(20 54 84)"/><path d="M138 70c-24-4-44 12-44 36 0 24 18 42 42 40 24-2 36-22 32-42-3-18-14-31-30-34z" fill="url(#gAce)"/><ellipse cx="124" cy="92" rx="10" ry="16" fill="#fff" opacity=".28" transform="rotate(18 124 92)"/><path d="M96 126c-18-6-40 4-42 26 4 18 22 26 38 22 16-4 22-26 4-48z" fill="url(#gAce)" opacity=".92"/><g fill="#3A1C0A"><circle cx="62" cy="64" r="3"/><circle cx="138" cy="70" r="3"/></g></g></svg>',
+ polvo:'<svg class="prod" viewBox="0 0 200 200" role="img" aria-label="__L__"><path d="M30 104h140c0 34-26 58-70 58s-70-24-70-58z" fill="#F4E0C2"/><path d="M30 104h140c0 6-1 12-3 18H33c-2-6-3-12-3-18z" fill="#E7C998" opacity=".6"/><ellipse cx="100" cy="104" rx="70" ry="12" fill="#FBB028"/><path d="M42 102c10-30 32-44 58-44s48 14 58 44c-18 8-38 10-58 10s-40-2-58-10z" fill="url(#gFruit)"/><g fill="#FCB627" opacity=".9"><circle cx="76" cy="84" r="2.5"/><circle cx="104" cy="74" r="2"/><circle cx="124" cy="90" r="2.5"/><circle cx="92" cy="96" r="2"/><circle cx="140" cy="100" r="2"/></g><path d="M150 38l-34 54" stroke="#3A1C0A" stroke-width="5" stroke-linecap="round"/><ellipse cx="156" cy="30" rx="12" ry="9" fill="#3A1C0A" transform="rotate(-36 156 30)"/><path d="M26 138l-12 6 10 8 10-6z" fill="#D5472F" opacity=".9"/><path d="M178 138l14 4-6 10-12-4z" fill="#D5472F" opacity=".9"/><use href="#s-leaf" x="152" y="150" width="32" height="32"/></svg>'
+};
+var DEALERS=[
+ {id:1,city:'sc',n:['Punto de ejemplo · Sirari','Example point · Sirari'],z:['Barrio Sirari','Sirari district'],ll:[-17.7640,-63.1925]},
+ {id:2,city:'sc',n:['Punto de ejemplo · Equipetrol','Example point · Equipetrol'],z:['Equipetrol','Equipetrol'],ll:[-17.7578,-63.2008]},
+ {id:3,city:'sc',n:['Punto de ejemplo · Centro','Example point · Downtown'],z:['Plaza 24 de Septiembre','24 de Septiembre Square'],ll:[-17.7834,-63.1822]},
+ {id:4,city:'sc',n:['Punto de ejemplo · Av. Alemana','Example point · Alemana Ave.'],z:['Segundo anillo, zona norte','Second ring, north zone'],ll:[-17.7480,-63.1800]}
+];
+var FAQ=[
+ [['¿Qué es el achachairú?','What is achachairú?'],['Es una fruta exótica y deliciosa, una joya amazónica que en Airú cultivamos y procesamos con el mayor cuidado.','It is an exotic and delicious fruit, an Amazonian jewel that at Airú we grow and process with the utmost care.']],
+ [['¿Qué diferencia hay entre los chips y la pulpa?','What is the difference between the chips and the pulp?'],['Los chips liofilizados conservan todos los nutrientes y el sabor original de la fruta, listos para disfrutar en cualquier momento (bolsa de 20 g con 16 achachairús). La pulpa se elabora bajo estrictos estándares de calidad.','The freeze-dried chips keep all the nutrients and the original flavor of the fruit, ready to enjoy at any time (20 g bag with 16 achachairús). The pulp is made under strict quality standards.']],
+ [['¿Llevan azúcar, aditivos o agroquímicos?','Do they contain sugar, additives or agrochemicals?'],['Nuestra producción es orgánica, libre de agroquímicos y sin azúcares añadidos. La pulpa de achachairú no contiene aditivos ni conservantes.','Our production is organic, free of agrochemicals and with no added sugars. The achachairú pulp contains no additives or preservatives.']],
+ [['¿Qué beneficios tiene?','What are its benefits?'],['Es fuente natural de antioxidantes, vitamina C y fibras, con propiedades antiinflamatorias y beneficios para la salud digestiva.','It is a natural source of antioxidants, vitamin C and fiber, with anti-inflammatory properties and benefits for digestive health.']],
+ [['¿Dónde puedo comprar?','Where can I buy?'],['Encuentra nuestros productos en diversos puntos de venta en Santa Cruz y otras ciudades de Bolivia. También puedes armar tu pedido en esta web y te respondemos por correo.','Find our products at various points of sale in Santa Cruz and other cities in Bolivia. You can also build your order on this site and we reply by email.']],
+ [['¿Puedo distribuir Airú?','Can I distribute Airú?'],['Sí. Si te interesa distribuir nuestros productos, escríbenos desde el formulario de contacto o a info@achachairu.com.bo.','Yes. If you are interested in distributing our products, write to us through the contact form or at info@achachairu.com.bo.']]
+];
+
+/* ---------- utilidades ---------- */
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function artHTML(p){
+  if(p.img) return '<img class="prod" src="'+p.img+'" width="'+p.w+'" height="'+p.h+'" loading="lazy" alt="'+esc(p.n[lang==='en'?1:0])+'">';
+  return SVGART[p.svg].replace('__L__',esc(p.svg==='acerola'?t('Ilustración de acerola','Illustration of acerola'):t('Ilustración de polvo liofilizado en un bol','Illustration of freeze-dried powder in a bowl')));
+}
+var toastT;
+function toast(msg){var el=$('#toast');$('#toastTxt').textContent=msg;el.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){el.classList.remove('show')},2600)}
+function confetti(x,y){
+  if(reduce)return;
+  var cols=['#F26B21','#FBB028','#27A749','#8EC63F','#F58A1E'];
+  for(var i=0;i<18;i++){
+    var s=document.createElement('span');s.className='piece';s.style.background=cols[i%cols.length];s.style.left=x+'px';s.style.top=y+'px';
+    document.body.appendChild(s);
+    var a=Math.random()*Math.PI*2,d=60+Math.random()*110;
+    var an=s.animate([{transform:'translate(0,0) rotate(0)',opacity:1},{transform:'translate('+Math.cos(a)*d+'px,'+(Math.sin(a)*d+60)+'px) rotate('+(Math.random()*540-270)+'deg)',opacity:0}],{duration:900+Math.random()*600,easing:'cubic-bezier(.2,.8,.3,1)'});
+    an.onfinish=(function(n){return function(){n.remove()}})(s);
+  }
+}
+
+/* ---------- carrito ---------- */
+var cart={};
+try{cart=JSON.parse(ls(KC)||'{}')||{}}catch(e){cart={}}
+function pById(id){return P.filter(function(p){return p.id===id})[0]}
+function saveCart(){ls(KC,JSON.stringify(cart))}
+function totalQty(){var n=0;for(var k in cart)n+=cart[k];return n}
+function add(id,n,srcEl){
+  cart[id]=Math.min(99,(cart[id]||0)+(n||1));saveCart();renderCart();
+  var p=pById(id);
+  var btn=$('#cartBtn');btn.classList.remove('bump');void btn.offsetWidth;btn.classList.add('bump');
+  var br=btn.getBoundingClientRect();
+  if(!reduce&&srcEl){
+    var sr=srcEl.getBoundingClientRect();
+    var f=document.createElement('img');f.src='../assets/mascota.png';f.alt='';f.className='fly';f.style.left=(sr.left+sr.width/2-32)+'px';f.style.top=(sr.top+sr.height/2-44)+'px';
+    document.body.appendChild(f);
+    var dx=br.left+br.width/2-(sr.left+sr.width/2),dy=br.top+br.height/2-(sr.top+sr.height/2);
+    var an=f.animate([{transform:'translate(0,0) scale(1) rotate(0)',opacity:1},{transform:'translate('+dx*.5+'px,'+(dy*.5-70)+'px) scale(1.2) rotate(-14deg)',opacity:1,offset:.45},{transform:'translate('+dx+'px,'+dy+'px) scale(.2) rotate(20deg)',opacity:0}],{duration:900,easing:'cubic-bezier(.4,0,.2,1)'});
+    an.onfinish=function(){f.remove();confetti(br.left+br.width/2,br.top+br.height/2)};
+  }
+  toast(t('¡Agregado! ','Added! ')+p.n[lang==='en'?1:0]);
+}
+function setQty(id,q){if(q<=0)delete cart[id];else cart[id]=Math.min(99,q);saveCart();renderCart()}
+function renderCart(){
+  var n=totalQty(),c=$('#cartCount');c.textContent=n;c.classList.toggle('show',n>0);
+  var L=lang==='en'?1:0,body=$('#cartBody'),ids=Object.keys(cart).filter(pById);
+  $('#sendOrder').disabled=!ids.length;
+  if(!ids.length){
+    body.innerHTML='<div class="cart-empty"><p class="bubble">'+esc(t('¡Hola! Tu pedido está vacío. Agrega algo rico y yo lo cuido.','Hi! Your order is empty. Add something tasty and I will look after it.'))+'</p><img src="../assets/mascota.png" width="546" height="754" alt="'+esc(tra('mascot.alt'))+'"></div>';
+    return;
+  }
+  body.innerHTML=ids.map(function(id){var p=pById(id);
+    return '<div class="ci"><div class="th" style="background:'+p.bg+'">'+artHTML(p).replace('class="prod"','').replace('loading="lazy"','')+'</div><div><b>'+esc(p.n[L])+'</b><small>'+esc(p.pres[L])+'</small><div class="qty"><button type="button" data-q="-1" data-id="'+id+'" aria-label="'+esc(t('Menos','Less'))+'">−</button><output aria-live="polite">'+cart[id]+'</output><button type="button" data-q="1" data-id="'+id+'" aria-label="'+esc(t('Más','More'))+'">+</button></div></div><button type="button" class="rm" data-rm="'+id+'" aria-label="'+esc(t('Quitar ','Remove ')+p.n[L])+'"><svg class="ico" aria-hidden="true"><use href="#i-trash"/></svg></button></div>';
+  }).join('');
+}
+
+/* ---------- catalogo ---------- */
+var filter='all';
+function renderGrid(){
+  var L=lang==='en'?1:0;
+  var list=P.filter(function(p){return filter==='all'||p.cat===filter});
+  $('#grid').innerHTML=list.map(function(p,i){
+    return '<article class="card" style="animation-delay:'+(i*70)+'ms" data-id="'+p.id+'">'
+    +'<span class="tag">'+esc(p.tag[L])+'</span>'
+    +'<span class="seal" aria-hidden="true"><img src="../assets/mascota.png" width="546" height="754" alt="" loading="lazy"><span class="alt"><img src="../assets/mascota-amor.png" width="955" height="769" alt="" loading="lazy"></span></span>'
+    +'<span class="seal-say" aria-hidden="true">'+esc(t('¡Llévame!','Take me!'))+'</span>'
+    +'<button type="button" class="art" data-open="'+p.id+'" style="background:'+p.bg+'" aria-label="'+esc(t('Ver ficha: ','View details: ')+p.n[L])+'">'+artHTML(p)+'</button>'
+    +'<div class="body"><h3 class="nm">'+esc(p.n[L])+'</h3><p class="st">'+esc(p.s[L])+'</p>'
+    +'<p class="pres"><svg class="ico" aria-hidden="true"><use href="#i-box"/></svg>'+esc(p.pres[L])+'</p>'
+    +'<p class="price"><span class="only-b2c">'+esc(t('Consultar precio','Price on request'))+'</span><span class="only-b2b">'+esc(t('Cotización por volumen','Volume quote'))+'</span></p>'
+    +'<div class="acts"><button type="button" class="btn btn-cta btn-sm" data-add="'+p.id+'"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg><span class="only-b2c">'+esc(t('Agregar a mi pedido','Add to my order'))+'</span><span class="only-b2b">'+esc(t('Agregar a cotización','Add to quote'))+'</span></button>'
+    +'<button type="button" class="more" data-open="'+p.id+'">'+esc(t('Ver ficha','View details'))+'</button></div></div></article>';
+  }).join('');
+}
+var openP=null;
+function openProduct(id){
+  openP=id;var p=pById(id),L=lang==='en'?1:0,d=$('#pdlg');
+  d.innerHTML='<button type="button" class="icon-btn dclose" data-close aria-label="'+esc(tra('close'))+'"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button>'
+  +'<div class="pm-grid"><div class="pm-art" style="background:'+p.bg+'">'+artHTML(p).replace('loading="lazy"','')+'</div><div class="pm-body"><span class="tag" style="position:static;align-self:flex-start;background:#E7F6EA">'+esc(p.tag[L])+'</span><h3>'+esc(p.n[L])+'</h3><p class="desc">'+esc(p.d[L])+'</p>'
+  +'<dl class="dl-list"><div><dt>'+esc(t('Presentación','Presentation'))+'</dt><dd>'+esc(p.pres[L])+'</dd></div><div><dt>'+esc(t('Ideal para','Ideal for'))+'</dt><dd>'+esc(p.ideal[L])+'</dd></div><div><dt>'+esc(t('Precio','Price'))+'</dt><dd><span class="only-b2c">'+esc(t('Consultar precio','Price on request'))+'</span><span class="only-b2b">'+esc(t('Cotización por volumen','Volume quote'))+'</span></dd></div></dl>'
+  +'<div class="pm-act"><div class="qty"><button type="button" data-pq="-1" aria-label="'+esc(t('Menos','Less'))+'">−</button><output id="pqv">1</output><button type="button" data-pq="1" aria-label="'+esc(t('Más','More'))+'">+</button></div><button type="button" class="btn btn-cta" id="pAdd"><span class="only-b2c">'+esc(t('Agregar a mi pedido','Add to my order'))+'</span><span class="only-b2b">'+esc(t('Agregar a cotización','Add to quote'))+'</span></button></div></div></div>';
+  d.setAttribute('aria-label',t('Ficha de producto: ','Product details: ')+p.n[L]);
+  if(!d.open)d.showModal();
+}
+
+/* ---------- idioma / audiencia ---------- */
+function applyLang(){
+  document.documentElement.lang=lang;
+  $$('[data-i18n]').forEach(function(el){el.innerHTML=tr(el.getAttribute('data-i18n'))});
+  $$('[data-i18n-attr]').forEach(function(el){el.getAttribute('data-i18n-attr').split(';').forEach(function(p){var a=p.split(':');el.setAttribute(a[0],tra(a[1]))})});
+  document.title=lang==='en'?'Airú · Freeze-dried and pulp achachairú from Santa Cruz, Bolivia':'Airú · Achachairú liofilizado y en pulpa de Santa Cruz, Bolivia';
+  $('meta[name=description]').setAttribute('content',lang==='en'?'Airú: freeze-dried chips, achachairú and acerola pulp, and freeze-dried powder. Amazonian fruit from Bolivia, no added sugar. Build your order or request a quote for your business.':'Airú: chips liofilizados, pulpa de achachairú y de acerola, y polvo liofilizado. Fruta amazónica de Bolivia, sin azúcares añadidos. Arma tu pedido o pide cotización para tu empresa.');
+  $$('[data-lang-set]').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-lang-set')===lang)});
+  $('#ringTxt').textContent=lang==='en'?'ACHACHAIRÚ · AMAZONIAN FRUIT · FREEZE-DRIED · SANTA CRUZ · BOLIVIA · ACHACHAIRÚ · AMAZONIAN FRUIT ·':'ACHACHAIRÚ · FRUTA AMAZÓNICA · LIOFILIZADA · SANTA CRUZ · BOLIVIA · ACHACHAIRÚ · FRUTA AMAZÓNICA ·';
+  renderGrid();renderCart();renderFaq();renderCerts();renderMap();
+  if(openP&&$('#pdlg').open)openProduct(openP);
+  renderOrderSum();
+}
+function setAud(a){
+  aud=a;ls(KA,a);document.body.setAttribute('data-aud',a);
+  $$('[data-aud-set]').forEach(function(b){b.setAttribute('aria-pressed',b.getAttribute('data-aud-set')===a)});
+  var cb=$('#cartBtn');cb.setAttribute('aria-label',tra('cart.open'));
+}
+
+/* ---------- FAQ y certificaciones ---------- */
+function renderFaq(){
+  var L=lang==='en'?1:0,open=$('#faq-list .qa.open'),oi=open?+open.getAttribute('data-i'):-1;
+  $('#faq-list').innerHTML=FAQ.map(function(f,i){
+    return '<div class="qa'+(i===oi?' open':'')+'" data-i="'+i+'"><h3><button type="button" class="q" aria-expanded="'+(i===oi)+'" aria-controls="fa'+i+'" id="fq'+i+'"><span>'+esc(f[0][L])+'</span><span class="pm" aria-hidden="true"><svg class="ico" style="width:16px;height:16px"><use href="#i-plus"/></svg></span></button></h3><div class="a" id="fa'+i+'" role="region" aria-labelledby="fq'+i+'"><div><p>'+esc(f[1][L])+'</p></div></div></div>';
+  }).join('');
+}
+function renderCerts(){
+  var h='';
+  for(var i=1;i<=4;i++)h+='<div class="cert"><div class="slot"><svg class="ico" aria-hidden="true"><use href="#i-cert"/></svg></div><b>'+esc(t('Aquí van tus certificaciones','Your certifications go here'))+'</b><span>'+esc(t('Sello '+i+' · por confirmar','Seal '+i+' · to be confirmed'))+'</span></div>';
+  $('#certs').innerHTML=h;
+}
+
+/* ---------- mapa ---------- */
+var map=null,markers={},layer=null,city='all',selId=null;
+function pinIcon(n,on){return L.divIcon({className:'',html:'<div class="pin-ic" style="'+(on?'transform:rotate(-45deg) scale(1.25)':'')+'"><span>'+n+'</span></div>',iconSize:[34,34],iconAnchor:[8,34],popupAnchor:[10,-30]})}
+function visible(){return DEALERS.filter(function(d){return city==='all'||d.city===city})}
+function renderList(){
+  var L2=lang==='en'?1:0,v=visible();
+  $('#dlist').innerHTML=v.length?v.map(function(d){
+    return '<button type="button" class="dl'+(d.id===selId?' on':'')+'" data-d="'+d.id+'"><span class="num-pin"><span>'+d.id+'</span></span><span><b>'+esc(d.n[L2])+'</b><small>'+esc(d.z[L2])+'</small><span class="ex">'+esc(t('Punto de ejemplo','Example point'))+'</span></span></button>';
+  }).join(''):'<p class="empty-filter">'+esc(t('Pronto sumaremos más ciudades.','We will add more cities soon.'))+'</p>';
+}
+function renderMap(){
+  renderList();
+  if(!map)return;
+  var L2=lang==='en'?1:0;
+  layer.clearLayers();markers={};
+  visible().forEach(function(d){
+    var m=L.marker(d.ll,{icon:pinIcon(d.id,d.id===selId),title:d.n[L2],alt:d.n[L2]}).addTo(layer);
+    m.bindPopup('<b>'+esc(d.n[L2])+'</b><br>'+esc(d.z[L2])+'<br><span class="pop-ex">'+esc(t('Punto de ejemplo','Example point'))+'</span>');
+    m.on('click',function(){selectDealer(d.id,true)});
+    markers[d.id]=m;
+  });
+}
+function selectDealer(id,fromMap){
+  selId=id;var d=DEALERS.filter(function(x){return x.id===id})[0];
+  Object.keys(markers).forEach(function(k){markers[k].setIcon(pinIcon(+k,+k===id))});
+  $$('.dl').forEach(function(b){b.classList.toggle('on',+b.getAttribute('data-d')===id)});
+  if(map&&d){if(!fromMap)map.flyTo(d.ll,15,{duration:reduce?0:.8});markers[id]&&markers[id].openPopup()}
+}
+function initMap(){
+  if(typeof L==='undefined'){$('#mapFb').style.display='grid';return}
+  map=L.map('map',{scrollWheelZoom:false,dragging:!L.Browser.mobile,tap:false}).setView([-17.7700,-63.1900],12);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
+  layer=L.layerGroup().addTo(map);renderMap();fitCity();
+  map.on('click',function(){map.scrollWheelZoom.enable()});
+  setTimeout(function(){map.invalidateSize()},300);
+}
+function fitCity(){
+  if(!map)return;var v=visible();
+  if(v.length)map.fitBounds(L.latLngBounds(v.map(function(d){return d.ll})).pad(.4),{maxZoom:14});
+}
+
+/* ---------- pedido ---------- */
+function renderOrderSum(){
+  var L2=lang==='en'?1:0;
+  $('#oSum').innerHTML=Object.keys(cart).filter(pById).map(function(id){return '<div><span>'+esc(pById(id).n[L2])+'</span><span>× '+cart[id]+'</span></div>'}).join('');
+}
+
+/* ---------- eventos ---------- */
+document.addEventListener('click',function(e){
+  var el=e.target.closest('[data-lang-set],[data-aud-set],[data-f],[data-add],[data-open],[data-close],[data-q],[data-rm],[data-pq],[data-d],[data-pick],[data-set-b2b],.q,#cartBtn,#sendOrder,#pAdd,#burger,#mnavX,#playBtn,.mnav a');
+  if(!el){var dlg=e.target;if(dlg.tagName==='DIALOG')dlg.close();return}
+  if(el.hasAttribute('data-lang-set')){lang=el.getAttribute('data-lang-set');ls(KL,lang);applyLang();return}
+  if(el.hasAttribute('data-aud-set')){setAud(el.getAttribute('data-aud-set'));return}
+  if(el.hasAttribute('data-f')){filter=el.getAttribute('data-f');$$('[data-f]').forEach(function(b){b.setAttribute('aria-pressed',b===el)});renderGrid();return}
+  if(el.hasAttribute('data-add')){add(el.getAttribute('data-add'),1,$('.seal',el.closest('.card'))||el);return}
+  if(el.hasAttribute('data-open')){openProduct(el.getAttribute('data-open'));return}
+  if(el.hasAttribute('data-close')){var d=el.closest('dialog');if(d)d.close();return}
+  if(el.hasAttribute('data-q')){var id=el.getAttribute('data-id');setQty(id,(cart[id]||0)+ +el.getAttribute('data-q'));return}
+  if(el.hasAttribute('data-rm')){setQty(el.getAttribute('data-rm'),0);return}
+  if(el.hasAttribute('data-pq')){var o=$('#pqv'),v=Math.max(1,Math.min(99,+o.textContent+ +el.getAttribute('data-pq')));o.textContent=v;return}
+  if(el.hasAttribute('data-d')){selectDealer(+el.getAttribute('data-d'));return}
+  if(el.hasAttribute('data-pick')){var r=$('input[name=tipo][value='+el.getAttribute('data-pick')+']');if(r)r.checked=true;return}
+  if(el.hasAttribute('data-set-b2b')){setAud('b2b');$('#cotizar').scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});return}
+  if(el.classList.contains('q')){var qa=el.closest('.qa'),was=qa.classList.contains('open');$$('.qa.open').forEach(function(x){x.classList.remove('open');$('.q',x).setAttribute('aria-expanded','false')});if(!was){qa.classList.add('open');el.setAttribute('aria-expanded','true')}return}
+  if(el.id==='cartBtn'){renderCart();$('#cdlg').showModal();return}
+  if(el.id==='sendOrder'){renderOrderSum();$('#cdlg').close();$('#oForm').style.display='';$('#oDone').classList.remove('show');$('#orderForm').reset();$('#odlg').showModal();return}
+  if(el.id==='pAdd'){var q=+$('#pqv').textContent;add(openP,q,el);$('#pdlg').close();return}
+  if(el.id==='burger'){$('#mnav').classList.add('open');return}
+  if(el.id==='mnavX'||el.matches('.mnav a')){$('#mnav').classList.remove('open');return}
+  if(el.id==='playBtn'){toast(t('Aquí se reproducirá el video de la comunidad.','The community video will play here.'));return}
+});
+$('#city').addEventListener('change',function(){city=this.value;selId=null;renderMap();fitCity()});
+document.addEventListener('submit',function(e){
+  var f=e.target;if(!f.hasAttribute('data-demo'))return;
+  e.preventDefault();
+  if(!f.checkValidity()){f.reportValidity();return}
+  var done=f.id==='orderForm'?$('#oDone'):f.parentElement.querySelector('.done');
+  if(f.id==='orderForm'){cart={};saveCart();renderCart();$('#oForm').style.display='none'}
+  else f.style.display='none';
+  done.classList.add('show');
+  var r=done.getBoundingClientRect();confetti(r.left+r.width/2,r.top+60);
+});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')$('#mnav').classList.remove('open')});
+['cdlg','pdlg','odlg'].forEach(function(id){$('#'+id).addEventListener('close',function(){document.body.style.overflow=''});$('#'+id).addEventListener('click',function(e){if(e.target===this)this.close()})});
+
+/* ---------- scroll: header, reveal, contadores (sin seguir al puntero) ---------- */
+var hdr=$('#hdr');
+window.addEventListener('scroll',function(){hdr.classList.toggle('stuck',window.scrollY>10)},{passive:true});
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+$$('.rv').forEach(function(el){io.observe(el)});
+var cio=new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting)return;cio.unobserve(x.target);var to=+x.target.getAttribute('data-count');if(reduce||!to)return;var t0=null;(function step(ts){t0=t0||ts;var p=Math.min(1,(ts-t0)/1200);x.target.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(step)})(performance.now())})},{threshold:.6});
+$$('[data-count]').forEach(function(el){cio.observe(el)});
+
+/* ---------- init ---------- */
+applyLang();setAud(aud);
+window.addEventListener('load',initMap);
+})();
+</script>
+</body>
+</html>
